@@ -1,0 +1,24 @@
+body{
+    direction: rtl;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(255,255,255);
+  }
+
+  @font-face {
+    font-family: tanha;
+    src: url('../fonts/Tanha.ttf');
+    /* TODO: add other font-formats
+         url('FontName.woff') format('woff'),
+         url('FontName.ttf') format('truetype'); */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  * {
+    font-family: tanha;
+    
+  }
+  #font{
+    font-size: 1.5em;
+  }
