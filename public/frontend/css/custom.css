@@ -1,11 +1,14 @@
-body{
-    direction: rtl;
+:root {
+    --primary: darkblue;
+    --primaryText: pink;
+    --primaryTextHover: gray;
+    --secondary: white;
+    --secondaryText: black;
+    --secondaryTextAlt: bisque;
+    --third: darkblue;
+    --thirdText: white;
 }
-.navbar-dark .navbar-nav .nav-link {
-    color: rgb(255,255,255);
-  }
-
-  @font-face {
+@font-face {
     font-family: tanha;
     src: url('../fonts/Tanha.ttf');
     /* TODO: add other font-formats
@@ -15,10 +18,49 @@ body{
     font-style: normal;
   }
 
-  * {
+* {
     font-family: tanha;
-    
   }
-  #font{
+body{
+    direction: rtl;
+}
+
+nav{
+    background-color: var(--primary);
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--primaryText);
+  }
+  .navbar-dark .navbar-nav .nav-link:hover{
+    color: var(--primaryTextHover);
+  }
+
+
+.static-text{
     font-size: 1.5em;
   }
+#navbar-logo{
+    height: 1em;
+}
+
+.index-card {
+    margin-top : 32px;
+    padding: 32px;
+    min-height:50vh;
+}
+.index-card:nth-child(2n+1) {
+    background-color: var(--secondary);
+    color: var(--secondaryText);
+}
+.index-card:nth-child(2n) {
+    background-color: var(--third);
+    color: var(--thirdText);
+    h1{
+        color:var(--secondaryTextAlt);
+    }
+}
+.btn-success {
+    background-color: var(--secondary);
+    color: var(--secondaryText);
+}
+
