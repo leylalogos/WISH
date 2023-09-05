@@ -5,9 +5,8 @@
 <div class="index-card"  style="margin-top:0px;">
         <div class="text-center mt-5">
             <h1> {{__('static.slogan')}} </h1>
-            <button class="btn btn-success mt-5">
+            <button class="btn btn-outline-warning mt-5">
                 {{__('static.start creating my wish list')}}
-                &#X1F58A;&#XFE0F;
             </button>
         </div>
     </div>
