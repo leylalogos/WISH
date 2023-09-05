@@ -1,0 +1,83 @@
+:root {
+    
+    --pal-00 :#32324f;
+    --pal-04 :#5a486a;
+    --pal-16 :#d288b9;
+    --pal-20 :#fa9ed4;
+
+    --primaryBG: var(--pal-00);
+    --primaryText:white;
+
+    --buttonBG: var(--pal-16);
+    --buttonText: hsl(320, 51.2%, 32.2%);
+
+    --secondaryBG: var(--pal-20);
+    --secondaryText: hsl(320, 51.2%, 32.2%);
+}
+@font-face {
+    font-family: tanha;
+    src: url('../fonts/Tanha.ttf');
+    /* TODO: add other font-formatsurl('FontName.woff') format('woff'),url('FontName.ttf') format('truetype'); */
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: vazir;
+    src: url('../fonts/Vazir.ttf');
+        /* TODO: add other font-formatsurl('FontName.woff') format('woff'),url('FontName.ttf') format('truetype'); */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+* {
+    font-family: tanha;
+  }
+body{
+    direction: rtl;
+}
+
+/*navbar*/
+nav{
+    background-color: var(--primaryBG);
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--primaryText);
+}
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: color-mix(in srgb, var(--primaryText),var(--secondaryBG) );
+}
+#navbar-logo{
+    height: 1em;
+}
+
+.static-text{
+    font-size: 1.5em;
+}
+
+/*index cards */
+.index-card {
+    margin-top : 32px;
+    padding: 32px;
+    min-height:50vh;
+}
+.index-card:nth-child(2n) {
+    background-color:var(--primaryBG);
+    color: var(--primaryText);
+}
+.index-card:nth-child(2n+1) {
+    background-color: var(--secondaryBG);
+    color: var(--secondaryText);
+}
+/* button*/
+.index-card:nth-child(2n) .btn {
+    padding: 1em;
+    background: snow;
+    color: var(--buttonText);
+    font-family: vazir;
+    font-size: larger;
+    border-radius: 16px;
+    border-width: 0px;
+}
+.index-card:nth-child(2n) .btn:hover{
+    background: color-mix(in srgb, var(--buttonBG), white);
+}
