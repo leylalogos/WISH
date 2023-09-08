@@ -24,14 +24,14 @@ class LoginController extends Controller
 
     public function redirectToGoogle()
     {
-        return Socialite::driver('google')->redirect(); //stateless()
+        return Socialite::driver('google')->redirect();
     }
 
     //Google callback
 
     public function handleGoogleCallback()
     {
-        $user = Socialite::driver('google')->stateless()->user();
+        $user = Socialite::driver('google')->user();
 
         $this->_registerorLoginUser($user);
         return redirect()->route('index');
