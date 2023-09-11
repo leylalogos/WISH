@@ -89,3 +89,23 @@ nav {
 .index-card:nth-child(2n) .btn:hover {
     background: color-mix(in srgb, var(--buttonBG), white);
 }
+
+#nav-profile {
+    position: absolute;
+    left: 12px;
+    top: 8px;
+}
+#nav-profile img {
+    height: 2.5em;
+    border-radius: 15px;
+}
+#nav-profile .nav-link{
+    padding-left: 0px;
+}
+
+#nav-profile .dropdown-menu {
+    padding:0px;
+    min-width: 8rem;
+    text-align: center;
+
+}
