@@ -16,11 +16,15 @@ class UserController extends Controller
 
     public function update(User $user, Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|min:2|max:255',
+            'birthday' => 'date',
+        ]);
         $user = Auth::user();
         $user->update([
             'name' => $request->name,
             'birthday' => $request->birthday,
         ]);
-        return $user;
+        return redirect()->back();
     }
 }

@@ -21,11 +21,13 @@
                     {{ __('navbar.contact') }}
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">
-                    {{ __('navbar.login') }}
-                </a>
-            </li>
+            @guest
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">
+                        {{ __('navbar.login') }}
+                    </a>
+                </li>
+            @endguest
             @auth
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('profile') }}">

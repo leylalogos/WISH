@@ -17,18 +17,6 @@ return [
     'start creating my wish list' => '
 لیست کادوهات رو اضافه کن
 ',
-
-    'login with google' => '
-با اکانت گوگل وارد شو
-',
-
-    'login with facebook' => '
-با اکانت فیسبوک وارد شو
-',
-
-    'login with github' => '
-با اکانت گیت هاب وارد شو
-',
     'logout' => '
 خروج
 ',
@@ -38,5 +26,7 @@ return [
     'login with' => '
 ورود با حساب
 ',
+    'profile' => '
+پروفایل',
 
 ];

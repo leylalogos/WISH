@@ -14,19 +14,19 @@
 
                             <a class="btn btn-danger btn-lg btn-block" style="background-color: red"
                                 href="{{ route('login.google') }}" role="button">
-                                <i class="fab fa-facebook-f me-2"></i>
+                                <i class="fa-brands fa-google"></i>&nbsp;
                                 {{ __('static.login with') . __('word.google') }}
 
                             </a><br>
                             <a class="btn btn-danger btn-lg btn-block" style="background-color: black" href=""
                                 role="button">
-                                <i class="fab fa-facebook-f me-2"></i>
+                                <i class="fa-brands fa-github"></i>&nbsp;
                                 {{ __('static.login with') . __('word.github') }}
 
                             </a><br>
                             <a class="btn btn-dark btn-lg btn-block" style="background-color: blue" href="#!"
                                 role="button">
-                                <i class="fab fa-twitter me-2"></i>
+                                <i class="fab fa-facebook-f me-2"></i>&nbsp;
                                 {{ __('static.login with') . __('word.facebook') }}
                             </a>
                         </div>

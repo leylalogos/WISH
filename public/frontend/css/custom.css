@@ -20,6 +20,10 @@ body{
     text-align: right;
 }
 
+.container{
+    min-height: 100vh;
+}
+
 @font-face {
     font-family: tanha;
     src: url("../fonts/Tanha.ttf");
@@ -40,7 +44,7 @@ body{
     font-family: tanha;
 }
 
-btn,a{
+btn,a,button{
     font-family: vazir;
 }
 
@@ -83,7 +87,6 @@ nav {
 }
 
 .index-card:nth-child(2n + 1) {
-    background-color: var(--secondaryBG);
     color: var(--secondaryText);
 }
 
