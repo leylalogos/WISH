@@ -23,17 +23,6 @@
                 {{ __('static.invite to login') }}
             </div>
             <div class="mt-5">
-                <form method="POST" action="#">
-                    @csrf
-                    <div class="form-group row">
-                        <div class="col-md-6 offset-md-3 " style="margin-right:25%;">
-                            <a href="{{ route('login.google') }}"
-                                class="btn btn-danger btn-block">{{ __('static.login with google') }} </a>
-                            <a href="#" class="btn btn-primary btn-block">{{ __('static.login with facebook') }}</a>
-                            <a href="#" class="btn btn-light btn-block">{{ __('static.login with github') }}</a>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

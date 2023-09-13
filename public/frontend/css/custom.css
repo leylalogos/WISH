@@ -13,6 +13,12 @@
     --secondaryBG: var(--pal-20);
     --secondaryText: hsl(320, 51.2%, 32.2%);
 }
+html{
+    direction: rtl;
+}
+body{
+    text-align: right;
+}
 
 @font-face {
     font-family: tanha;
@@ -32,6 +38,10 @@
 
 * {
     font-family: tanha;
+}
+
+btn,a{
+    font-family: vazir;
 }
 
 body {
@@ -109,3 +119,4 @@ nav {
     text-align: center;
 
 }
+

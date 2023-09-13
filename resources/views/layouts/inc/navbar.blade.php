@@ -21,7 +21,17 @@
                     {{ __('navbar.contact') }}
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">
+                    {{ __('navbar.login') }}
+                </a>
+            </li>
             @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('profile') }}">
+                        {{ __('navbar.profile') }}
+                    </a>
+                </li>
                 <li class="nav-item dropdown" id="nav-profile">
                     <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -29,7 +39,7 @@
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('logout') }}">{{ __('static.logout') }}</a>
-                        <a class="dropdown-item" href="">{{ __('static.profile') }}</a>
+                        <a class="dropdown-item" href="{{ route('profile') }}">{{ __('static.profile') }}</a>
                     </div>
                 </li>
             @endauth
