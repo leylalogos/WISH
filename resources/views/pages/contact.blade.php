@@ -93,7 +93,7 @@
                                 </li>
 
                                 <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                                    <p>dev.abi.log@gmail.com</p>
+                                    <p>wish-contact@xnor.one</p>
                                 </li>
                             </ul>
                         </div>
