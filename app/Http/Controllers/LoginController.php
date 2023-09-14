@@ -16,6 +16,7 @@ class LoginController extends Controller
             $user->name = $data->name;
             $user->email = $data->email;
             $user->provider_id = $data->id;
+            $user->avatar = $data->avatar;
             $user->save();
         }
         Auth::login($user);
@@ -34,5 +35,12 @@ class LoginController extends Controller
 
         $this->_registerorLoginUser($user);
         return redirect()->route('index');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('index');
+
     }
 }
