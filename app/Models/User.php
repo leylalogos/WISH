@@ -21,5 +21,27 @@ class User extends Authenticatable
         'email',
         'avatar',
         'birthday',
+        'phone_number',
     ];
+
+    public function social_networks()
+    {
+        return $this->hasMany(SocialNetwork::class);
+    }
+
+    public function getInstagramAttribute()
+    {
+        return $this->social_networks()->where('platform', 'instagram')->first()?->username;
+    }
+
+    public function getFacebookAttribute()
+    {
+        return $this->social_networks()->where('platform', 'facebook')->first()?->username;
+    }
+
+    public function getTwitterAttribute()
+    {
+        return $this->social_networks()->where('platform', 'twitter')->first()?->username;
+    }
+
 }

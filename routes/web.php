@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SocialNetworkController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,9 @@ Route::view('/', 'pages/index')->name('index');
 Route::view('contact', 'pages/contact')->name('contact');
 Route::get('profile', [UserController::class, 'index'])->name('profile')->middleware('auth');
 Route::post('update/profile', [UserController::class, 'update'])->name('update.profile')->middleware('auth');
+
+Route::post('update/social_network', [SocialNetworkController::class, 'update'])->name('update.social_network')->middleware('auth');
+
 Route::view('login', 'pages/login')->name('login');
 
 Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');

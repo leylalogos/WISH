@@ -13,17 +13,19 @@ class UserController extends Controller
         $user = Auth::user();
         return view('pages.user-profile', compact('user'));
     }
-
     public function update(User $user, Request $request)
     {
         $request->validate([
             'name' => 'required|string|min:2|max:255',
-            'birthday' => 'date',
+            'birthday' => 'before:today',
+            'phone_number' => 'string|max:15|min:2',
         ]);
+
         $user = Auth::user();
         $user->update([
             'name' => $request->name,
             'birthday' => $request->birthday,
+            'phone_number' => $request->phone_number,
         ]);
         return redirect()->back();
     }

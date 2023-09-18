@@ -7,7 +7,8 @@
             <div class="card mt-5">
                 <!--Section heading-->
                 <div class="card-header">
-                    <h2 class="font-weight-bold my-4 text-center " style="font-family: vazir;">ارتباط با ما</h2>
+                    <h2 class="font-weight-bold my-4 text-center " style="font-family: vazir;">{{ __('static.contact_us') }}
+                    </h2>
                 </div>
                 <!--Section description-->
 
@@ -24,7 +25,7 @@
                                     <!--Grid column-->
                                     <div class="col-md-6">
                                         <div class="md-form mb-0">
-                                            <label for="name" class="">نام</label>
+                                            <label for="name" class="">{{ __('static.name') }}</label>
                                             <input type="text" id="name" name="name" class="form-control">
 
                                         </div>
@@ -34,7 +35,7 @@
                                     <!--Grid column-->
                                     <div class="col-md-6">
                                         <div class="md-form mb-0">
-                                            <label for="email" class="">ایمیل</label>
+                                            <label for="email" class="">{{ __('static.email') }}</label>
 
                                             <input type="text" id="email" name="email" class="form-control">
                                         </div>
@@ -48,7 +49,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="md-form mb-0">
-                                            <label for="subject" class="">موضوع</label>
+                                            <label for="subject" class="">{{ __('static.title') }}</label>
 
                                             <input type="text" id="subject" name="subject" class="form-control">
                                         </div>
@@ -63,7 +64,7 @@
                                     <div class="col-md-12">
 
                                         <div class="md-form">
-                                            <label for="message">پیام شما</label>
+                                            <label for="message"> {{ __('static.your_message') }}</label>
 
                                             <textarea type="text" id="message" name="message" rows="3" class="form-control md-textarea"></textarea>
                                         </div>
@@ -75,7 +76,7 @@
                             </form><br>
 
                             <div class="text-center text-md-left" style="color: white;">
-                                <a class="btn btn-primary">ارسال</a>
+                                <a class="btn btn-primary">{{ __('static.send') }}</a>
                             </div>
                             <div class="status"></div>
                         </div>

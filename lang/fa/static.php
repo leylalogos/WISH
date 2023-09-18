@@ -28,5 +28,38 @@ return [
 ',
     'profile' => '
 پروفایل',
+    'instagram' => '
+اینستاگرام',
+    'facebook' => '
+فیسبوک',
+    'twitter' => '
+توئیتر',
+    'name' => '
+    نام
+',
+    'email' => '
+    ایمیل
+',
+    'phone_number' => '
+    شماره تلفن
+',
+    'birthdate' => '
+    تاریخ تولد
+',
+    'send' => '
+    ارسال
+',
+    'myprofile' => '
+    پروفایل من
+',
+    'contact_us' => '
+ارتباط با ما
+',
+    'title' => '
+عنوان
+',
+    'your_message' => '
+پیام شما
+',
 
 ];
