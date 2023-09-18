@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 
 class SocialNetworkController extends Controller
 {
-    public function index()
-    {
-        $user = Auth::user();
-        return view('pages.user-profile', compact('user'));
-    }
     public function update(User $user, Request $request)
     {
         $user = Auth::user();

@@ -22,8 +22,6 @@ Route::view('contact', 'pages/contact')->name('contact');
 Route::get('profile', [UserController::class, 'index'])->name('profile')->middleware('auth');
 Route::post('update/profile', [UserController::class, 'update'])->name('update.profile')->middleware('auth');
 
-// Route::get('social_network', [SocialNetworkController::class, 'index'])->name('social_network')->middleware('auth');
-
 Route::post('update/social_network', [SocialNetworkController::class, 'update'])->name('update.social_network')->middleware('auth');
 
 Route::view('login', 'pages/login')->name('login');
