@@ -6,11 +6,11 @@
                     <img id="navbar-logo" src="{{ url('frontend/images/Wish.png') }}" />
                 </a>
             </li>
-            <li class="nav-item text-right">
+            {{-- <li class="nav-item text-right">
                 <a class="nav-link text-right" href="{{ route('index') }}">
                     {{ __('navbar.index') }}
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('about') }}">
                     {{ __('navbar.about') }}
@@ -41,7 +41,6 @@
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('logout') }}">{{ __('static.logout') }}</a>
-                        <a class="dropdown-item" href="{{ route('profile') }}">{{ __('static.profile') }}</a>
                     </div>
                 </li>
             @endauth
