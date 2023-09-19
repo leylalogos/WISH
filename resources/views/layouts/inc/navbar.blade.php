@@ -1,9 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item text-right">
                 <a class="nav-link text-right" href="{{ route('index') }}">
-                    <img id="navbar-logo" src="{{ url('frontend/images/Wish.png') }}" />
+                    <img id="navbar-logo" src="{{ url('frontend/images/Wish.png') }}" style="height: 1.5rem;" />
                 </a>
             </li>
             <li class="nav-item text-right">
@@ -35,8 +39,10 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown" id="nav-profile">
-                    <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                    <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}"
+                        style="margin: 0.1em 2em; margin-left:1px">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+                        style="color: #fb92c8;  font-family:initial;">
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu">
