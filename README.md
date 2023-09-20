@@ -2,7 +2,15 @@
 
 ## About Wish
 
-Looking for the perfect gift? Look no further than Wish! Our website is a treasure trove of unique and exciting products that will bring a smile to your loved ones' faces. With the ability to create and share wish lists, you can easily let others know what you've been dreaming of. From trendy fashion items to must-have tech innovations, we have everything you need to make your gifting experience truly memorable. Get ready to make a wish and find the ideal gift on Wish!
+Looking for the perfect gift? Look no further than **[Wish](https://wish.xnor.one/)**!
+
+Our website is a treasure trove of unique and exciting products that will bring a smile :smile: to your loved ones' faces.
+
+With the ability to create and share *wish lists*, you can easily let others know what you've been dreaming of.
+
+From trendy fashion items to must-have tech innovations, we have everything you need to make your gifting experience truly memorable.
+
+Get ready to make a wish and find the ideal gift on Wish!
 
 ## Prerequisites
 
@@ -12,24 +20,34 @@ Looking for the perfect gift? Look no further than Wish! Our website is a treasu
 -   Composer
 -   MySQL
 
-### Steps
+## Setup Steps
 
--   **`git@github.com:leylalogos/WISH.git`**
--   **setup nginx to point to the site**
--   **`composer install`**
--   **`cp ./.env.example ./.env` then edit .env file**
--   **setup database user**
--   **setup permission on storage and cache folder**
--   **`artisan key:generate`**
--   **`php artisan migrate`**
+1. clone the project with git
+  `git clone git@github.com:leylalogos/WISH.git`
+2. [setup **nginx** to serve the web app](#nginx-configuration)
+3. in the project root directory:
+   `composer install`
+4.  write the enviourment variables into `.env`
+   `cp ./.env.example ./.env` then edit .env file**
+5. [setup database user](#mysql-configuration)
+6. [setup **permissions** on storage and cache folder](#permissions-configuration)
+7. run the setup & optimization commands
+```
+artisan key:generate
+php artisan migrate
+php artisan route:cache
+php artisan config:cache
+php artisan view:cache
+```
 
-## Nginx configuration (example)
+
+### Nginx configuration
 
 ```
 server {
     listen 80;
     server_name [domain];
-    root /var/www/xnor/WISH/public;
+    root [project roo path]/public;
 
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-XSS-Protection "1; mode=block";
@@ -53,7 +71,6 @@ server {
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
         include fastcgi_params;
-#         include snippets/fastcgi-php.conf;
     }
 
     location ~ /\.(?!well-known).* {
