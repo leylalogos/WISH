@@ -122,4 +122,12 @@ nav {
     text-align: center;
 
 }
+#navbarDropdown{
+    color: #fb92c8; 
+    font-family:initial;
+}
 
+#nav-profile-img{
+    margin: 0.1em 2em;
+     margin-left:1px
+}

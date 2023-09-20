@@ -39,10 +39,8 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown" id="nav-profile">
-                    <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}"
-                        style="margin: 0.1em 2em; margin-left:1px">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
-                        style="color: #fb92c8;  font-family:initial;">
+                    <img id="nav-profile-img" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu">
