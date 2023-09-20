@@ -2,12 +2,12 @@
 <html>
 
 <head>
+    <link rel="icon" type="image/x-icon" href={{ url('favicon.ico') }}>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}">
     <link href="{{ asset('/frontend/fa/css/fontawesome.css') }}" rel="stylesheet">
     <link href="{{ asset('/frontend/fa/css/brands.css') }}" rel="stylesheet">
     <link href="{{ asset('/frontend/fa/css/solid.css') }}" rel="stylesheet">
-
     <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
 
 </head>
