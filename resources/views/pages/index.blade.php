@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-
+@section('title', 'Wish')
 @section('content')
     <div class="index-card" style="margin-top:0px;">
         <div class="text-center mt-5">

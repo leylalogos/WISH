@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+@section('title', 'Profile | ' . $user->name)
 @section('content')
     <section style="background-color: #eee;">
         <div class="container py-5">

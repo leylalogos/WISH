@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+@section('title', 'Sign in to Wish')
 @section('content')
     <section class="vh-100">
         <div class="container py-5 h-100">
