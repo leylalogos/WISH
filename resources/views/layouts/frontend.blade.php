@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 
+
 <head>
     <link rel="icon" type="image/x-icon" href={{ url('favicon.ico') }}>
     <meta charset="utf-8">
@@ -9,7 +10,9 @@
     <link href="{{ asset('/frontend/fa/css/brands.css') }}" rel="stylesheet">
     <link href="{{ asset('/frontend/fa/css/solid.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
-
+    <title>
+        @yield('title')
+    </title>
 </head>
 
 <body>

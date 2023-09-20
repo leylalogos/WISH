@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-
+@section('title', 'Wish Support')
 @section('content')
     <div class="container">
         <!--Section: Contact v.2-->

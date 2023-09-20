@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-
+@section('title', 'About')
 @section('content')
     <div class="container">
         <div class="text-center mt-5">
