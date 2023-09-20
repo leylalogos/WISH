@@ -1,69 +1,101 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://wish.xnor.one" target="_blank"><img src="https://wish.xnor.one/frontend/images/Wish.png" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## About Wish
 
-## About Laravel
+Looking for the perfect gift? Look no further than **[Wish](https://wish.xnor.one/)**!
 
-test test
+Our website is a treasure trove of unique and exciting products that will bring a smile :smile: to your loved ones' faces.
+
+With the ability to create and share *wish lists*, you can easily let others know what you've been dreaming of.
+
+From trendy fashion items to must-have tech innovations, we have everything you need to make your gifting experience truly memorable.
+
+Get ready to make a wish and find the ideal gift on Wish!
+
+## Prerequisites
+
+-   Git
+-   PHP 8
+-   Http server (nginx/apache)
+-   Composer
+-   MySQL
+
+## Setup Steps
+
+1. clone the project with git
+  `git clone git@github.com:leylalogos/WISH.git`
+2. [setup **nginx** to serve the web app](#nginx-configuration)
+3. in the project root directory:
+   `composer install`
+4.  write the enviourment variables into `.env`
+   `cp ./.env.example ./.env` then edit .env file**
+5. [setup database user](#mysql-configuration)
+6. [setup **permissions** on storage and cache folder](#permissions-configuration)
+7. run the setup & optimization commands
+```
+artisan key:generate
+php artisan migrate
+php artisan route:cache
+php artisan config:cache
+php artisan view:cache
+```
 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Nginx configuration
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```
+server {
+    listen 80;
+    server_name [domain];
+    root [project roo path]/public;
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
 
-## Learning Laravel
+    index index.html index.htm index.php;
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    charset utf-8;
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
 
-## Laravel Sponsors
+    error_page 404 /index.php;
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
 
-### Premium Partners
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## MySQL configuration
 
-## Contributing
+```
+create database wish;
+CREATE USER 'wish_user'@'%' IDENTIFIED BY 'PASSWORD';
+GRANT ALL PRIVILEGES ON wish.* TO 'wish_user'@'%';
+FLUSH PRIVILEGES;
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
 
-## Code of Conduct
+## Permissions configuration
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
+sudo chown -R $USER:www-data .
+sudo find . -type f -exec chmod 664 {} \;
+sudo find . -type d -exec chmod 775 {} \;
+sudo chgrp -R www-data storage bootstrap/cache
+sudo chmod -R ug+rwx storage bootstrap/cache
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
