@@ -20,6 +20,7 @@
         @include('layouts.inc.navbar')
         @yield('content')
     </div>
+    <script src="{{ asset('frontend/js/bootstrap5.bundle.js') }}"></script>
 </body>
 
 </html>

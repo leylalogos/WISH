@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('url');
-            $table->string('priority');
+            $table->unsignedInteger('priority');
             $table->foreignId('user_id');
             $table->timestamps();
         });

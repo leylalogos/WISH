@@ -18,4 +18,14 @@ class WishList extends Model
     {
         return $this->belongsTo(User::class);
     }
+    const PRIORITIES = [
+        0 => 'کم',
+        1 => 'متوسط',
+        2 => 'مهم',
+        3 => 'خیلی مهم',
+    ];
+    public function getPriorityTextAttribute()
+    {
+        return self::PRIORITIES[$this->priority];
+    }
 }

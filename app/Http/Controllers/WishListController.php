@@ -9,15 +9,20 @@ use Illuminate\Http\Request;
 
 class WishListController extends Controller
 {
+
     public function index()
     {
-        return view('pages.wish-list');
+        $wishLists = Auth::user()->wishLists;
+        return view('pages.my-wish-list', compact('wishLists'));
     }
-
     public function create(User $user, Request $request)
     {
+        $request->validate([
+            'title' => 'string|min:2|max:255',
+            'url' => 'url',
+            'priority' => 'integer|min:0|max:3',
+        ]);
         $user = Auth::user();
-
         WishList::create([
             'user_id' => $user->id,
             'title' => $request->title,
@@ -27,9 +32,4 @@ class WishListController extends Controller
         return redirect()->back();
     }
 
-    public function show()
-    {
-        $wishLists = Auth::user()->wishLists;
-        return view('pages.my-wish-list', compact('wishLists'));
-    }
 }
