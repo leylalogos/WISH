@@ -65,7 +65,8 @@
                             <form action="{{ route('update.profile') }}" method="post">
                                 @csrf
                                 <div class="row">
-                                    <label for="" class="col-sm-3">{{ __('static.name') }}</label>
+                                    <label data-error="wrong" data-success="right"
+                                        class="col-sm-3">{{ __('static.name') }}</label>
 
                                     <div class="col-sm-9">
                                         <input class=" form-control text-muted mb-0" name="name" type="text"
@@ -74,7 +75,8 @@
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <label for="" class="col-sm-3">{{ __('static.email') }}</label>
+                                    <label data-error="wrong" data-success="right"
+                                        class="col-sm-3">{{ __('static.email') }}</label>
                                     <div class="col-sm-9">
                                         <input class=" form-control text-muted mb-0" type="text" name="email"
                                             value="{{ $user->email }}" disabled>
@@ -82,7 +84,8 @@
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <label for="" class="col-sm-3">{{ __('static.phone_number') }}</label>
+                                    <label data-error="wrong" data-success="right"
+                                        class="col-sm-3">{{ __('static.phone_number') }}</label>
                                     <div class="col-sm-9">
                                         <input class=" form-control text-muted mb-0" type="tel" name="phone_number"
                                             value="{{ $user->phone_number }}">
@@ -90,7 +93,8 @@
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <label class="col-sm-3 ">{{ __('static.birthdate') }}</label>
+                                    <label data-error="wrong" data-success="right"
+                                        class="col-sm-3 ">{{ __('static.birthdate') }}</label>
                                     <div class="col-sm-9">
                                         <input class="text-muted mb-0 form-control" type="date" name="birthday"
                                             value="{{ $user->birthday }}">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SocialNetworkController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WishListController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,17 +17,22 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+Route::middleware('auth')->group(function () {
+    Route::get('profile/index', [UserController::class, 'index'])->name('profile');
+    Route::post('profile/update', [UserController::class, 'update'])->name('update.profile');
+    Route::post('social_network/update', [SocialNetworkController::class, 'update'])->name('update.social_network');
+    Route::get('wish-list/index', [WishListController::class, 'index'])->name('my_wish_list');
+    Route::post('wish-list/create', [WishListController::class, 'create'])->name('create.wishList');
+
+});
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login/google', 'redirectToGoogle')->name('login.google');
+    Route::get('/login/google/callback', 'handleGoogleCallback');
+    Route::get('logout', 'logout')->name('logout');
+
+});
+
 Route::view('about', 'pages/about')->name('about');
 Route::view('/', 'pages/index')->name('index');
 Route::view('contact', 'pages/contact')->name('contact');
-Route::get('profile', [UserController::class, 'index'])->name('profile')->middleware('auth');
-Route::post('update/profile', [UserController::class, 'update'])->name('update.profile')->middleware('auth');
-
-Route::post('update/social_network', [SocialNetworkController::class, 'update'])->name('update.social_network')->middleware('auth');
-
 Route::view('login', 'pages/login')->name('login');
-
-Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
-Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
-
-Route::get('logout', [LoginController::class, 'logout'])->name('logout');
