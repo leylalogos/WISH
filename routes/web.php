@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SocialNetworkController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WishListController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,6 @@ Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name(
 Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
 
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('wish-list', [WishListController::class, 'index'])->name('wishList.form')->middleware('auth');
+Route::post('create/wish-list', [WishListController::class, 'create'])->name('create.wishList');
+Route::get('mywish', [WishListController::class, 'show'])->name('my_wish_list')->middleware('auth');

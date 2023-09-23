@@ -28,6 +28,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(SocialNetwork::class);
     }
+    public function WishLists()
+    {
+        return $this->hasMany(WishList::class);
+    }
 
     public function getInstagramAttribute()
     {

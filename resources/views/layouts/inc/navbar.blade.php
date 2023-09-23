@@ -10,11 +10,6 @@
                     <img id="navbar-logo" src="{{ url('frontend/images/Wish.png') }}" style="height: 1.5rem;" />
                 </a>
             </li>
-            {{-- <li class="nav-item text-right">
-                <a class="nav-link text-right" href="{{ route('index') }}">
-                    {{ __('navbar.index') }}
-                </a>
-            </li> --}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('about') }}">
                     {{ __('navbar.about') }}
@@ -36,6 +31,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('profile') }}">
                         {{ __('navbar.profile') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('my_wish_list') }}">
+                        {{ __('navbar.my_wish_list') }}
                     </a>
                 </li>
                 <li class="nav-item dropdown" id="nav-profile">
