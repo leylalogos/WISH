@@ -10,6 +10,21 @@
     <link href="{{ asset('/frontend/fa/css/solid.css') }}" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <!-- Google tag (gtag.js) -->
+    @if (env('APP_ENV') == 'production')
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-02TS3T3BB5"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-02TS3T3BB5');
+        </script>
+    @endif
+
     <title>
         @yield('title')
     </title>
