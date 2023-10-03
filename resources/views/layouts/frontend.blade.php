@@ -11,7 +11,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Google tag (gtag.js) -->
-    @if (env('APP_ENV') == 'production')
+    @if (config('APP_ENV') == 'production')
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-02TS3T3BB5"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
