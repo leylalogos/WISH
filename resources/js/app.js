@@ -1,2 +1,2 @@
-import './bootstrap';
-import './bootstrap5.bundle.js';
+import * as bootstrap from 'bootstrap';
+import * as Popper from "@popperjs/core"

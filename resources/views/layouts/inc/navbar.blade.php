@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -40,7 +40,7 @@
                 </li>
                 <li class="nav-item dropdown" id="nav-profile">
                     <img id="nav-profile-img" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu">
