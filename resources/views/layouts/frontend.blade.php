@@ -3,6 +3,7 @@
 
 
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" type="image/x-icon" href={{ url('favicon.ico') }}>
     <meta charset="utf-8">
     <link href="{{ asset('/frontend/fa/css/fontawesome.css') }}" rel="stylesheet">
@@ -11,7 +12,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Google tag (gtag.js) -->
-    @if (config('APP_ENV') == 'production')
+    @if (config('app.env') == 'production')
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-02TS3T3BB5"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -31,7 +32,7 @@
 </head>
 
 <body>
-    <div>
+    <div class="">
         @include('layouts.inc.navbar')
         @yield('content')
     </div>
