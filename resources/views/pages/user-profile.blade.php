@@ -45,7 +45,8 @@
                                             value="{{ $user->twitter }}">
                                     </li>
                                     <div class=" mt-3">
-                                        <button type="submit" class="btn btn-primary ">{{ __('static.send') }}</button>
+                                        <button type="submit"
+                                            class="btn btn-primary float-left">{{ __('static.send') }}</button>
                                     </div>
                                 </form>
                             </ul>

@@ -13,6 +13,12 @@
     --secondaryBG: var(--pal-20);
     --secondaryText: hsl(320, 51.2%, 32.2%);
 }
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    #about-text {
+      font-size: 18px;
+    }
+  }
+
 html{
     direction: rtl;
 }
@@ -130,4 +136,8 @@ nav {
 #nav-profile-img{
     margin: 0.1em 2em;
     margin-left:1px;
+}
+
+.btn-login{
+    width: 100%;
 }
