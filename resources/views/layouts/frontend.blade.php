@@ -1,10 +1,16 @@
 <!doctype html>
-<html>
-
+<html lang="{{ config('app.locale') }}" dir="rtl">
 
 <head>
-    <link rel="icon" type="image/x-icon" href={{ url('favicon.ico') }}>
+    <meta name="color-scheme" content="only light">
+    <meta name="application-name" content="wish">
+    <meta name="description" content="Make your wish list">
+    <meta name="keywords" content="wish, birthday, celeberate, iran">
+    <meta name="author" content="Leyla Sabouri">
+    <meta name="creator" content="Xnor team">
     <meta charset="utf-8">
+    @stack('meta-tags')
+    <link rel="icon" type="image/x-icon" href={{ url('favicon.ico') }}>
     <link href="{{ asset('/frontend/fa/css/fontawesome.css') }}" rel="stylesheet">
     <link href="{{ asset('/frontend/fa/css/brands.css') }}" rel="stylesheet">
     <link href="{{ asset('/frontend/fa/css/solid.css') }}" rel="stylesheet">

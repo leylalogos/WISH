@@ -10,3 +10,6 @@
         </div>
     </div>
 @endsection
+@push('meta-tags')
+    <meta name="robots" content="index">
+@endpush
