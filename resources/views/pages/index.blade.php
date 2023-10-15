@@ -14,7 +14,7 @@
             <div class="text-center mt-5">
                 <h1> {{ __('static.goal') }} </h1>
             </div>
-            <div class="text-center static-text">
+            <div class="text-center static-text" id="about-text">
                 {!! nl2br(__('texts.about')) !!}
             </div>
         </div>
