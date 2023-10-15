@@ -8,6 +8,7 @@
     <meta name="keywords" content="wish, birthday, celeberate, iran">
     <meta name="author" content="Leyla Sabouri">
     <meta name="creator" content="Xnor team">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta charset="utf-8">
     @stack('meta-tags')
     <link rel="icon" type="image/x-icon" href={{ url('favicon.ico') }}>
@@ -17,7 +18,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Google tag (gtag.js) -->
-    @if (env('APP_ENV') == 'production')
+    @if (config('app.env') == 'production')
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-02TS3T3BB5"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -37,7 +38,7 @@
 </head>
 
 <body>
-    <div>
+    <div class="">
         @include('layouts.inc.navbar')
         @yield('content')
     </div>
