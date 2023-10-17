@@ -19,11 +19,13 @@ class UserController extends Controller
             'name' => 'required|string|min:2|max:255',
             'birthday' => 'before:today',
             'phone_number' => 'string|max:15|min:2',
+            'username' => 'required|unique:users,username',
         ]);
 
         $user = Auth::user();
         $user->update([
             'name' => $request->name,
+            'username' => $request->username,
             'birthday' => $request->birthday,
             'phone_number' => $request->phone_number,
         ]);

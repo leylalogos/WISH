@@ -17,6 +17,7 @@ class LoginController extends Controller
             $user->email = $data->email;
             $user->provider_id = $data->id;
             $user->avatar = $data->avatar;
+            $user->generateUsername();
             $user->save();
         }
         Auth::login($user);
