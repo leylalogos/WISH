@@ -64,7 +64,6 @@
                         <tr>
                             <th scope="col">ردیف</th>
                             <th scope="col">نام کادو</th>
-                            <th scope="col">لینک کادو</th>
                             <th scope="col">الویت</th>
                         </tr>
                     </thead>
@@ -72,8 +71,7 @@
                         @foreach ($wishLists as $wish)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $wish->title }}</td>
-                                <td>{{ $wish->url }}</td>
+                                <td><a href="{{ $wish->url }}">{{ $wish->title }}</a></td>
                                 <td>{{ $wish->priorityText }}</td>
                             </tr>
                         @endforeach
