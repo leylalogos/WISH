@@ -40,6 +40,9 @@ return [
     'email' => '
     ایمیل
 ',
+    'username' => '
+نام کاربری
+',
     'phone_number' => '
     شماره تلفن
 ',

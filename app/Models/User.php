@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -20,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'avatar',
+        'username',
         'birthday',
         'phone_number',
     ];
@@ -45,6 +47,17 @@ class User extends Authenticatable
     public function getTwitterAttribute()
     {
         return $this->social_networks()->where('platform', 'twitter')->first()?->username;
+    }
+
+    public function generateUsername()
+    {
+        $email = $this->email;
+        $firstpart = explode('@', $email)[0];
+        if (User::where('username', $firstpart)->first() == null) {
+            $this->username = $firstpart;
+        } else {
+            $this->username = $firstpart . '-' . Str::random(4);
+        }
     }
 
 }
