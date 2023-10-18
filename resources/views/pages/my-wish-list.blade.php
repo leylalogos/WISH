@@ -34,6 +34,18 @@
                                 </label>
                                 <input type="text" required="required" class="form-control validate" name="title">
                             </div>
+
+                            <div class="form-group md-form mt-3">
+                                <label class="form-label">
+                                    قیمت</label>
+                                <div class="input-group" dir="ltr">
+                                    <input type="number" min="0" step="1000" class="form-control" name="price">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">IRR</span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group md-form mt-3">
                                 <label class="form-label">{{ __('static.gift_url_website') }}</label>
                                 <input type="url" required="required" class="form-control validate" name="url">
@@ -64,7 +76,9 @@
                         <tr>
                             <th scope="col">ردیف</th>
                             <th scope="col">نام کادو</th>
+                            <th scope="col">قیمت</th>
                             <th scope="col">الویت</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +86,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td><a href="{{ $wish->url }}">{{ $wish->title }}</a></td>
+                                <td>{{ number_format($wish->price * 1000) }}</td>
                                 <td>{{ $wish->priorityText }}</td>
                             </tr>
                         @endforeach

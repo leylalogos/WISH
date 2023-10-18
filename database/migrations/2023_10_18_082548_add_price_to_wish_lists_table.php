@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('wish_lists', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('url', 2048);
-            $table->unsignedInteger('priority');
-            $table->foreignId('user_id');
-            $table->timestamps();
+        Schema::table('wish_lists', function (Blueprint $table) {
+            //stores price in kilo rial format
+            $table->unsignedInteger('price')->nullable();
         });
     }
 
@@ -26,6 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('wish_lists');
+        Schema::table('wish_lists', function (Blueprint $table) {
+            $table->dropColumn('price');
+
+        });
     }
 };
