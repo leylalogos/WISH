@@ -26,9 +26,9 @@ class User extends Authenticatable
         'phone_number',
     ];
 
-    public function social_networks()
+    public function accounts()
     {
-        return $this->hasMany(SocialNetwork::class);
+        return $this->hasMany(Account::class);
     }
     public function wishLists()
     {
@@ -36,17 +36,17 @@ class User extends Authenticatable
     }
     public function getInstagramAttribute()
     {
-        return $this->social_networks()->where('platform', 'instagram')->first()?->username;
+        return $this->accounts()->where('provider', 'instagram')->first()?->username;
     }
 
     public function getFacebookAttribute()
     {
-        return $this->social_networks()->where('platform', 'facebook')->first()?->username;
+        return $this->accounts()->where('provider', 'facebook')->first()?->username;
     }
 
     public function getTwitterAttribute()
     {
-        return $this->social_networks()->where('platform', 'twitter')->first()?->username;
+        return $this->accounts()->where('provider', 'twitter')->first()?->username;
     }
 
     public function generateUsername()

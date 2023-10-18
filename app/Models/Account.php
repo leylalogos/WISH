@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SocialNetwork extends Model
+class Account extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'username', 'user_id', 'platform',
+        'username',
+        'user_id',
+        'provider',
+        'last_login',
     ];
 
     public function user()
