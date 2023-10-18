@@ -4,15 +4,11 @@
     <div class="container">
         <div class=" mt-5">
             <div class="mb-4">
-                <h2 class="text-center font-weight-bold pt-4 pb-5">
-                    <strong>{{ __('static.add_gift') }}</strong>
-                </h2>
 
-                <p>
-                    <strong>
-                        {{ __('static.add_your_wish_list') }}
-                    </strong>
-                </p>
+                <ul class="list-group list-group-flush rounded-3">
+                    <h2 class="text-center font-weight-bold pt-4 pb-5">
+                        <strong>{{ __('static.add_gift') }}</strong>
+                    </h2>
 
                 <hr class="my-5">
                 @if ($errors->all())
@@ -62,13 +58,14 @@
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-success" type="button">
-                                {{ __('static.add') }}
+                                    {{ __('static.add') }}
                             </button>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </ul>
             </div>
         </div>
+
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <table class="table table-striped table-bordered mt-5">
@@ -95,4 +92,5 @@
             </div>
         </div>
     </div>
+    </section>
 @endsection
