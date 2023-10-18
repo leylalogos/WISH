@@ -25,7 +25,7 @@
                     <div class="card mb-4 mb-lg-0">
                         <div class="card-body p-0">
                             <ul class="list-group list-group-flush rounded-3">
-                                <form action="{{ route('update.social_network') }}" method="post">
+                                <form action="{{ route('update.account') }}" method="post">
                                     @csrf
                                     <li class=" d-flex justify-content-between align-items-center p-3">
                                         <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
