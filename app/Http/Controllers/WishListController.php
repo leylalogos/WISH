@@ -39,6 +39,7 @@ class WishListController extends Controller
             'title' => $request->title,
             'url' => $request->url,
             'priority' => $request->priority,
+            'price' => $request->price / 1000, //convert iranian rial to kiloriyal
         ]);
         return redirect()->back();
     }
