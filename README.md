@@ -24,7 +24,7 @@ Get ready to make a wish and find the ideal gift on Wish!
 
 1. clone the project with git
    `git clone git@github.com:leylalogos/WISH.git`
-2. [setup **nginx** to serve the web app](#nginx-configuration)
+2. [setup **nginx** to serve the web app](#nginx-configuration)or [**apache**](#apache-configuration)
 3. in the project root directory:
    `composer install`
 4. write the enviourment variables into `.env`
@@ -79,6 +79,69 @@ server {
     }
 }
 ```
+
+### Apache configuration
+
+Sample SSL Config:
+
+```
+    SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+    SSLProtocol All -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
+    SSLHonorCipherOrder On
+    Header always set X-Frame-Options DENY
+    Header always set X-Content-Type-Options nosniff
+
+    # Requires Apache >= 2.4
+    SSLCompression off
+    SSLUseStapling on
+    SSLStaplingCache "shmcb:logs/stapling-cache(150000)"
+
+    # Requires Apache >= 2.4.11
+    SSLSessionTickets Off
+```
+
+Sample Site Config:
+
+```
+<VirtualHost *:443>
+	ServerAdmin [email]@[domain]
+	ServerName [domain]
+	DocumentRoot [project roo path]/public
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+	SSLEngine on
+
+	SSLCertificateFile      [cert path]/certificate.pem
+	SSLCertificateKeyFile   [cert path]/key.pem
+
+	#SSLCertificateChainFile /etc/apache2/ssl.crt/server-ca.crt
+
+	<Directory /home/leyla/Xnor/WISH >
+            Options Indexes MultiViews FollowSymLinks
+            AllowOverride All
+            Require all granted
+ 	</Directory>
+
+</VirtualHost>
+```
+
+you can enble site & apache module:
+
+```
+sudo a2enmod ssl
+sudo a2enmod rewrite
+
+sudo a2enconf ssl-params.con
+sudo a2ensite [site-config-file-name]
+
+sudo systemctl restart apache2.service
+sudo systemctl enable apache2.service
+
+```
+
+if you got permission error: just add executable permission to the ptoject parent dirs (`chmod +x`)
 
 ## MySQL configuration
 
