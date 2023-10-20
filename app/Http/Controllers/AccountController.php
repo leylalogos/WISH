@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\User;
 use Auth;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -23,7 +22,6 @@ class AccountController extends Controller
                     ],
                     [
                         'username' => $request->$provider,
-                        'last_login' => Carbon::now(),
 
                     ]
                 );

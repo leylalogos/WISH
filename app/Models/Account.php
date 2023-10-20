@@ -14,6 +14,9 @@ class Account extends Model
         'user_id',
         'provider',
         'last_login',
+        'provider_id',
+        'avatar',
+        'email',
     ];
 
     public function user()

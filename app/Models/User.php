@@ -19,8 +19,6 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
-        'avatar',
         'username',
         'birthday',
         'phone_number',
@@ -49,15 +47,19 @@ class User extends Authenticatable
         return $this->accounts()->where('provider', 'twitter')->first()?->username;
     }
 
-    public function generateUsername()
+    public function generateUsername($email)
     {
-        $email = $this->email;
         $firstpart = explode('@', $email)[0];
         if (User::where('username', $firstpart)->first() == null) {
             $this->username = $firstpart;
         } else {
             $this->username = $firstpart . '-' . Str::random(4);
         }
+    }
+
+    public function getAvatarAttribute()
+    {
+        return $this->accounts()->first()->avatar;
     }
 
 }
