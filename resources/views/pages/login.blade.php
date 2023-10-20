@@ -27,7 +27,7 @@
                             'background' => 'blue',
                             'bootstrapIconClass' => 'fab fa-facebook-f me-2',
                             'brandName' => __('word.facebook'),
-                            'loginUrl' => route('auth.facebook'),
+                            'loginUrl' => route('login.facebook'),
                         ])
 
                     </div>
