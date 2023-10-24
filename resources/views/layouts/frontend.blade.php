@@ -42,6 +42,7 @@
         @include('layouts.inc.navbar')
         @yield('content')
     </div>
+    @include('layouts.inc.footer')
 </body>
 
 </html>

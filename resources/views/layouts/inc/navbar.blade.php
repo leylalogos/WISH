@@ -11,12 +11,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('about') }}">
-                    {{ __('navbar.about') }}
+                <a class="nav-link" href="{{ route('find') }}">
+                    دوستان
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('contact') }}">
+                <a class="nav-link" href="#">
                     {{ __('navbar.contact') }}
                 </a>
             </li>
