@@ -38,3 +38,4 @@ Route::view('/', 'pages/index')->name('index');
 Route::view('contact', 'pages/contact')->name('contact');
 Route::view('login', 'pages/login')->name('login');
 Route::view('policies/privacy', 'policies/privacy')->name('policies.privacy');
+Route::view('fr', 'pages/find-freind')->name('find');
