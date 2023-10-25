@@ -38,14 +38,53 @@
                         {{ __('navbar.my_wish_list') }}
                     </a>
                 </li>
-                <li class="nav-item dropdown" id="nav-profile">
-                    <img id="nav-profile-img" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                        {{ Auth::user()->name }}
+                <li id="nav-profile" class="dropdown" dir="ltr">
+                    <a href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown"
+                        data-bs-toggle="dropdown">پروفایل
+                        <b class="caret"></b>
                     </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('logout') }}">{{ __('static.logout') }}</a>
-                    </div>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="navbar-content">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img src="{{ Auth::user()->avatar }}" alt="Alternate Text"
+                                            class="img-responsive" />
+                                        <p class="text-center small">
+                                            <a href="#">ویرایش عکس</a>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <span>{{ Auth::user()->name }}</span>
+                                        <p class="text-muted small">
+                                            mail@gmail.com</p>
+                                        <hr>
+                                        <div class="divider">
+                                        </div>
+                                        <a href="{{ route('profile') }}" class="btn btn-primary btn-sm active">
+                                            پروفایل</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navbar-footer">
+                                <div class="navbar-footer-content">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <a href="٫" class="btn btn-default btn-sm" style="background:white">
+                                                اکانت های من
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="{{ route('logout') }}" class="btn btn-default btn-sm pull-right"
+                                                style="background:white">
+                                                {{ __('static.logout') }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
             @endauth
         </ul>
