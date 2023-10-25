@@ -69,23 +69,35 @@
 
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <table class="table table-striped table-bordered mt-5">
+                <table class="table table-striped table-bordered sortable mt-4">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">ردیف</th>
-                            <th scope="col">نام کادو</th>
-                            <th scope="col">قیمت(ریال)</th>
-                            <th scope="col">الویت</th>
-
+                            <th>
+                                <button>
+                                    نام کادو
+                                </button>
+                            </th>
+                            <th aria-sort="ascending">
+                                <button>
+                                    قیمت(ریال)
+                                    <span aria-hidden="true"></span>
+                                </button>
+                            </th>
+                            <th aria-sort="descending">
+                                <button>
+                                    الویت
+                                    <span aria-hidden="true"></span>
+                                </button>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($wishLists as $wish)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
                                 <td><a href="{{ $wish->url }}">{{ $wish->title }}</a></td>
-                                <td>{{ $wish->price ? number_format($wish->price * 1000) : '-' }}</td>
-                                <td>{{ $wish->priorityText }}</td>
+                                <td data-sort-value="{{ $wish->price }}">
+                                    {{ $wish->price ? number_format($wish->price * 1000) : '-' }}</td>
+                                <td data-sort-value="{{ $wish->priority }}">{{ $wish->priorityText }}</td>
                             </tr>
                         @endforeach
                     </tbody>
