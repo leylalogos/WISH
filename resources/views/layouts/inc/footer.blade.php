@@ -39,7 +39,7 @@
                     <h3 class="widget-title">با ما در ارتباط باش</h3>
                     <p class="text-white">تلفن:02424332123</p>
 
-                    <p><a class="navi-link-light" href="#">support@unishop.com</a></p>
+                    <p><a class="navi-link-light" href="#">wish-contact@xnor.one</a></p>
                     <a class="social-button shape-circle sb-facebook sb-light-skin" href="#">
                         <i class="fa-brands fa-instagram"></i></a>
                     <a class="social-button shape-circle sb-twitter sb-light-skin" href="#">
