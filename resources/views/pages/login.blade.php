@@ -12,19 +12,19 @@
                     <div class="row justify-content-center">
 
                         @include('layouts.inc.loginBtn', [
-                            'background' => 'red',
                             'bootstrapIconClass' => 'fa-brands fa-google',
                             'brandName' => __('word.google'),
+                            'brand' => 'google',
                             'loginUrl' => route('login.redirect', ['provider' => 'google']),
                         ])
                         @include('layouts.inc.loginBtn', [
-                            'background' => 'black',
+                            'brand' => 'github',
                             'bootstrapIconClass' => 'fa-brands fa-github',
                             'brandName' => __('word.github'),
                             'loginUrl' => '',
                         ])
                         @include('layouts.inc.loginBtn', [
-                            'background' => 'blue',
+                            'brand' => 'facebook',
                             'bootstrapIconClass' => 'fab fa-facebook-f me-2',
                             'brandName' => __('word.facebook'),
                             'loginUrl' => route('login.redirect', ['provider' => 'facebook']),

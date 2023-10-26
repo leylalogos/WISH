@@ -23,24 +23,31 @@
                         </div>
                     </div>
                     <div class="card mb-4 mb-lg-0">
+                        @php
+                            $accounts = $user->accounts->pluck('last_login', 'provider')->toArray();
+                        @endphp
                         <div class="row mt-2 justify-content-center">
                             @include('layouts.inc.loginBtn', [
-                                'background' => 'red',
                                 'bootstrapIconClass' => 'fa-brands fa-google',
                                 'brandName' => __('word.google'),
                                 'loginUrl' => route('login.redirect', ['provider' => 'google']),
                                 'smallView' => true,
-                                'alternativeText' => 'الحاق حساب',
+                                'hasAccount' => isset($accounts['google']),
+                                'brand' => 'google',
+                                'alternativeText' => isset($accounts['google']) ? 'آپدیت اکانت ' : 'افزودن حساب',
                             ])
                             @include('layouts.inc.loginBtn', [
-                                'background' => 'blue',
                                 'bootstrapIconClass' => 'fab fa-facebook-f me-2',
                                 'brandName' => __('word.facebook'),
                                 'loginUrl' => route('login.redirect', ['provider' => 'facebook']),
                                 'smallView' => true,
-                                'alternativeText' => 'الحاق حساب',
+                                'brand' => 'facebook',
+                                'hasAccount' => isset($accounts['facebook']),
+                                'alternativeText' => isset($accounts['facebook']) ? 'آپدیت اکانت ' : 'افزودن حساب',
                             ])
                         </div>
+                        <div class="div mt-4"></div>
+
 
                     </div>
                 </div>

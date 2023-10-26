@@ -130,6 +130,7 @@ nav {
 }
 .btn-login{
     width: 100%;
+    color: white;
 }
 
 
@@ -1009,4 +1010,57 @@ ul.friend-list .right p {
     outline: none;
     text-decoration: none;
     border: 0;
+}
+
+.brand-google{
+    background-color:#c63702;
+    color:white;
+}
+.brand-google:hover{
+    background-color: lightcoral;
+    color:white;
+
+}
+.brand-facebook:hover{
+    background-color: lightblue;
+    color:white;
+
+}
+.brand-github:hover{
+    background-color: gray;
+    color:white;
+
+}
+.brand-facebook{
+    background-color:#428bca;
+}
+.brand-github{
+    background-color:black;
+}
+
+.brand-google.notPressed {
+    box-shadow:0 0 0 1px #c63702 inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #C24032, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+}
+.brand-facebook.notPressed {
+    box-shadow:0 0 0 1px #428bca inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #357ebd, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+}
+.brand-github.notPressed {
+    box-shadow:0 0 0 1px black inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 black, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+}
+
+.btn3d {
+    transition:all .08s linear;
+    position:relative;
+    outline:medium none;
+    -moz-outline-style:none;
+    border:0px;
+    margin-right:10px;
+    margin-top:15px;
+}
+.btn3d:focus {
+    outline:medium none;
+    -moz-outline-style:none;
+}
+.btn3d:active {
+    top:9px;
 }
