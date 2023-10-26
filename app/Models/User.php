@@ -62,4 +62,13 @@ class User extends Authenticatable
         return $this->accounts()->first()->avatar;
     }
 
+    public function followedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'connections', 'followed_id', 'following_id');
+    }
+
+    public function followingUsers()
+    {
+        return $this->belongsToMany(User::class, 'connections', 'following_id', 'followed_id');
+    }
 }
