@@ -6,22 +6,25 @@ use App\Models\Account;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
     protected function _registerOrLoginUser($data, $provider)
     {
+        DB::transaction(function () use ($data, $provider) {
 
-        $account = Account::where('provider_id', $data->id)->where('provider', $provider)->first();
-        if (!$account) {
-            $user = new User();
-            $user->name = $data->name;
-            $user->generateUsername($data->email);
-            $user->save();
-            $account = $this->createAccount($data, $provider, $user);
-        }
-        Auth::login($account->user);
+            $account = Account::where('provider_id', $data->id)->where('provider', $provider)->first();
+            if (!$account) {
+                $user = new User();
+                $user->name = $data->name;
+                $user->generateUsername($data->email);
+                $user->save();
+                $account = $this->createAccount($data, $provider, $user);
+            }
+            Auth::login($account->user);
+        });
     }
 
     private function createAccount($data, $provider, $user)
