@@ -75,7 +75,7 @@
                                             </a>
                                         </div>
                                         <div class="col-md-6">
-                                            <a href="{{ route('logout') }}" class="btn btn-default btn-sm pull-right"
+                                            <a href="{{ route('logout') }}" class="btn  btn-sm pull-right"
                                                 style="background:white">
                                                 {{ __('static.logout') }}
                                             </a>

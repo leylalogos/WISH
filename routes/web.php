@@ -26,10 +26,8 @@ Route::middleware('auth')->group(function () {
 
 });
 Route::controller(LoginController::class)->group(function () {
-    Route::get('/login/google', 'redirectToGoogle')->name('login.google');
-    Route::get('/login/google/callback', 'handleGoogleCallback');
-    Route::get('login/facebook', 'redirectToFacebook')->name('login.facebook');
-    Route::get('login/facebook/callback', 'handleFacebookCallback');
+    Route::get('login/{provider}', 'redirectToProvider')->name('login.redirect');
+    Route::get('login/{provider}/callback', 'handleProviderCallback');
     Route::get('logout', 'logout')->name('logout');
 });
 

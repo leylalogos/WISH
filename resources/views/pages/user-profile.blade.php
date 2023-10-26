@@ -23,36 +23,32 @@
                         </div>
                     </div>
                     <div class="card mb-4 mb-lg-0">
-                        <div class="card-body p-0">
-                            <ul class="list-group list-group-flush rounded-3">
-                                <form action="{{ route('update.account') }}" method="post">
-                                    @csrf
-                                    <li class=" d-flex justify-content-between align-items-center p-3">
-                                        <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-                                        <input class="text-muted mb-0" type="text"
-                                            placeholder="{{ __('static.instagram') }}" name="instagram"
-                                            value="{{ $user->instagram }}">
-                                    </li>
-                                    <li class=" d-flex justify-content-between align-items-center p-3">
-                                        <i class="fa-brands fa-facebook fa-lg" style="color: #3b5998;"></i>
-                                        <input class="text-muted mb-0" type="text"
-                                            placeholder="{{ __('static.facebook') }}" name="facebook"
-                                            value="{{ $user->facebook }}">
-                                    </li>
-                                    <li class=" d-flex justify-content-between align-items-center p-3">
-                                        <i class="fa-brands fa-square-x-twitter fa-lg"></i>
-                                        <input class="text-muted mb-0"
-                                            type="text"placeholder="{{ __('static.twitter') }}" name="twitter"
-                                            value="{{ $user->twitter }}">
-                                    </li>
-                                    <li class=" d-flex justify-content-between align-items-center p-3">
-                                        <button type="submit" class="btn btn-success float-left">
-                                            {{ __('static.send') }}
-                                        </button>
-                                    </li>
-                                </form>
-                            </ul>
+                        @php
+                            $accounts = $user->accounts->pluck('last_login', 'provider')->toArray();
+                        @endphp
+                        <div class="row mt-2 justify-content-center">
+                            @include('layouts.inc.loginBtn', [
+                                'bootstrapIconClass' => 'fa-brands fa-google',
+                                'brandName' => __('word.google'),
+                                'loginUrl' => route('login.redirect', ['provider' => 'google']),
+                                'smallView' => true,
+                                'hasAccount' => isset($accounts['google']),
+                                'brand' => 'google',
+                                'alternativeText' => isset($accounts['google']) ? 'آپدیت اکانت ' : 'افزودن حساب',
+                            ])
+                            @include('layouts.inc.loginBtn', [
+                                'bootstrapIconClass' => 'fab fa-facebook-f me-2',
+                                'brandName' => __('word.facebook'),
+                                'loginUrl' => route('login.redirect', ['provider' => 'facebook']),
+                                'smallView' => true,
+                                'brand' => 'facebook',
+                                'hasAccount' => isset($accounts['facebook']),
+                                'alternativeText' => isset($accounts['facebook']) ? 'آپدیت اکانت ' : 'افزودن حساب',
+                            ])
                         </div>
+                        <div class="div mt-4"></div>
+
+
                     </div>
                 </div>
                 <div class="col-lg-8">

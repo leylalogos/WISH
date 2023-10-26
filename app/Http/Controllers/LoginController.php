@@ -5,46 +5,55 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
     protected function _registerOrLoginUser($data, $provider)
     {
+        DB::transaction(function () use ($data, $provider) {
 
+            $account = Account::where('provider_id', $data->id)->where('provider', $provider)->first();
+            if (!$account) {
+                $user = new User();
+                $user->name = $data->name;
+                $user->generateUsername($data->email);
+                $user->save();
+                $account = $this->createAccount($data, $provider, $user);
+            }
+            Auth::login($account->user);
+        });
+    }
+
+    private function createAccount($data, $provider, $user)
+    {
+
+        $account = new Account();
+        $account->user_id = $user->id;
+        $account->provider = $provider;
+        $account->provider_id = $data->id;
+        $account->username = $data->name; //put name temporary
+        $account->avatar = $data->avatar;
+        $account->email = $data->email;
+        $account->last_login = Carbon::now();
+        $account->save();
+        return $account;
+
+    }
+
+    private function addAccount($data, $provider, $user)
+    {
         $account = Account::where('provider_id', $data->id)->where('provider', $provider)->first();
         if (!$account) {
-            $user = new User();
-            $user->name = $data->name;
-            $user->generateUsername($data->email);
-            $user->save();
-            $account = new Account();
-            $account->user_id = $user->id;
-            $account->provider = $provider;
-            $account->provider_id = $data->id;
-            $account->username = $data->name; //put name temporary
-            $account->avatar = $data->avatar;
-            $account->email = $data->email;
+            $this->createAccount($data, $provider, $user);
+        } else {
             $account->last_login = Carbon::now();
+            $account->avatar = $data->avatar;
             $account->save();
         }
-        Auth::login($account->user);
-    }
-
-    public function redirectToGoogle()
-    {
-        return Socialite::driver('google')->redirect();
-    }
-
-    //Google callback
-
-    public function handleGoogleCallback()
-    {
-        $user = Socialite::driver('google')->user();
-
-        $this->_registerorLoginUser($user, 'google');
-        return redirect()->route('index');
     }
 
     public function logout()
@@ -54,16 +63,22 @@ class LoginController extends Controller
 
     }
 
-    public function redirectToFacebook()
+    public function redirectToProvider(Request $request, $provider)
     {
-        return Socialite::driver('facebook')->redirect();
+        $request->validate(['provider|in:google,facebook']);
+        return Socialite::driver($provider)->redirect();
     }
 
-    public function handleFacebookCallback()
+    public function handleProviderCallback(Request $request, $provider)
     {
-
-        $user = Socialite::driver('facebook')->user();
-        $this->_registerorLoginUser($user, 'facebook');
-        return redirect()->route('index');
+        $request->validate(['provider|in:google,facebook']);
+        $providerUserInfo = Socialite::driver($provider)->user();
+        if (!Auth::check()) {
+            $this->_registerorLoginUser($providerUserInfo, $provider);
+            return redirect()->route('index');
+        } else {
+            $this->addAccount($providerUserInfo, $provider, Auth::user());
+            return redirect()->route('profile');
+        }
     }
 }
