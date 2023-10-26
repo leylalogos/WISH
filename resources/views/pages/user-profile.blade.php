@@ -28,7 +28,7 @@
                                 'background' => 'red',
                                 'bootstrapIconClass' => 'fa-brands fa-google',
                                 'brandName' => __('word.google'),
-                                'loginUrl' => route('login.google'),
+                                'loginUrl' => route('login.redirect', ['provider' => 'google']),
                                 'smallView' => true,
                                 'alternativeText' => 'الحاق حساب',
                             ])
@@ -36,7 +36,7 @@
                                 'background' => 'blue',
                                 'bootstrapIconClass' => 'fab fa-facebook-f me-2',
                                 'brandName' => __('word.facebook'),
-                                'loginUrl' => route('login.facebook'),
+                                'loginUrl' => route('login.redirect', ['provider' => 'facebook']),
                                 'smallView' => true,
                                 'alternativeText' => 'الحاق حساب',
                             ])

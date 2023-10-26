@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Facades\Socialite;
@@ -43,11 +44,6 @@ class LoginController extends Controller
 
     }
 
-    public function redirectToGoogle()
-    {
-        return Socialite::driver('google')->redirect();
-    }
-
     private function addAccount($data, $provider, $user)
     {
         $account = Account::where('provider_id', $data->id)->where('provider', $provider)->first();
@@ -59,20 +55,6 @@ class LoginController extends Controller
             $account->save();
         }
     }
-    //Google callback
-
-    public function handleGoogleCallback()
-    {
-        $user = Socialite::driver('google')->user();
-        if (!Auth::check()) {
-            $this->_registerorLoginUser($user, 'google');
-            return redirect()->route('index');
-        } else {
-            $this->addAccount($user, 'google', Auth::user());
-            return redirect()->route('profile');
-        }
-
-    }
 
     public function logout()
     {
@@ -81,20 +63,21 @@ class LoginController extends Controller
 
     }
 
-    public function redirectToFacebook()
+    public function redirectToProvider(Request $request, $provider)
     {
-        return Socialite::driver('facebook')->redirect();
+        $request->validate(['provider|in:google,facebook']);
+        return Socialite::driver($provider)->redirect();
     }
 
-    public function handleFacebookCallback()
+    public function handleProviderCallback(Request $request, $provider)
     {
-
-        $user = Socialite::driver('facebook')->user();
+        $request->validate(['provider|in:google,facebook']);
+        $providerUserInfo = Socialite::driver($provider)->user();
         if (!Auth::check()) {
-            $this->_registerorLoginUser($user, 'facebook');
+            $this->_registerorLoginUser($providerUserInfo, $provider);
             return redirect()->route('index');
         } else {
-            $this->addAccount($user, 'facebook', Auth::user());
+            $this->addAccount($providerUserInfo, $provider, Auth::user());
             return redirect()->route('profile');
         }
     }
