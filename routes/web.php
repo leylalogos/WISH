@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::post('social_network/update', [AccountController::class, 'update'])->name('update.account');
     Route::get('wish-list/index', [WishListController::class, 'index'])->name('my_wish_list');
     Route::post('wish-list/create', [WishListController::class, 'create'])->name('create.wishList');
+    Route::get('invite/{username}', [UserController::class, 'acceptInvitation'])->name('invite');
 
 });
 Route::controller(LoginController::class)->group(function () {
@@ -34,6 +35,6 @@ Route::controller(LoginController::class)->group(function () {
 Route::view('about', 'pages/about')->name('about');
 Route::view('/', 'pages/index')->name('index');
 Route::view('contact', 'pages/contact')->name('contact');
-Route::view('login', 'pages/login')->name('login');
+Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::view('policies/privacy', 'policies/privacy')->name('policies.privacy');
 Route::view('fr', 'pages/find-freind')->name('find');

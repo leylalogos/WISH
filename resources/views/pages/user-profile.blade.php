@@ -12,14 +12,35 @@
                     </nav>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="card mb-4">
+                    <div class="card mb-3">
                         <div class="card-body text-center">
                             <img src="{{ $user->avatar }}" alt="{{ $user->name }}" alt="avatar"
                                 class="rounded-circle img-fluid" style="width: 150px;">
                             <h5 class="my-3">{{ $user->name }}</h5>
                             <h5 class="my-3 text-muted">{{ $user->username }}</h5>
+
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-12 " dir="ltr">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <label>لینک دعوت</label>
+                                    <div class="input-group mb-3">
+                                        <button id="copy-button" class="btn btn-outline-secondary" type="button"
+                                            id="button-addon1" style="width: 75px;">کپی</button>
+                                        <input type="text" class="form-control" id="invitation-link"
+                                            value="{{ route('invite', ['username' => $user->username]) }}"
+                                            aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                            disabled>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card mb-4 mb-lg-0">
@@ -110,16 +131,19 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="row ">
-                                    <div class="col-sm-9">
-                                        <button type="submit" class="btn btn-success">{{ __('static.send') }}</button>
-                                    </div>
+                                <div class="row mb-2">
+
+                                    <button id ="btn-profile-section" type="button" class="btn btn-light">
+                                        {{ __('static.send') }}
+                                    </button>
+
                                 </div>
                             </form>
                         </div>
                     </div>
 
                 </div>
+
             </div>
         </div>
     </section>

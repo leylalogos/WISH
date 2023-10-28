@@ -1,6 +1,21 @@
 'use strict';
 $(document).ready(function () {
-   
+   $('#copy-button').click(function(){
+    let input=$('#invitation-link')
+   let text= input.val();
+   navigator.clipboard.writeText(text);
+
+   let successMessage = 'لینک کپی شد';
+
+    input.parent().after(
+        '<div class="alert alert-success" role="alert" id="text-copied-alert">'+
+        successMessage
+        +'</div>'
+    );
+    setTimeout(function(){
+        $("#text-copied-alert").remove();
+    }, 1200);
+   });
 
 });//end of ready function
 

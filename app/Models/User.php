@@ -56,7 +56,6 @@ class User extends Authenticatable
             $this->username = $firstpart . '-' . Str::random(4);
         }
     }
-
     public function getAvatarAttribute()
     {
         return $this->accounts()->first()->avatar;

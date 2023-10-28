@@ -31,4 +31,9 @@ class UserController extends Controller
         ]);
         return redirect()->back();
     }
+
+    public function acceptInvitation()
+    {
+        return redirect()->route('index');
+    }
 }
