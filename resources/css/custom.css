@@ -1064,3 +1064,13 @@ ul.friend-list .right p {
 .btn3d:active {
     top:9px;
 }
+#btn-profile-section{
+    padding: 9px;
+  margin-right: 34px;
+  width: 123px;
+  background-color: deeppink;
+  color: white;
+  margin-right: auto;
+  margin-left: 12px;
+  font-weight: bold;
+}

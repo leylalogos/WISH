@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::post('social_network/update', [AccountController::class, 'update'])->name('update.account');
     Route::get('wish-list/index', [WishListController::class, 'index'])->name('my_wish_list');
     Route::post('wish-list/create', [WishListController::class, 'create'])->name('create.wishList');
+    Route::get('invite/{username}', [UserController::class, 'acceptInvitation'])->name('invite');
 
 });
 Route::controller(LoginController::class)->group(function () {
