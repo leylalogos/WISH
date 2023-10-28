@@ -12,6 +12,16 @@ use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
+
+    public function login()
+    {
+        $urlPrevious = url()->previous();
+        if ($urlPrevious != route('login')) {
+            session()->put('url.intended', $urlPrevious);
+        }
+        return view('pages/login');
+    }
+
     protected function _registerOrLoginUser($data, $provider)
     {
         DB::transaction(function () use ($data, $provider) {
@@ -75,7 +85,7 @@ class LoginController extends Controller
         $providerUserInfo = Socialite::driver($provider)->user();
         if (!Auth::check()) {
             $this->_registerorLoginUser($providerUserInfo, $provider);
-            return redirect()->route('index');
+            return redirect($request->session()->pull('url.intended', route('index')));
         } else {
             $this->addAccount($providerUserInfo, $provider, Auth::user());
             return redirect()->route('profile');

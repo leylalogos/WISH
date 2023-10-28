@@ -35,6 +35,6 @@ Route::controller(LoginController::class)->group(function () {
 Route::view('about', 'pages/about')->name('about');
 Route::view('/', 'pages/index')->name('index');
 Route::view('contact', 'pages/contact')->name('contact');
-Route::view('login', 'pages/login')->name('login');
+Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::view('policies/privacy', 'policies/privacy')->name('policies.privacy');
 Route::view('fr', 'pages/find-freind')->name('find');
