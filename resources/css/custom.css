@@ -113,6 +113,7 @@ nav {
     position: absolute;
     left: 12px;
     top: 8px;
+    z-index: 4;
 }
 #nav-profile img {
     /* height: 2.5em; */
@@ -126,7 +127,7 @@ nav {
     padding:0px;
     min-width: 2rem;
     text-align: center;
-    
+
 }
 .btn-login{
     width: 100%;
@@ -731,7 +732,7 @@ ul.friend-list .right p {
     width: 24%;
     float: left;
     margin: 6px;
-   
+
 }
 
 .btn3d {
@@ -764,7 +765,7 @@ ul.friend-list .right p {
     z-index: 20;
     margin-top: 20px;
   }
-  
+
   /* Flip around the padding for proper display in narrow viewports */
   .navbar-wrapper .container {
     padding-left: 0;
@@ -774,12 +775,19 @@ ul.friend-list .right p {
     padding-left: 15px;
     padding-right: 15px;
   }
-  
+
   .navbar-content
   {
       width:320px;
       padding: 15px;
       padding-bottom:0px;
+  }
+  /* for phones*/
+  @media screen and (max-width : 768){
+    .navbar-content
+    {
+        width:200px;
+    }
   }
   .navbar-content:before, .navbar-content:after
   {
@@ -790,7 +798,7 @@ ul.friend-list .right p {
   .navbar-nav.navbar-right:last-child {
   margin-right: 15px !important;
   }
-  .navbar-footer 
+  .navbar-footer
   {
       background-color:#DDD;
   }
@@ -804,20 +812,20 @@ ul.friend-list .right p {
   table.sortable th {
     width: 8em;
   }
-  
+
   table.sortable th {
     font-weight: bold;
     border-bottom: thin solid #888;
   }
-  
+
   table.sortable th.no-sort {
     padding-top: 0.35em;
   }
-  
+
   table.sortable th:nth-child(5) {
     width: 10em;
   }
-  
+
   table.sortable th button {
     padding: 4px;
     margin: 1px;
@@ -836,26 +844,26 @@ ul.friend-list .right p {
     width: 100%;
   text-align: inherit;
   }
-  
+
   table.sortable th button span {
     /* position: absolute; */
     right: 4px;
   }
-  
+
   table.sortable th[aria-sort="descending"] span::after {
     content: "▼";
     color: currentcolor;
     font-size: 100%;
     top: 0;
   }
-  
+
   table.sortable th[aria-sort="ascending"] span::after {
     content: "▲";
     color: currentcolor;
     font-size: 100%;
     top: 0;
   }
-  
+
   table.show-unsorted-icon th:not([aria-sort]) button span::after {
     content: "♢";
     color: currentcolor;
@@ -864,28 +872,28 @@ ul.friend-list .right p {
     top: -3px;
     left: -4px;
   }
-  
+
   table.sortable td.num {
     text-align: right;
   }
-  
+
   table.sortable tbody tr:nth-child(odd) {
     background-color: #ddd;
   }
-  
+
   /* Focus and hover styling */
-  
+
   table.sortable th button:focus,
   table.sortable th button:hover {
     padding: 4px;
     background-color: #e5f4ff;
   }
-  
+
   table.sortable th button:focus span,
   table.sortable th button:hover span {
     right: 0px;
   }
-  
+
   table.sortable th:not([aria-sort]) button:focus span::after,
   table.sortable th:not([aria-sort]) button:hover span::after {
     content: "▼";
@@ -893,7 +901,7 @@ ul.friend-list .right p {
     font-size: 100%;
     top: 0;
   }
-                          
+
 .form-signin {
     max-width: 330px;
     padding: 15px;
@@ -1075,10 +1083,6 @@ ul.friend-list .right p {
   font-weight: bold;
 }
 
-
-
-
-body{margin-top:20px;}
 .form-control:not(textarea) {
     height: 44px;
 }
@@ -1119,4 +1123,8 @@ body{margin-top:20px;}
   border-radius: 4px;
   padding: 4px;
   text-align: left;
+}
+
+.btn-section {
+	width: 100%;
 }

@@ -54,7 +54,7 @@
                                             <a href="#">ویرایش عکس</a>
                                         </p>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="mb-2 col-md-7">
                                         <span>{{ Auth::user()->name }}</span>
                                         <p class="text-muted small">
                                             mail@gmail.com</p>
@@ -68,13 +68,13 @@
                             </div>
                             <div class="navbar-footer">
                                 <div class="navbar-footer-content">
-                                    <div class="row">
+                                    <div class="row justify-content-center">
                                         <div class="col-md-6">
-                                            <a href="٫" class="btn btn-default btn-sm" style="background:white">
+                                            <a href="" class="btn btn-default btn-sm" style="background:white">
                                                 اکانت های من
                                             </a>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="mt-2 col-md-6">
                                             <a href="{{ route('logout') }}" class="btn  btn-sm pull-right"
                                                 style="background:white">
                                                 {{ __('static.logout') }}

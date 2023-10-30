@@ -21,8 +21,8 @@
                     </div>
                     <div class="card-footer">
                         <div class="row justify-content-end">
-                            <div class="col-2">
-                                <button id="url-added-btn" class="btn  btn-section" type="submit">
+                            <div class="col-4 col-md-3">
+                                <button id="url-added-btn" class="btn btn-section" type="submit">
                                     <span id="url-added-btn-spin" class="spinner-border spinner-border-sm" role="status"
                                         aria-hidden="true" style="visibility: hidden;"></span>
                                     اضافه کردن </button>
@@ -112,7 +112,7 @@
 
                     <div class="card-footer">
                         <div class="row justify-content-end">
-                            <div class="col-2">
+                            <div class="col-4 col-md-3">
                                 <button type="submit" class="btn btn-section" type="button">
                                     {{ __('static.add') }}
                                 </button>
