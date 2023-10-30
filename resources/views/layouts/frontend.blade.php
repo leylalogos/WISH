@@ -3,6 +3,7 @@
 
 <head>
     <meta name="color-scheme" content="only light">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="application-name" content="wish">
     <meta name="description" content="Make your wish list">
     <meta name="keywords" content="wish, birthday, celeberate, iran">
@@ -15,6 +16,9 @@
     <link href="{{ asset('/frontend/fa/css/fontawesome.css') }}" rel="stylesheet">
     <link href="{{ asset('/frontend/fa/css/brands.css') }}" rel="stylesheet">
     <link href="{{ asset('/frontend/fa/css/solid.css') }}" rel="stylesheet">
+    <script>
+        base_url = '{{ url('/') }}';
+    </script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Google tag (gtag.js) -->

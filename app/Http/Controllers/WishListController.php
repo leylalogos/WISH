@@ -27,26 +27,13 @@ class WishListController extends Controller
             'priority' => 'required|integer|min:0|max:3',
         ]);
 
-        // check for the link to be non-broken
-        try {
-            $response = Http::withHeaders([
-                'User-Agent' => self::USERAGENT,
-            ])->get($request->url);
-        } catch (\Exception $e) {
-            return back()->withErrors(['url' => 'در حال حاضر امکان بررسی لینک مورد نظر وجود ندارد.']);
-        }
-        if ($response->status() != 200) {
-            return back()->withErrors(['url' => 'لینک مورد نظر وجود ندارد.']);
-        }
-
-        //getting openGraph attributes
-        $ogAttributes = $this->getOGAttributes($response->body(), ['title', 'image', 'description']);
-
         WishList::create([
             'user_id' => Auth::id(),
             'title' => $request->title,
             'url' => $request->url,
             'priority' => $request->priority,
+            'description' => $request->description,
+            'image_url' => $request->image_url,
             'price' => $request->price ? ($request->price / 1000) : null, //convert iranian rial to kiloriyal
         ]);
         return redirect()->back();
@@ -68,6 +55,27 @@ class WishListController extends Controller
             $ogAttributes[$ogKey] = $nodes->count() ? ($nodes->first()->attr('content')) : null;
         }
         return $ogAttributes;
+    }
+
+    public function ogInfo(Request $request)
+    {
+        // check for the link to be non-broken
+        try {
+            $response = Http::withHeaders([
+                'User-Agent' => self::USERAGENT,
+            ])->get($request->url);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'در حال حاضر امکان بررسی لینک مورد نظر وجود ندارد',
+                'exception' => $e->getMessage(),
+            ]);
+        }
+        if ($response->status() != 200) {
+            return response()->json(['message' => 'لینک مورد نظر وجود ندارد.']);
+        }
+
+        //getting openGraph attributes
+        return response()->json($this->getOGAttributes($response->body(), ['title', 'image']));
     }
 
 }

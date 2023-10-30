@@ -38,3 +38,5 @@ Route::view('contact', 'pages/contact')->name('contact');
 Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::view('policies/privacy', 'policies/privacy')->name('policies.privacy');
 Route::view('fr', 'pages/find-freind')->name('find');
+
+Route::post('wish-list/og-info', [WishListController::class, 'ogInfo']);

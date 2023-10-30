@@ -133,7 +133,7 @@
                                 <hr>
                                 <div class="row mb-2">
 
-                                    <button id ="btn-profile-section" type="button" class="btn btn-light">
+                                    <button type="button" class="btn btn-light btn-section">
                                         {{ __('static.send') }}
                                     </button>
 
