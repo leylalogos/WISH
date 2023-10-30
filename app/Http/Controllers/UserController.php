@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Connection;
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -32,8 +33,14 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function acceptInvitation()
+    public function acceptInvitation($username)
     {
+        $following_id = Auth::id();
+        Connection::create([
+            'following_id' => $following_id,
+            'followed_id' => User::where('username', $username)->first()->id,
+            'created_by' => 'invite_link',
+        ]);
         return redirect()->route('index');
     }
 }
