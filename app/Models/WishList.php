@@ -14,6 +14,8 @@ class WishList extends Model
         'priority',
         'user_id',
         'price',
+        'description',
+        'image_url',
     ];
     public function user()
     {
