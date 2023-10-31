@@ -18,9 +18,8 @@
                     </div>
                     <!--end of col-->
                     <div class="col-auto">
-                        <button type="button" class="btn btn-success btn-lg btn3d"><span
-                                class="glyphicon glyphicon-ok"></span> جستجو</button>
-                        {{-- <button class="btn btn-lg btn-success" type="submit">Search</button> --}}
+                        <button type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-ok"></span>
+                            جستجو</button>
                     </div>
                     <!--end of col-->
                 </div>
@@ -51,11 +50,14 @@
                         <a href="#"><i class="fas fa-envelope"></i></a>
                         <div class="clear"></div>
                     </div>
-                    <div class="footer">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-8">
+                            <button class="btn btn-outline-dark"
+                                style="width: 100%;
+                            padding: 12px;
+                            border-radius: 15px;">send</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -76,12 +78,7 @@
                         <a href="#"><i class="fas fa-envelope"></i></a>
                         <div class="clear"></div>
                     </div>
-                    <div class="footer">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+
                 </div>
             </div>
             <div class="col-lg-3">
@@ -101,12 +98,7 @@
                         <a href="#"><i class="fas fa-envelope"></i></a>
                         <div class="clear"></div>
                     </div>
-                    <div class="footer">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+
                 </div>
             </div>
             <div class="col-lg-3">
@@ -126,12 +118,7 @@
                         <a href="#"><i class="fas fa-envelope"></i></a>
                         <div class="clear"></div>
                     </div>
-                    <div class="footer">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -154,12 +141,7 @@
                         <a href="#"><i class="fas fa-envelope"></i></a>
                         <div class="clear"></div>
                     </div>
-                    <div class="footer">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+
                 </div>
             </div>
             <div class="col-lg-3">
@@ -179,12 +161,7 @@
                         <a href="#"><i class="fas fa-envelope"></i></a>
                         <div class="clear"></div>
                     </div>
-                    <div class="footer">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+
                 </div>
             </div>
             <div class="col-lg-3">
@@ -204,12 +181,7 @@
                         <a href="#"><i class="fas fa-envelope"></i></a>
                         <div class="clear"></div>
                     </div>
-                    <div class="footer">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+
                 </div>
             </div>
             <div class="col-lg-3">

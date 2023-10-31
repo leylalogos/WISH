@@ -12,12 +12,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('find') }}">
-                    دوستان
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    {{ __('navbar.contact') }}
+                    جستجوی افراد
                 </a>
             </li>
             @guest
@@ -48,8 +43,7 @@
                             <div class="navbar-content">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <img src="{{ Auth::user()->avatar }}" alt="Alternate Text"
-                                            class="img-responsive" />
+                                        <img src="{{ Auth::user()->avatar }}" alt="Alternate Text" class="img-responsive" />
                                         <p class="text-center small">
                                             <a href="#">ویرایش عکس</a>
                                         </p>

@@ -6,10 +6,8 @@
                 <section class="widget widget-links widget-light-skin">
                     <h3 class="widget-title">درباره ما</h3>
                     <ul>
-                        <li><a href="#">ورود به حساب کاربری </a></li>
+                        <li><a href="{{ route('login') }}">ورود به حساب کاربری </a></li>
                         <li><a href="#">هدف ما</a></li>
-                        <li><a href="#">سرویس ها</a></li>
-                        <li><a href="#">وبلاگ </a></li>
                     </ul>
                 </section>
             </div>
@@ -37,15 +35,14 @@
                 <!-- Contact Info-->
                 <section class="widget widget-light-skin">
                     <h3 class="widget-title">با ما در ارتباط باش</h3>
-                    <p class="text-white">تلفن:02424332123</p>
 
                     <p><a class="navi-link-light" href="#">wish-contact@xnor.one</a></p>
-                    <a class="social-button shape-circle sb-facebook sb-light-skin" href="#">
+                    {{-- <a class="social-button shape-circle sb-facebook sb-light-skin" href="#">
                         <i class="fa-brands fa-instagram"></i></a>
                     <a class="social-button shape-circle sb-twitter sb-light-skin" href="#">
                         <i class="fa-brands fa-google"></i></a>
                     <a class="social-button shape-circle sb-instagram sb-light-skin" href="#">
-                        <i class="fa-brands fa-facebook"></i></a>
+                        <i class="fa-brands fa-facebook"></i></a> --}}
                 </section>
             </div>
         </div>
