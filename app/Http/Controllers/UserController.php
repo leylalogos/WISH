@@ -17,20 +17,18 @@ class UserController extends Controller
     public function update(User $user, Request $request)
     {
         $request->validate([
-            'name' => 'required|string|min:2|max:255',
+            'name' => 'string|min:2|max:255',
             'birthday' => 'before:today',
             'phone_number' => 'string|max:15|min:2',
-            'username' => 'required|unique:users,username',
+            'username' => 'unique:users,username',
         ]);
 
         $user = Auth::user();
-        $user->update([
-            'name' => $request->name,
-            'username' => $request->username,
-            'birthday' => $request->birthday,
-            'phone_number' => $request->phone_number,
-        ]);
-        return redirect()->back();
+        $user->update($request->all());
+        session()->flash('message.success',
+            'اطلاعات با موفقیت ذخیره شد'
+        );
+        return redirect()->route('profile');
     }
 
     public function acceptInvitation($username)

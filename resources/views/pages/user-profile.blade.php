@@ -85,14 +85,15 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('update.profile') }}" method="post">
+                            <form action="{{ route('profile.update') }}" method="post">
                                 @csrf
+                                @method('PATCH')
                                 <div class="row">
                                     <label class="col-sm-3">{{ __('static.name') }}</label>
 
                                     <div class="col-sm-9">
-                                        <input class=" form-control text-muted mb-0" name="name" type="text"
-                                            value="{{ $user->name }}">
+                                        <input class="form-control mb-0" name="name" type="text"
+                                            placeholder="{{ $user->name }}">
                                     </div>
                                 </div>
                                 <hr>
@@ -101,43 +102,28 @@
                                     <label class="col-sm-3">{{ __('static.username') }}</label>
 
                                     <div class="col-sm-9">
-                                        <input class=" form-control text-muted mb-0" name="username" type="text"
-                                            value="{{ $user->username }}">
-                                    </div>
-                                </div>
-                                <hr>
-
-                                <div class="row">
-                                    <label class="col-sm-3">{{ __('static.email') }}</label>
-                                    <div class="col-sm-9">
-                                        <input class=" form-control text-muted mb-0" type="text" name="email"
-                                            value="{{ $user->email }}" disabled>
+                                        <input class=" form-control  mb-0" name="username" type="text"
+                                            placeholder="{{ $user->username }}">
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <label class="col-sm-3">{{ __('static.phone_number') }}</label>
                                     <div class="col-sm-9">
-                                        <input class=" form-control text-muted mb-0" type="tel" name="phone_number"
-                                            value="{{ $user->phone_number }}">
+                                        <input class=" form-control  mb-0" type="tel" name="phone_number"
+                                            placeholder="{{ $user->phone_number }}">
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <label class="col-sm-3 ">{{ __('static.birthdate') }}</label>
                                     <div class="col-sm-9">
-                                        <input class="text-muted mb-0 form-control" type="date" name="birthday"
-                                            value="{{ $user->birthday }}">
+                                        <input data-jdp class=" mb-0 form-control" type="text" name="birthday"
+                                            placeholder="{{ $user->birthday }}">
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="row mb-2">
-
-                                    <button type="button" class="btn btn-light btn-section">
-                                        {{ __('static.send') }}
-                                    </button>
-
-                                </div>
+                                @include('partials.row-button-end', ['text' => __('static.send')])
                             </form>
                         </div>
                     </div>

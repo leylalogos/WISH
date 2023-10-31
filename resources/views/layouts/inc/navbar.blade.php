@@ -29,9 +29,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('my_wish_list') }}">
-                        {{ __('navbar.my_wish_list') }}
-                    </a>
+                    <a class="nav-link" href="{{ route('wishlist.create') }}">
+                        ایجاد لیست آرزو </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('wishlist.index') }}">
+                        لیست آرزوهام </a>
                 </li>
                 <li id="nav-profile" class="dropdown" dir="ltr">
                     <a href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown"

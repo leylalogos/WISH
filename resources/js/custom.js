@@ -5,6 +5,7 @@ $.ajaxSetup({
     },
 });
 $(document).ready(function () {
+    jalaliDatepicker.startWatch();
     $("#copy-button").click(function () {
         let input = $("#invitation-link");
         let text = input.val();
@@ -33,12 +34,12 @@ $(document).ready(function () {
         if (url.length == 0) {
             $("#product-detail").css("display", "none");
         } else {
-            $("#url-added-btn-spin").css("visibility", "visible");
+            $("#url-added-btn-spin").css("display", "inline-table");
             $.post(
                 base_url + "/wish-list/og-info",
                 { url: url },
                 function (data, status) {
-                    $("#url-added-btn-spin").css("visibility", "hidden");
+                    $("#url-added-btn-spin").css("display", "none");
 
                     $(".alert-danger").remove();
                     if (data.message === undefined) {
@@ -64,6 +65,26 @@ $(document).ready(function () {
                 }
             );
         }
+    });
+
+    $("#url-add-back").click(function(event){
+        event.preventDefault();
+        $("#product-detail").css("display", "none");
+        $("#url-box").css("display", "flex");
+    });
+
+    $(".wish-notification").each(function (){
+        let notificationDiv = $(this);
+        setTimeout(function(){
+            notificationDiv.remove();
+        }, 3000) 
+    });
+
+    //removing empty values from the forms
+    $('form').submit(function () {
+        $(this).find('input[name]').filter(function () {
+                return !this.value;
+            }).prop('name', '');
     });
 }); //end of ready function
 
