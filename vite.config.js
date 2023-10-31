@@ -2,11 +2,13 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import inject from "@rollup/plugin-inject";
 import path from 'path';
+import vitePluginRequire from "vite-plugin-require";
 
 export default defineConfig({
     resolve: {
         alias: {
           '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
+          '~jalaliCalendar':path.resolve(__dirname, 'node_modules/@majidh1/jalalidatepicker'),
         }
       },
     plugins: [
@@ -19,6 +21,7 @@ export default defineConfig({
                   $: 'jquery',
                   jQuery: 'jquery',
                 }),
+        vitePluginRequire.default(),
                 
     ],
 });

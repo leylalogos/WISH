@@ -4,7 +4,7 @@
     <div class="index-card" style="margin-top:0px;">
         <div class="text-center mt-5">
             <h1> {{ __('static.slogan') }} </h1>
-            <a href="{{ route('my_wish_list') }}" class="btn btn-light  mt-5">
+            <a href="{{ route('wishlist.create') }}" class="btn btn-light  mt-5">
                 {{ __('static.start creating my wish list') }}
             </a>
         </div>

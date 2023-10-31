@@ -14,12 +14,18 @@ class WishListController extends Controller
     // google user-agent using for scrapping so the websites will tend to return the SSR version of their pages
     const USERAGENT = 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/W.X.Y.Z Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)';
 
-    public function index()
+    public function create()
     {
         $wishLists = Auth::user()->wishLists;
         return view('pages.my-wish-list', compact('wishLists'));
     }
-    public function create(User $user, Request $request)
+    public function index()
+    {
+        $wishLists = Auth::user()->wishLists;
+        return view('pages.show-wish-list', compact('wishLists'));
+    }
+
+    public function store(User $user, Request $request)
     {
         $request->validate([
             'title' => 'string|min:2|max:255',
@@ -36,7 +42,11 @@ class WishListController extends Controller
             'image_url' => $request->image_url,
             'price' => $request->price ? ($request->price / 1000) : null, //convert iranian rial to kiloriyal
         ]);
-        return redirect()->back();
+        session()->flash(
+            'message.success',
+            'آرزو اضافه شد'
+        );
+        return redirect()->route('wishlist.index');
     }
 
     /**

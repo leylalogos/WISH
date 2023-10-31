@@ -44,6 +44,11 @@
 <body>
     <div class="">
         @include('layouts.inc.navbar')
+        @if (session()->has('message.success'))
+            <div class="alert alert-success wish-notification" role="alert">
+                {{ session('message.success') }}
+            </div>
+        @endif
         @yield('content')
     </div>
     @include('layouts.inc.footer')
