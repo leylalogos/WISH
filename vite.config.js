@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import inject from "@rollup/plugin-inject";
 import path from 'path';
+import vitePluginRequire from "vite-plugin-require";
 
 export default defineConfig({
     resolve: {
@@ -20,6 +21,7 @@ export default defineConfig({
                   $: 'jquery',
                   jQuery: 'jquery',
                 }),
+        vitePluginRequire.default(),
                 
     ],
 });

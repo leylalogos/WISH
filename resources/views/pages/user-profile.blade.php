@@ -85,7 +85,7 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('profile.update') }}" method="post">
+                            <form id="profile-update-form" action="{{ route('profile.update') }}" method="post">
                                 @csrf
                                 @method('PATCH')
                                 <div class="row">
@@ -118,8 +118,8 @@
                                 <div class="row">
                                     <label class="col-sm-3 ">{{ __('static.birthdate') }}</label>
                                     <div class="col-sm-9">
-                                        <input data-jdp class=" mb-0 form-control" type="text" name="birthday"
-                                            placeholder="{{ $user->birthday }}">
+                                        <input id="jalaliDate" data-jdp class=" mb-0 form-control" type="text"
+                                            name="birthday" placeholder="{{ $user->birthday }}">
                                     </div>
                                 </div>
                                 <hr>

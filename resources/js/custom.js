@@ -1,4 +1,6 @@
 "use strict";
+//imports
+const jalaaliCon = require("jalaali-js");
 $.ajaxSetup({
     headers: {
         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -6,6 +8,24 @@ $.ajaxSetup({
 });
 $(document).ready(function () {
     jalaliDatepicker.startWatch();
+
+    $("#profile-update-form").submit(function (e) {
+        let input = $("#jalaliDate");
+        let jalaliString = input.val();
+        if (jalaliString.length === 0) {
+            return true;
+        }
+        let jalaliSplited = jalaliString.split("/");
+        let georgianDate = jalaaliCon.toGregorian(
+            parseInt(jalaliSplited[0]),
+            parseInt(jalaliSplited[1]),
+            parseInt(jalaliSplited[2])
+        );
+        let georgianStringDate =
+            georgianDate.gy + "/" + georgianDate.gm + "/" + georgianDate.gd;
+        input.val(georgianStringDate);
+    });
+
     $("#copy-button").click(function () {
         let input = $("#invitation-link");
         let text = input.val();
@@ -67,24 +87,27 @@ $(document).ready(function () {
         }
     });
 
-    $("#url-add-back").click(function(event){
+    $("#url-add-back").click(function (event) {
         event.preventDefault();
         $("#product-detail").css("display", "none");
         $("#url-box").css("display", "flex");
     });
 
-    $(".wish-notification").each(function (){
+    $(".wish-notification").each(function () {
         let notificationDiv = $(this);
-        setTimeout(function(){
+        setTimeout(function () {
             notificationDiv.remove();
-        }, 3000) 
+        }, 3000);
     });
 
     //removing empty values from the forms
-    $('form').submit(function () {
-        $(this).find('input[name]').filter(function () {
+    $("form").submit(function () {
+        $(this)
+            .find("input[name]")
+            .filter(function () {
                 return !this.value;
-            }).prop('name', '');
+            })
+            .prop("name", "");
     });
 }); //end of ready function
 
