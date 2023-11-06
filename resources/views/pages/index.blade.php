@@ -3,8 +3,8 @@
 @section('content')
     <div class="index-card" style="margin-top:0px;">
         <div class="text-center mt-5">
-            <h1> {{ __('static.slogan') }} </h1>
-            <a href="{{ route('wishlist.create') }}" class="btn btn-light  mt-5">
+            <h1 class="slide-left"> {{ __('static.slogan') }} </h1>
+            <a href="{{ route('wishlist.create') }}" class="btn btn-light slide-left mt-5">
                 {{ __('static.start creating my wish list') }}
             </a>
         </div>

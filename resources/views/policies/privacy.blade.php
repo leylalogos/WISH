@@ -136,7 +136,7 @@
                         will help you understand your privacy rights and choices. If you do not agree with our policies
                         and
                         practices, please do not use our Services. If you still have any questions or concerns, please
-                        contact us at <bdt class="question">privacy@wish.xnor.one</bdt>.</span></span></span></div>
+                        contact us at <bdt class="question">legal@wish.xnor.one</bdt>.</span></span></span></div>
         <div style="line-height: 1.5;"><br></div>
         <div style="line-height: 1.5;"><br></div>
         <div style="line-height: 1.5;"><strong><span style="font-size: 15px;"><span data-custom-class="heading_1">SUMMARY
@@ -2693,7 +2693,7 @@
                                                                                                             </bdt>
                                                                                                             <bdt
                                                                                                                 class="question">
-                                                                                                                privacy@wish.xnor.one
+                                                                                                                legal@wish.xnor.one
                                                                                                             </bdt>
                                                                                                             <bdt
                                                                                                                 class="else-block">
@@ -3158,7 +3158,7 @@
                                                                                                 rights, you may email us
                                                                                                 at
                                                                                                 <bdt class="question">
-                                                                                                    privacy@wish.xnor.one
+                                                                                                    legal@wish.xnor.one
                                                                                                 </bdt>.
                                                                                             </span></span>
                                                                                         <bdt
@@ -3405,7 +3405,7 @@
                                                                                                             us
                                                                                                             at <bdt
                                                                                                                 class="question">
-                                                                                                                privacy@wish.xnor.one
+                                                                                                                legal@wish.xnor.one
                                                                                                             </bdt>
                                                                                                             <bdt
                                                                                                                 class="statement-end-if-in-editor">
