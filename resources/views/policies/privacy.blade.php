@@ -618,8 +618,8 @@
                                 class="block-component"></bdt>You can find out more about this in our Cookie Notice:
                             <bdt class="statement-end-if-in-editor"></bdt>
                             <bdt class="block-component"></bdt>
-                            <bdt class="question"><a href="https://wish.xnor.one/cookie-policy" target="_blank"
-                                    data-custom-class="link">https://wish.xnor.one/cookie-policy</a></bdt>.<bdt
+                            <bdt class="question"><a href="https://wish.xnor.one/policies/cookie" target="_blank"
+                                    data-custom-class="link">https://wish.xnor.one/policies/cookie</a></bdt>.<bdt
                                 class="block-component"></bdt>
                         </span></span></span></div>
             <div style="line-height: 1.5;"><br></div>
@@ -1033,9 +1033,9 @@
                                                                     information see our Cookie Notice: <bdt
                                                                         class="block-component"></bdt>
                                                                     <bdt class="question"><a
-                                                                            href="https://wish.xnor.one/cookie-policy"
+                                                                            href="https://wish.xnor.one/policies/cookie"
                                                                             target="_blank"
-                                                                            data-custom-class="link">https://wish.xnor.one/cookie-policy</a>
+                                                                            data-custom-class="link">https://wish.xnor.one/policies/cookie</a>
                                                                     </bdt>
                                                                     <bdt class="block-component"></bdt>.<bdt
                                                                         class="statement-end-if-in-editor"></bdt>
@@ -2201,9 +2201,9 @@
                                                                                                             data-custom-class="body_text">
                                                                                                             <bdt
                                                                                                                 class="question">
-                                                                                                                <a href="https://wish.xnor.one/cookie-policy"
+                                                                                                                <a href="https://wish.xnor.one/policies/cookie"
                                                                                                                     target="_blank"
-                                                                                                                    data-custom-class="link">https://wish.xnor.one/cookie-policy</a>
+                                                                                                                    data-custom-class="link">https://wish.xnor.one/policies/cookie</a>
                                                                                                             </bdt>
                                                                                                         </span></span><span
                                                                                                         style="font-size: 15px; color: rgb(89, 89, 89);">
@@ -3120,9 +3120,9 @@
                                                                                                                 data-custom-class="body_text">
                                                                                                                 <bdt
                                                                                                                     class="question">
-                                                                                                                    <a href="https://wish.xnor.one/cookie-policy"
+                                                                                                                    <a href="https://wish.xnor.one/policies/cookie"
                                                                                                                         target="_blank"
-                                                                                                                        data-custom-class="link">https://wish.xnor.one/cookie-policy</a>
+                                                                                                                        data-custom-class="link">https://wish.xnor.one/policies/cookie</a>
                                                                                                                 </bdt>.
                                                                                                                 <bdt
                                                                                                                     class="block-component">

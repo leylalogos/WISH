@@ -25,9 +25,11 @@
             <div class="col-lg-3 col-md-6">
                 <!-- About Us-->
                 <section class="widget widget-links widget-light-skin">
-                    <h3 class="widget-title"> حریم خصوصی</h3>
+                    <h3 class="widget-title">سیاست ها</h3>
                     <ul>
                         <li><a href="{{ route('policies.privacy') }}">حفظ حریم خصوصی</a></li>
+                        <li><a href="{{ route('policies.term') }}">شرایط استفاده</a></li>
+                        <li><a href="{{ route('policies.cookie') }}">ذخیره کوکی</a></li>
                     </ul>
                 </section>
             </div>
