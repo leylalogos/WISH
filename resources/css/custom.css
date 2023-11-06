@@ -50,6 +50,26 @@ body{
     font-family: tanha;
 }
 
+
+
+.slide-left{
+animation: slide-left 1s linear forwards;
+}
+@keyframes slide-left{
+    0%{
+        transform: translate(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translate(0px);
+        opacity: 1;
+    }
+}
+
+
+
+
+
 btn,a,button{
     font-family: vazir;
 }
@@ -60,7 +80,7 @@ body {
 
 /*navbar*/
 nav {
-    background-color: var(--primaryBG);
+    background-color: var(--primaryBG);    
 }
 
 .navbar-dark .navbar-nav .nav-link {
