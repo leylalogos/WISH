@@ -28,6 +28,8 @@
                     <h3 class="widget-title"> حریم خصوصی</h3>
                     <ul>
                         <li><a href="{{ route('policies.privacy') }}">حفظ حریم خصوصی</a></li>
+                        <li><a href="{{ route('policies.term') }}">شرایط استفاده</a></li>
+                        <li><a href="{{ route('policies.cookie') }}">ذخیره کوکی</a></li>
                     </ul>
                 </section>
             </div>

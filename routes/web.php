@@ -34,11 +34,15 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('logout', 'logout')->name('logout');
 });
 
-Route::view('about', 'pages/about')->name('about');
 Route::view('/', 'pages/index')->name('index');
-Route::view('contact', 'pages/contact')->name('contact');
 Route::get('login', [LoginController::class, 'login'])->name('login');
-Route::view('policies/privacy', 'policies/privacy')->name('policies.privacy');
+
+Route::name('policies.')->prefix('policies')->group(function () {
+    Route::view('/privacy', 'policies/privacy')->name('privacy');
+    Route::view('/term', 'policies/term')->name('term');
+    Route::view('/cookie', 'policies/cookie')->name('cookie');
+
+});
 Route::view('fr', 'pages/find-freind')->name('find');
 
 Route::post('wish-list/og-info', [WishListController::class, 'ogInfo']);
