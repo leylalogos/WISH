@@ -15,10 +15,6 @@ class LoginController extends Controller
 
     public function login()
     {
-        $urlPrevious = url()->previous();
-        if ($urlPrevious != route('login')) {
-            session()->put('url.intended', $urlPrevious);
-        }
         return view('pages/login');
     }
 
