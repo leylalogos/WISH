@@ -115,14 +115,6 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="row">
-                                    <label class="col-sm-3 ">{{ __('static.birthdate') }}</label>
-                                    <div class="col-sm-9">
-                                        <input id="jalaliDate" data-jdp class=" mb-0 form-control" type="text"
-                                            name="birthday" placeholder="{{ $user->birthday }}">
-                                    </div>
-                                </div>
-                                <hr>
                                 @include('partials.row-button-end', ['text' => __('static.send')])
                             </form>
                         </div>

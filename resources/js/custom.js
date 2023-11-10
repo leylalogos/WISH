@@ -7,7 +7,23 @@ $.ajaxSetup({
     },
 });
 $(document).ready(function () {
-    jalaliDatepicker.startWatch();
+    $(".edit").click(function () {
+        let tr = $(this).parent().parent();
+        let date = tr.find(":nth-child(3)").html();
+        let id = $(this).data("id");
+
+        let url = $("#editAnniversaryModal form")
+            .attr("action")
+            .replace(/\d+/, id);
+
+        $("#editAnniversaryModal form").attr("action", url);
+
+        $("[name='anniversary_date']").val(date);
+    });
+
+    jalaliDatepicker.startWatch({
+        zIndex: 1100,
+    });
 
     $("#profile-update-form").submit(function (e) {
         let input = $("#jalaliDate");

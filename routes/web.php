@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnniversaryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishListController;
@@ -26,7 +27,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/create', 'create')->name('create');
         Route::post('/', 'store')->name('store');
     });
-
+    Route::name('anniversary.')->prefix('anniversary')->controller(AnniversaryController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+        Route::post('update/{anniversary}', 'update')->name('update');
+    });
 });
 Route::controller(LoginController::class)->group(function () {
     Route::get('login/{provider}', 'redirectToProvider')->name('login.redirect');
@@ -44,5 +49,4 @@ Route::name('policies.')->prefix('policies')->group(function () {
 
 });
 Route::view('fr', 'pages/find-freind')->name('find');
-
 Route::post('wish-list/og-info', [WishListController::class, 'ogInfo']);

@@ -36,6 +36,10 @@
                     <a class="nav-link" href="{{ route('wishlist.index') }}">
                         لیست آرزوهام </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('anniversary.index') }}">
+                        مراسم و سالگرد های من </a>
+                </li>
                 <li id="nav-profile" class="dropdown" dir="ltr">
                     <a href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown"
                         data-bs-toggle="dropdown">پروفایل
@@ -46,7 +50,8 @@
                             <div class="navbar-content">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <img src="{{ Auth::user()->avatar }}" alt="Alternate Text" class="img-responsive" />
+                                        <img src="{{ Auth::user()->avatar }}" alt="Alternate Text"
+                                            class="img-responsive" />
                                         <p class="text-center small">
                                             <a href="#">ویرایش عکس</a>
                                         </p>
