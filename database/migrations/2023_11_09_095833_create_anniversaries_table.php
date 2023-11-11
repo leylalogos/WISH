@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('anniversary_type');
             $table->unsignedInteger('importance');
             $table->string('description')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
         Schema::table('users', function (Blueprint $table) {

@@ -37,4 +37,11 @@ class AnniversaryController extends Controller
             $request->except(['user_id']),
         );
     }
+
+    public function destroy(Anniversary $anniversary, Request $request)
+    {
+        Anniversary::where('id', $anniversary->id)->delete();
+
+        return redirect()->back();
+    }
 }

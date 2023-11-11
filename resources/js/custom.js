@@ -1,47 +1,11 @@
 "use strict";
 //imports
-const jalaaliCon = require("jalaali-js");
 $.ajaxSetup({
     headers: {
         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
     },
 });
 $(document).ready(function () {
-    $(".edit").click(function () {
-        let tr = $(this).parent().parent();
-        let date = tr.find(":nth-child(3)").html();
-        let id = $(this).data("id");
-
-        let url = $("#editAnniversaryModal form")
-            .attr("action")
-            .replace(/\d+/, id);
-
-        $("#editAnniversaryModal form").attr("action", url);
-
-        $("[name='anniversary_date']").val(date);
-    });
-
-    jalaliDatepicker.startWatch({
-        zIndex: 1100,
-    });
-
-    $("#profile-update-form").submit(function (e) {
-        let input = $("#jalaliDate");
-        let jalaliString = input.val();
-        if (jalaliString.length === 0) {
-            return true;
-        }
-        let jalaliSplited = jalaliString.split("/");
-        let georgianDate = jalaaliCon.toGregorian(
-            parseInt(jalaliSplited[0]),
-            parseInt(jalaliSplited[1]),
-            parseInt(jalaliSplited[2])
-        );
-        let georgianStringDate =
-            georgianDate.gy + "/" + georgianDate.gm + "/" + georgianDate.gd;
-        input.val(georgianStringDate);
-    });
-
     $("#copy-button").click(function () {
         let input = $("#invitation-link");
         let text = input.val();

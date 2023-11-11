@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
         Route::post('update/{anniversary}', 'update')->name('update');
+        Route::post('delete/{anniversary}', 'destroy')->name('delete');
+
     });
 });
 Route::controller(LoginController::class)->group(function () {
