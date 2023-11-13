@@ -18,7 +18,6 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'string|min:2|max:255',
-            'birthday' => 'before:today',
             'phone_number' => 'string|max:15|min:2',
             'username' => 'unique:users,username',
         ]);
