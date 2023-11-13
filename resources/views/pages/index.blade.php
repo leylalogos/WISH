@@ -67,7 +67,7 @@
     </div>
     {{-- goal side --}}
     <div class="container">
-        <div class="index-card">
+        <div class="index-card" id="goal_section">
             <article>
                 <section>
                     <div class="text-center mt-5">
@@ -82,6 +82,7 @@
             </article>
         </div>
     </div>
+
 @endsection
 
 @push('meta-tags')
