@@ -7,7 +7,7 @@
                     <h3 class="widget-title">درباره ما</h3>
                     <ul>
                         <li><a href="{{ route('login') }}">ورود به حساب کاربری </a></li>
-                        <li><a href="#">هدف ما</a></li>
+                        <li><a href="#goal_section">هدف ما</a></li>
                     </ul>
                 </section>
             </div>
@@ -49,25 +49,8 @@
             </div>
         </div>
         <hr class="hr-light mt-2 margin-bottom-2x">
-        <div class="row">
-            <div class="col-md-7 padding-bottom-1x"></div>
-            <div class="col-md-5 padding-bottom-1x">
-                <div class="margin-top-1x hidden-md-up"></div>
-                <!--Subscription-->
-                <form class="subscribe-form" action="#" method="post" target="_blank" novalidate="">
-                    <div class="clearfix">
-                        <div class="input-group input-light">
-                            <input class="form-control" type="email" name="EMAIL"
-                                placeholder="ایمیل وارد کنید"><span class="input-group-addon"><i
-                                    class="icon-mail"></i></span>
-                        </div>
-                        <button class="btn btn-primary mt-2" type="submit">عضویت</button>
-                    </div><span class="form-text text-sm text-white opacity-50">
-                        برای با خبر شدن از تمامی اخبار و آخرین آپدیت ها عضو شو</span>
-                </form>
-            </div>
-        </div>
+
         <!-- Copyright-->
-        <p class="footer-copyright"><a>&copy; تمامی حقوق محفوظ است</a></p>
+        <p class="footer-copyright"><a href="http://xnor.one/">&copy; تمامی حقوق محفوظ است</a></p>
     </div>
 </footer>
