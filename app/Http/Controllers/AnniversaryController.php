@@ -16,6 +16,11 @@ class AnniversaryController extends Controller
 
     public function store(Anniversary $anniversay, Request $request)
     {
+        $request->validate([
+            'anniversary_date' => 'required|date',
+            'anniversary_type' => 'required|integer|min:0|max:2',
+            'importance' => 'required|integer|min:0|max:3',
+        ]);
         Anniversary::create([
             'user_id' => Auth::id(),
             'anniversary_date' => $request->anniversary_date,
@@ -33,6 +38,11 @@ class AnniversaryController extends Controller
     public function update(Anniversary $anniversay, Request $request)
     {
 
+        $request->validate([
+            'anniversary_date' => 'required|date',
+            'anniversary_type' => 'required|integer|min:0|max:2',
+            'importance' => 'required|integer|min:0|max:3',
+        ]);
         Anniversary::where('id', $anniversary->id)->update(
             $request->except(['user_id']),
         );

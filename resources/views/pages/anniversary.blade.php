@@ -105,8 +105,7 @@
                         <div class="form-group">
                             <label>توضیحات</label>
 
-                            <textarea class="form-control" name="description" placeholder="در مورد رنگ، سایز،جنس و غیره توضیحات بیشتر بنویس."
-                                rows="5"></textarea>
+                            <textarea class="form-control" name="description" placeholder="در مورد مراسم،توضیحات بیشتر بنویسید." rows="5"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
