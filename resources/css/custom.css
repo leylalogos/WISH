@@ -80,7 +80,7 @@ body {
 
 /*navbar*/
 nav {
-    background-color: var(--primaryBG);    
+    background-color: #2E0249;    
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -108,7 +108,7 @@ nav {
 }
 
 .index-card:nth-child(2n) {
-    background-color: var(--primaryBG);
+    background-color:#2E0249;
     color: var(--primaryText);
 }
 
@@ -158,7 +158,10 @@ nav {
 /* body{margin-top:20px;} */
 .site-footer {
     padding-top: 72px;
-    background-color: #6d1d8a;
+    background-color: #570A57;
+    /* position: absolute;
+    bottom: 0px;
+    width: 100%; */
 }
 @media (max-width: 768px) {
     .site-footer {
@@ -586,7 +589,7 @@ ul.friend-list .right p {
     position: relative;
     width: 100%;
     height: 60px;
-    background-color: #CDF3A2;
+    background-color: #E3A8D1;
 }
 
 .card-one .header::before,
@@ -1093,7 +1096,7 @@ ul.friend-list .right p {
     padding: 9px;
   margin-right: 34px;
   width: 123px;
-  background-color: deeppink;
+  background-color: #F806CC;
   color: white;
   margin-right: auto;
   margin-left: 12px;

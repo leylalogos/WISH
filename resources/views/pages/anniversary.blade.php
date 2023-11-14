@@ -15,9 +15,9 @@
 
                         </div>
                         <div class="col-md-2">
-                            <a data-bs-target="#addAnniversaryModal" data-bs-toggle="modal" class="btn btn-success"><i
+                            <a data-bs-target="#addAnniversaryModal" data-bs-toggle="modal" class="btn btn-section"><i
                                     class="material-icons">&#xE147;</i>
-                                <span>اضافه کردن سالگرد</span></a>
+                                <span style="color: white;">اضافه کردن سالگرد</span></a>
 
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="modal-footer">
                         <input type="button" class="btn btn-warning" data-bs-toggle="modal" value="انصراف">
-                        <input type="submit" class="btn btn-success" value="اضافه کردن">
+                        <input type="submit" class="btn btn-section" value="اضافه کردن">
                     </div>
                 </form>
             </div>

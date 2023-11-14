@@ -18,7 +18,7 @@
                     </div>
                     <!--end of col-->
                     <div class="col-auto">
-                        <button type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-ok"></span>
+                        <button type="button" class="btn btn-section btn-lg"><span class="glyphicon glyphicon-ok"></span>
                             جستجو</button>
                     </div>
                     <!--end of col-->
