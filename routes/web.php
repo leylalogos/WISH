@@ -51,4 +51,6 @@ Route::name('policies.')->prefix('policies')->group(function () {
 
 });
 Route::view('fr', 'pages/find-freind')->name('find');
+Route::view('contact', 'pages/contact')->name('contact');
+
 Route::post('wish-list/og-info', [WishListController::class, 'ogInfo']);
