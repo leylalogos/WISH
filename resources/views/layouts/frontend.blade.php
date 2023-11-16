@@ -4,6 +4,7 @@
 <head>
     <meta name="color-scheme" content="only light">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="manifest" href="{{ url('wish.webmanifest.json') }}" type="application/manifest+json" />
     <meta name="application-name" content="wish">
     <meta name="description" content="Make your wish list">
     <meta name="keywords" content="wish, birthday, celeberate, iran">
