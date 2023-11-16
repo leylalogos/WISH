@@ -1,15 +1,13 @@
 {
     "name": "wish",
     "description": "Create your dream wish list with our easy-to-use platform. Whether you're planning a wedding, birthday, or simply treating yourself, our wish list feature allows you to curate a personalized collection of items you desire. ",
-    "start_url": "https://wish-local.xnor.one",
-    "theme_color": "white",
+    "start_url": "https://wish.xnor.one",
+    "theme_color": "#570a57",
     "background_color": "white",
     "display": "standalone",
     "dir": "auto",
     "orientation": "portrait",
-    "scope": "https://wish-local.xnor.one",
     "lang": "fa",
-    "purpose": "",
     "icons": [
         {
             "src": "frontend/images/AppImages/android/android-launchericon-192-192.png",
