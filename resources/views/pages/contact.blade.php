@@ -31,7 +31,30 @@
                             </a>
 
                         </div>
+                        {{-- ss --}}
 
+                        <h5 style="margin-top:15px; background: #f5f5f5; padding:8px;">
+                            <b> پیدا کردن دوستان از طریق: </b>
+                        </h5>
+
+
+
+                        <div class="list-group people-group">
+                            <div class="row">
+                                <div class="col-12">
+                                    <button id="fetch-contacts-btn" class="btn-section">مخاطب های تلفن موبایل</button>
+
+                                </div>
+
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <button class="btn-section">مخاطب های اکانت گوگل </button>
+
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <div class="well">
@@ -62,30 +85,40 @@
                             </div>
                         </div>
 
-                        <div class="list-group contact-group">
+                        <div class="contact-group row">
 
+                            @foreach ($contacts as $contact)
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-4">
+                                    <a href="#" class="list-group-item">
+                                        <div class="media">
+                                            <div class="pull-left">
+                                                <img class="img-circle" src="{{ url('frontend/images/avatar.png') }}"
+                                                    alt="...">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">{{ $contact->name }}
+                                                </h4>
+                                                <div class="media-content">
+                                                    <ul class="list-unstyled">
+                                                        <li>
+                                                            @if ($contact->source == 'email')
+                                                                <i class="fa-regular fa-envelope"></i>
+                                                            @elseif($contact->source == 'gsm')
+                                                                <i class="fa-regular fa-phone"></i>
+                                                            @endif
+                                                            {{ $contact->source_id }}
+                                                        </li>
+                                                        <li><i class=""></i>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
 
-                            <a href="#" class="list-group-item">
-                                <div class="media">
-                                    <div class="pull-left">
-                                        <img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                                            alt="...">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">John Doe
-                                        </h4>
-                                        <div class="media-content">
-                                            <i class="fa fa-map-marker"></i> San Francisco, California, United States
-                                            <ul class="list-unstyled">
-                                                <li><i class="fa fa-skype"></i> jdoe.doe</li>
-                                                <li><i class="fa-solid fa-phone"></i> +63 912 212 2451</li>
-                                                <li><i class="fa-regular fa-envelope"></i> joedoe@email.com</li>
-                                            </ul>
                                         </div>
-                                    </div>
-                                </div>
-                            </a>
 
+                                    </a>
+                                </div>
+                            @endforeach
 
                         </div>
                     </div>

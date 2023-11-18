@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnniversaryController;
+use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishListController;
@@ -34,6 +35,12 @@ Route::middleware('auth')->group(function () {
         Route::post('delete/{anniversary}', 'destroy')->name('delete');
 
     });
+
+    Route::controller(ContactsController::class)->name('contacts.')->prefix('contacts')->group(function () {
+        Route::post('/fetch', 'fetch')->name('fetch');
+        Route::get('/', 'index')->name('index');
+
+    });
 });
 Route::controller(LoginController::class)->group(function () {
     Route::get('login/{provider}', 'redirectToProvider')->name('login.redirect');
@@ -50,7 +57,7 @@ Route::name('policies.')->prefix('policies')->group(function () {
     Route::view('/cookie', 'policies/cookie')->name('cookie');
 
 });
+
 Route::view('fr', 'pages/find-freind')->name('find');
-Route::view('contact', 'pages/contact')->name('contact');
 
 Route::post('wish-list/og-info', [WishListController::class, 'ogInfo']);

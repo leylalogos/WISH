@@ -37,7 +37,7 @@
                         لیست آرزوهام </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contact') }}">
+                    <a class="nav-link" href="{{ route('contacts.index') }}">
                         دوستان من </a>
                 </li>
                 <li class="nav-item">
