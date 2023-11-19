@@ -37,10 +37,6 @@
                         لیست آرزوهام </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contact') }}">
-                        دوستان من </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{ route('anniversary.index') }}">
                         مراسم و سالگرد های من </a>
                 </li>

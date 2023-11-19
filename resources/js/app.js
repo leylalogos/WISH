@@ -5,3 +5,4 @@ import * as jalaliDatepicker from "@majidh1/jalalidatepicker/dist/jalalidatepick
 import "./custom.js";
 import "./anniversary.js";
 import "./jalali-calender.js";
+import "./fetch-contacts.js";
