@@ -48,4 +48,19 @@ class ContactsController extends Controller
         );
         return ['message' => "Success"];
     }
+
+    public function create(Request $request)
+    {
+        Contact::create([
+            'name' => $request->name,
+            'user_id' => Auth::id(),
+            'source' => 'gsm',
+            'source_id' => $request->tell,
+        ]);
+        session()->flash(
+            'message.success',
+            'مخاطبین با موفقیت اضافه شدند.'
+        );
+        return redirect()->back();
+    }
 }

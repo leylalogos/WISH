@@ -1,7 +1,20 @@
 $(document).ready(function () {
     const supported = "contacts" in navigator && "ContactsManager" in window;
     if (!supported) {
-        $("#fetch-contacts-btn").remove();
+        // $("#fetch-contacts-btn").remove();
+        $("#fetch-contacts-btn")
+            .attr("disabled", "disabled")
+            .css("background-color", "rgb(248, 6, 204)")
+            .attr(
+                "title",
+                `برای استفاده از این قابلیت باید از مرورگرهای پشتیبانی کننده بر روی تلفن همراه استفاده کنید
+            \n
+            https://caniuse.com/?search=ContactsManager%20API
+            \n
+            Chrome for Android 119+
+            Android Browser 119+
+            Opera Mobile 73+`
+            );
     }
 
     $("#fetch-contacts-btn").click(function () {

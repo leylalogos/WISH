@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col">
                     <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-                        <ol class="breadcrumb mb-0">
+                        <ol class="breadcrumb mb-0 ">
                             <li class="breadcrumb-item active" aria-current="page"> {{ __('static.myprofile') }}</li>
                         </ol>
                     </nav>
@@ -21,6 +21,13 @@
                                 class="rounded-circle img-fluid" style="width: 150px;">
                             <h5 class="my-3">{{ $user->name }}</h5>
                             <h5 class="my-3 text-muted">{{ $user->username }}</h5>
+                            <div class="row justify-content-center">
+                                <div class="col-4">
+                                    <a href="{{ route('contacts.index') }}" class="btn"
+                                        style="float: left; background:rgb(248, 6, 204); color:white;">مخاطبین
+                                        من</a>
+                                </div>
+                            </div>
 
                         </div>
 

@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::controller(ContactsController::class)->name('contacts.')->prefix('contacts')->group(function () {
         Route::post('/fetch', 'fetch')->name('fetch');
         Route::get('/', 'index')->name('index');
+        Route::post('/create', 'create')->name('create');
 
     });
 });

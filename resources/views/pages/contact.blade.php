@@ -31,9 +31,7 @@
                             </a>
 
                         </div>
-                        {{-- ss --}}
-
-                        <h5 style="margin-top:15px; background: #f5f5f5; padding:8px;">
+                        <h5 style="margin-top:19px; background: #f5f5f5; padding:8px;">
                             <b> پیدا کردن دوستان از طریق: </b>
                         </h5>
 
@@ -47,12 +45,7 @@
                                 </div>
 
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-12">
-                                    <button class="btn-section">مخاطب های اکانت گوگل </button>
 
-                                </div>
-                            </div>
 
                         </div>
                     </div>
@@ -88,7 +81,7 @@
                         <div class="contact-group row">
 
                             @foreach ($contacts as $contact)
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-4">
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                     <a href="#" class="list-group-item">
                                         <div class="media">
                                             <div class="pull-left">
@@ -108,8 +101,14 @@
                                                             @endif
                                                             {{ $contact->source_id }}
                                                         </li>
-                                                        <li><i class=""></i>
-                                                        </li>
+                                                        <div class="row justify-content-end">
+                                                            <div class="col-6">
+                                                                <button class="btn btn-section"
+                                                                    style="background: whitesmoke; color:#686565">دعوت
+                                                                    کردن</button>
+
+                                                            </div>
+                                                        </div>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -130,49 +129,48 @@
                             <div class="modal-body">
                                 <div class="row modal-close">
                                     <div class="col-md-12 padding-bottom-8 padding-top-8 bg-silver">
-                                        <h4 class="pull-left"><b>Create New Contact</b></h4>
+                                        <h4 class="pull-left"><b>اضافه کردن مخاطب جدید</b></h4>
                                         <ul class="list-unstyled list-inline text-right">
-                                            <li class="close-right-modal"><span class="fa fa-times fa-2x"
-                                                    data-dismiss="modal"></span></li>
+                                            <li class="close-right-modal">
+                                                <span class="fa fa-times fa-2x" data-bs-toggle="modal"
+                                                    style="float: left;
+                                                color: #938e8e;
+                                                background: #f2f0f0;"></span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="contact-add-content">
-                                            <form class="form-horizontal tabular-form margin-top-10">
+                                            <form method="post" action="{{ route('contacts.create') }}"
+                                                class="form-horizontal tabular-form margin-top-10">
+                                                @csrf
                                                 <div class="form-group">
-                                                    <label for="name" class="col-sm-2 control-label">Name</label>
+                                                    <label for="name" class="col-sm-2 control-label">نام</label>
                                                     <div class="col-sm-10 tabular-border">
                                                         <input type="text" class="form-control" id="name"
-                                                            placeholder="Full Name">
+                                                            name="name" placeholder="نام مخاطب را وارد کنید.">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="email" class="col-sm-2 control-label">Email</label>
-                                                    <div class="col-sm-10 tabular-border">
-                                                        <input type="text" class="form-control" id="email"
-                                                            placeholder="Email">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="phone" class="col-sm-2 control-label">Phone</label>
+                                                    <label for="phone" class="col-sm-2 control-label">شماره
+                                                        موبایل</label>
                                                     <div class="col-sm-10 tabular-border">
                                                         <input type="text" class="form-control" id="phone"
-                                                            placeholder="Phone">
+                                                            name="tell" placeholder="شماره موبایل را وارد کنید.">
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="address" class="col-sm-2 control-label">Address</label>
-                                                    <div class="col-sm-10 tabular-border">
-                                                        <input type="text" class="form-control" id="address"
-                                                            placeholder="Address">
-                                                    </div>
-                                                </div>
-                                                <div class="form-actions">
-                                                    <button type="button" class="btn btn-silver btn-flat">Cancel</button>
-                                                    <button type="button" class="btn btn-green btn-flat">Save
-                                                        Changes</button>
+
+                                                <div class="form-actions"
+                                                    style="margin-top: 22px;
+                                                float: left;">
+                                                    <button type="button" class="btn  btn-flat"
+                                                        style="background: #f2f0f0;"
+                                                        data-bs-toggle="modal">انصراف</button>
+                                                    <button type="submit" class="btn  btn-flat"
+                                                        style="background: #ED5EDD; color:white;">
+                                                        اضافه کردن</button>
                                                 </div>
                                             </form>
                                         </div>
