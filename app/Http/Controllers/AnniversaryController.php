@@ -25,11 +25,11 @@ class AnniversaryController extends Controller
             'description' => $request->description,
         ]
         );
-        return back();
         session()->flash(
             'message.success',
             'مراسم اضافه شد'
         );
+        return redirect()->back();
     }
 
     public function update(Anniversary $anniversary, AnniversaryRequest $request)
@@ -42,6 +42,7 @@ class AnniversaryController extends Controller
             'message.success',
             'مراسم ویرایش شد'
         );
+        return redirect()->back();
     }
 
     public function destroy(Anniversary $anniversary, Request $request)

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use \Morilog\Jalali\Jalalian;
 
 class Anniversary extends Model
 {
@@ -24,6 +25,11 @@ class Anniversary extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    protected $casts = [
+        'anniversary_date' => 'datetime',
+    ];
+
     const IMPORTANCE = [
         0 => 'کم',
         1 => 'متوسط',
@@ -43,4 +49,25 @@ class Anniversary extends Model
     {
         return self::ANNIVERSARY_TYPE_NAME[$this->anniversary_type];
     }
+
+    public function getjalaliDate()
+    {
+        return Jalalian::fromDateTime($this->anniversary_date);
+    }
+
+    public function getJalaliMonthAttribute()
+    {
+        return $this->getjalaliDate()->format('%B');
+    }
+
+    public function getJalaliDayAttribute()
+    {
+        return $this->getjalaliDate()->format('%d');
+    }
+
+    public function getJalaliDateAttribute()
+    {
+        return $this->getjalaliDate()->format('%Y/%m/%d');
+    }
+
 }
