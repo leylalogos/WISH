@@ -32,7 +32,7 @@ class AnniversaryController extends Controller
         );
     }
 
-    public function update(Anniversary $anniversay, AnniversaryRequest $request)
+    public function update(Anniversary $anniversary, AnniversaryRequest $request)
     {
 
         $anniversary->where('id', $anniversary->id)->update(

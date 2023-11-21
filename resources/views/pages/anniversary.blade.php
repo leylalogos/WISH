@@ -1,36 +1,47 @@
 @extends('layouts.frontend')
-@section('title', 'my wish list')
+@section('title', ' My anniversaries')
 
 @section('content')
+
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <div class="container">
+        <div class="row mt-5">
+
+            <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h4>اضافه کردن مراسم و سالگردها</h4>
+                    </div>
+                    <div class="col-md-2">
+                        <a data-bs-target="#addAnniversaryModal" data-bs-toggle="modal" class="btn btn-section">
+                            <i class="material-icons">&#xE147;</i>
+                            <span style="color: white;">اضافه کردن سالگرد</span></a>
+
+                    </div>
+                </div>
+            </nav>
+
+        </div>
         <div class="table-responsive">
             <div class="table-wrapper">
-                <div class="table-title">
+                {{-- <div class="table-title">
                     <div class="row">
-
                         <div class="col-md-10">
                             <h4>اضافه کردن مراسم و سالگردها</h4>
-
                         </div>
                         <div class="col-md-2">
-                            <a data-bs-target="#addAnniversaryModal" data-bs-toggle="modal" class="btn btn-section"><i
-                                    class="material-icons">&#xE147;</i>
+                            <a data-bs-target="#addAnniversaryModal" data-bs-toggle="modal" class="btn btn-section">
+                                <i class="material-icons">&#xE147;</i>
                                 <span style="color: white;">اضافه کردن سالگرد</span></a>
 
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="selectAll">
-                                    <label for="selectAll"></label>
-                                </span>
-                            </th>
                             <th>نوع مراسم</th>
                             <th>تاریخ مراسم</th>
                             <th>اهمیت</th>
@@ -41,12 +52,6 @@
                     <tbody>
                         @foreach ($anniversaries as $anniversary)
                             <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
-                                    </span>
-                                </td>
                                 <td data-val="{{ $anniversary->anniversary_type }}">
                                     {{ $anniversary->anniversaryTypeText }}</td>
                                 <td>{{ $anniversary->anniversary_date }}</td>
@@ -55,11 +60,15 @@
 
                                 <td>
                                     <a href="#editAnniversaryModal" class="edit" data-id="{{ $anniversary->id }}"
-                                        data-bs-toggle="modal"><i class="material-icons" data-toggle="tooltip"
-                                            title="Edit">&#xE254;</i></a>
+                                        data-bs-toggle="modal">
+                                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;
+                                        </i>
+                                    </a>
                                     <a href="#deleteanniversaryModal" class="delete" data-id="{{ $anniversary->id }}"
-                                        data-bs-toggle="modal"><i class="material-icons" data-toggle="tooltip"
-                                            title="Delete">&#xE872;</i></a>
+                                        data-bs-toggle="modal">
+                                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
+                                        </i>
+                                    </a>
                                 </td>
 
                             </tr>
@@ -68,6 +77,10 @@
                 </table>
             </div>
         </div>
+
+
+
+
     </div>
 
 
@@ -75,7 +88,7 @@
     <div id="addAnniversaryModal" class="modal fade">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form method="post" action="{{ route('anniversary.store') }}">
+                <form method="post" action="{{ route('anniversary.store') }}" class="jalali-form">
                     @csrf
                     <div class="modal-header">
                         <h4 class="modal-title">اضافه کردن مراسم</h4>
@@ -91,7 +104,7 @@
                         </div>
                         <div class="form-group">
                             <label>تاریخ مراسم</label>
-                            <input data-jdp type="text" class="form-control" name="anniversary_date">
+                            <input data-jdp id="jdp-add" type="text" class="form-control" name="anniversary_date">
                         </div>
                         <div class="form-group">
                             <label>اهمیت مراسم</label>
@@ -109,8 +122,9 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" class="btn btn-warning" data-bs-toggle="modal" value="انصراف">
-                        <input type="submit" class="btn btn-section" value="اضافه کردن">
+                        <input type="button" class="btn " data-bs-toggle="modal" value="انصراف"
+                            style="background: #f2f0f0;">
+                        <input type="submit" class="btn " style="background: #ED5EDD; color:white;" value="اضافه کردن">
                     </div>
                 </form>
             </div>
@@ -120,7 +134,7 @@
     <div id="editAnniversaryModal" class="modal fade">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form method="post" action="{{ route('anniversary.update', ['anniversary' => 0]) }}">
+                <form method="post" class="jalali-form" action="{{ route('anniversary.update', ['anniversary' => 0]) }}">
                     @csrf
                     <div class="modal-header">
                         <h4 class="modal-title">ویرایش مراسم</h4>
@@ -137,7 +151,7 @@
                         </div>
                         <div class="form-group">
                             <label>تاریخ مراسم</label>
-                            <input data-jdp type="text" class="form-control" name="anniversary_date">
+                            <input data-jdp id="jdp-edit" type="text" class="form-control" name="anniversary_date">
                         </div>
                         <div class="form-group">
                             <label>اهمیت مراسم</label>
