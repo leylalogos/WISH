@@ -11,6 +11,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/socialite": "^5.9",
         "laravel/tinker": "^2.8",
+        "morilog/jalali": "3.*",
         "symfony/dom-crawler": "^6.3"
     },
     "require-dev": {

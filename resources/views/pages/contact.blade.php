@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title', 'my wish list')
+@section('title', 'My contacts')
 
 @section('content')
     <div class="container">
