@@ -1,6 +1,6 @@
 #!/bin/bash
 #this code will be run in the ./.git/hooks/post-receive
-php artisan down --refresh=15 --message='Web Application is under Maintenance ...'
+php artisan down --refresh=15
 composer install --optimize-autoloader --no-dev
 php artisan migrate --force -vv
 npm install
