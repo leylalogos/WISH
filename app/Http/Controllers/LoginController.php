@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\Sms;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -42,7 +44,7 @@ class LoginController extends Controller
         $account->provider = $provider;
         $account->provider_id = $data->id;
         $account->username = $data->name; //put name temporary
-        $account->avatar = $data->avatar;
+        $account->avatar = $data->avatar ?? url('frontend/images/avatar.png');
         $account->email = $data->email;
         $account->last_login = Carbon::now();
         $account->save();
@@ -79,12 +81,47 @@ class LoginController extends Controller
     {
         $request->validate(['provider|in:google,facebook']);
         $providerUserInfo = Socialite::driver($provider)->user();
-        if (!Auth::check()) {
+        if (!Auth::check()) { //logn page
             $this->_registerorLoginUser($providerUserInfo, $provider);
             return redirect($request->session()->pull('url.intended', route('index')));
-        } else {
+        } else { // profile page add new account
             $this->addAccount($providerUserInfo, $provider, Auth::user());
             return redirect()->route('profile');
         }
+    }
+
+    public function loginWithPhoneNumber(Request $request)
+    {
+        $code = random_int(1000, 9999);
+        $sms = new Sms();
+        $sms->sendOTP($request->tell, $code);
+        Session::put('gsmTel', $request->tell);
+        Session::put('gsmVerificationCode', $code);
+        return redirect()->route('verification.page');
+    }
+    public function verificationPage()
+    {
+        return view('pages.verification-code');
+    }
+
+    public function handleGsmCallback(Request $request)
+    {
+        $request->validate(['code|integer:digits:6']);
+        $code = $request->code1 . $request->code2 . $request->code3 . $request->code4;
+
+        if ($code != Session::get('gsmVerificationCode')) {
+            return back()->withErrors('کد وارد شده صحیح نمی باشد');
+        }
+        $tel = Session::get('gsmTel');
+        if (!Auth::check()) {
+            $this->_registerorLoginUser((object) [
+                'id' => $tel,
+                'email' => $tel . '@gsm',
+                'username' => $tel . '@gsm',
+                'name' => $tel,
+            ], 'gsm');
+            return redirect($request->session()->pull('url.intended', route('index')));
+        }
+        //else{} will be implemented later in profile
     }
 }
