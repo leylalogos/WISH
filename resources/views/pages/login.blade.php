@@ -1,8 +1,6 @@
 @extends('layouts.frontend')
 @section('title', 'Sign in to Wish')
 @section('content')
-    <!-- CSS Files -->
-    {{-- <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css" /> --}}
 
     <section class="py-3 py-md-5 py-xl-8">
         <div class="container py-5 h-100">
@@ -16,7 +14,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row justify-content-center " style="padding: 50px;">
                 <div class="col-12 col-lg-10 col-xl-8">
                     <div class="row gy-5 justify-content-center">
@@ -25,14 +22,12 @@
                                 @csrf
                                 <div class="row gy-3 overflow-hidden">
                                     <div class="col-12">
-                                        <div class=" mb-3">
+                                        <div class="mb-3">
                                             <label class="form-label">شماره موبایل</label>
-
                                             <input type="tel" class="form-control border-0 border-bottom rounded-0"
-                                                name="tell" placeholder="شماره موبایل خود را وارد کنید." required>
+                                                name="tel" placeholder="شماره موبایل خود را وارد کنید" required>
                                         </div>
                                     </div>
-
                                     <div class="col-12">
                                         <div class="d-grid">
                                             <button class="btn  btn-lg" type="submit"
@@ -78,8 +73,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
-
 @endsection
