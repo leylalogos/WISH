@@ -28,7 +28,7 @@
                                         <div class=" mb-3">
                                             <label class="form-label">شماره موبایل</label>
 
-                                            <input type="tell" class="form-control border-0 border-bottom rounded-0"
+                                            <input type="tel" class="form-control border-0 border-bottom rounded-0"
                                                 name="tell" placeholder="شماره موبایل خود را وارد کنید." required>
                                         </div>
                                     </div>

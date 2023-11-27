@@ -49,14 +49,6 @@
                     </div>
                 </form>
             </div>
-
-
-            <p class="text-center text-muted mt-4">
-                Didn't receive it?
-                <a href="#!" class="text-decoration-none ms-2">
-                    ارسال دوباره
-                </a>
-            </p>
         </div>
     </div>
 

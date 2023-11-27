@@ -45,9 +45,8 @@ return [
     ],
 
     'modir_sms' => [
-        'username' => env('MODIR_SMS_USERNAME'),
-        'password' => env('MODIR_SMS_PASSWORD'),
-        'number' => '+9850004150342342',
+        'password' => env('MODIR_SMS_API_KEY'),
+        'number' => env('MODIR_SMS_NUMBER'),
         'url' => 'https://ippanel.com/services.jspd',
     ],
 ];

@@ -13,12 +13,10 @@ class Sms extends Model
     public function sendOTP($phoneNumber, $code)
     {
         $panel = new IPPanelClient(config('services.modir_sms.password'));
-
-        // dd($phoneNumber);
         $messageId = $panel->send(
             config('services.modir_sms.number'), // originator
             [$phoneNumber], // recipients
-            "hello leyla $code", // message
+            " کد تایید ورود شما: $code", // message
             "" // is logged
         );
         return $messageId;

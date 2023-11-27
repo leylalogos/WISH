@@ -94,8 +94,8 @@ class LoginController extends Controller
     {
         $code = random_int(1000, 9999);
         $sms = new Sms();
-        $sms->sendOTP($request->tell, $code);
-        Session::put('gsmTel', $request->tell);
+        $sms->sendOTP($request->tel, $code);
+        Session::put('gsmTel', $request->tel);
         Session::put('gsmVerificationCode', $code);
         return redirect()->route('verification.page');
     }
@@ -106,7 +106,7 @@ class LoginController extends Controller
 
     public function handleGsmCallback(Request $request)
     {
-        $request->validate(['code|integer:digits:6']);
+        $request->validate(['code|integer:digits:4']);
         $code = $request->code1 . $request->code2 . $request->code3 . $request->code4;
 
         if ($code != Session::get('gsmVerificationCode')) {

@@ -47,8 +47,8 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('login/{provider}', 'redirectToProvider')->name('login.redirect');
     Route::get('login/{provider}/callback', 'handleProviderCallback');
     Route::get('logout', 'logout')->name('logout');
-    Route::post('login/gsm', 'loginWithPhoneNumber')->name('login.gsm');
-    Route::get('verification', 'verificationPage')->name('verification.page');
+    Route::post('login/gsm/verify', 'loginWithPhoneNumber')->name('login.gsm');
+    Route::get('login/gsm/verify', 'verificationPage')->name('verification.page');
 
     Route::post('verification/code', 'handleGsmCallback')->name('verification.code');
 
