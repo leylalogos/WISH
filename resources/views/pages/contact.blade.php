@@ -1,3 +1,7 @@
+@php
+    use App\Models\Contact;
+
+@endphp
 @extends('layouts.frontend')
 @section('title', 'My contacts')
 
@@ -7,15 +11,29 @@
             <div class="page-people-directory">
                 <div class="row mt-5">
                     <div class="col-md-3">
-
-
                         {{-- <br> --}}
-
-
-                        <h5 style="background: #f5f5f5; padding:8px;"><b>دوستان مورد علاقه من</b></h5>
-
-
-
+                        <h5 style=" background: #f5f5f5; padding:10px;">
+                            <b> پیدا کردن دوستان از طریق: </b>
+                        </h5>
+                        <div class="list-group people-group">
+                            <div class="row">
+                                <div class="col-12">
+                                    <button id="fetch-contacts-btn" class="btn-section" style=" border-radius:20px">
+                                        مخاطب های تلفن موبایل
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group people-group">
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <button id="fetch-contacts-btn" class="btn-section" style=" border-radius:20px">
+                                        مخاطب های اکانت گوگل
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 style="margin-top:30px; background: #f5f5f5; padding:10px;"><b>دوستان مورد علاقه من</b></h5>
                         <div class="list-group people-group">
                             <a href="#" class="list-group-item">
                                 <div class="media">
@@ -24,29 +42,12 @@
                                             alt="...">
                                     </div>
                                     <div class="media-body">
-                                        <h4 class="media-heading">علی حکمی</h4>
+                                        <h4 class="media-heading">علی حکمی
+                                        </h4>
                                         <small>Software Engineer</small>
                                     </div>
                                 </div>
                             </a>
-
-                        </div>
-                        <h5 style="margin-top:19px; background: #f5f5f5; padding:8px;">
-                            <b> پیدا کردن دوستان از طریق: </b>
-                        </h5>
-
-
-
-                        <div class="list-group people-group">
-                            <div class="row">
-                                <div class="col-12">
-                                    <button id="fetch-contacts-btn" class="btn-section">مخاطب های تلفن موبایل</button>
-
-                                </div>
-
-                            </div>
-
-
                         </div>
                     </div>
                     <div class="col-md-9">
@@ -60,9 +61,7 @@
                                         <button class="btn btn-default "
                                             style="width: 100%; border-radius: 0px; background: white;  color: gray; border-color: #ddd;">
                                             جستجو </button>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -72,14 +71,15 @@
                                 <h3>همه مخاطب ها</h3>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-green btn-raised btn-add-new-contact"><span
-                                        class="icon-plus" data-bs-toggle="modal" data-bs-target="#modal-pull-right-add">
-                                        اضافه کردن مخاطب جدید</span></button>
+                                <button type="button" class="btn btn-light btn-raised btn-add-new-contact"
+                                    style=" color:gray; font-weight:bold;">
+                                    <span class="icon-plus" data-bs-toggle="modal" data-bs-target="#modal-pull-right-add">
+                                        افزودن مخاطب جدید </span>
+                                </button>
                             </div>
                         </div>
 
                         <div class="contact-group row">
-
                             @foreach ($contacts as $contact)
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                     <a href="#" class="list-group-item">
@@ -103,22 +103,45 @@
                                                         </li>
                                                         <div class="row justify-content-end">
                                                             <div class="col-6">
-                                                                <button class="btn btn-section"
-                                                                    style="background: whitesmoke; color:#686565">دعوت
-                                                                    کردن</button>
+                                                                @switch($contact->state)
+                                                                    @case(Contact::STATE_TO_INVITE)
+                                                                        <button class="btn btn-section"
+                                                                            style="background:#be89e6; color:white">
+                                                                            دعوت کردن
+                                                                        </button>
+                                                                    @break
 
+                                                                    @case(Contact::STATE_FOLLOWED)
+                                                                        <button class="btn btn-section"
+                                                                            style="background: #c66c36; color:#686565">
+                                                                            دنبال نکردن
+                                                                        </button>
+                                                                    @break
+
+                                                                    @case(Contact::STATE_TO_REACT)
+                                                                        <button class="btn btn-section"
+                                                                            style="background: #79BB66; color:white">
+                                                                            فالو کردن </button>
+                                                                    @break
+
+                                                                    @case(Contact::STATE_SKIPPED)
+                                                                        <button class="btn btn-section"
+                                                                            style="background: blue; color:#686565">
+                                                                            دعوت کردن
+                                                                        </button>
+                                                                    @break
+
+                                                                    @default
+                                                                @endswitch
                                                             </div>
                                                         </div>
                                                     </ul>
                                                 </div>
                                             </div>
-
                                         </div>
-
                                     </a>
                                 </div>
                             @endforeach
-
                         </div>
                     </div>
                 </div>

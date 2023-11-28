@@ -44,7 +44,7 @@ class LoginController extends Controller
         $account->provider = $provider;
         $account->provider_id = $data->id;
         $account->username = $data->name; //put name temporary
-        $account->avatar = $data->avatar ?? url('frontend/images/avatar.png');
+        $account->avatar = $data->avatar ?? url('frontend/images/avatar1.png');
         $account->email = $data->email;
         $account->last_login = Carbon::now();
         $account->save();
