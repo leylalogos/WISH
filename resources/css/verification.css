@@ -1,0 +1,39 @@
+
+   
+    
+    .hover-lift-light {
+        transition: box-shadow .25s ease,transform .25s ease,color .25s ease,background-color .15s ease-in;
+    }
+    .mt-4 {
+        margin-top: 1.5rem!important;
+    }
+    .w-100 {
+        width: 90%!important;
+    }
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 0.8rem 1.85rem;
+        font-size: 1.1rem;
+        border-radius: 0.3rem;
+    }
+    .btn-purple {
+        color: white;
+        background-color: deeppink;
+        border-color: pink;
+    }
+    
+    .text-center {
+        text-align: center!important;
+    }
+    .py-4 {
+        padding-top: 1.5rem!important;
+        padding-bottom: 1.5rem!important;
+    }
+    /* .form-control-lg {
+        min-height: calc(1.5em + 1rem + 2px);
+        padding: 0.5rem 1rem;
+        font-size: 1.25rem;
+        border-radius: 0.3rem;
+    }
+     */
+    
+    

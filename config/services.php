@@ -43,4 +43,10 @@ return [
         'redirect' => env('APP_URL') . '/login/facebook/callback',
 
     ],
+
+    'modir_sms' => [
+        'password' => env('MODIR_SMS_API_KEY'),
+        'number' => env('MODIR_SMS_NUMBER'),
+        'url' => 'https://ippanel.com/services.jspd',
+    ],
 ];

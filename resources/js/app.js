@@ -6,3 +6,4 @@ import "./custom.js";
 import "./anniversary.js";
 import "./jalali-calender.js";
 import "./fetch-contacts.js";
+import "./verification.js";

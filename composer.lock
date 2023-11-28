@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "895d93c3a669403289acaf5a5ef8e230",
+    "content-hash": "f165f08438601bf4efcc01a03b6d19b1",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1036,6 +1036,51 @@
                 }
             ],
             "time": "2023-08-27T10:19:19+00:00"
+        },
+        {
+            "name": "ippanel/php-rest-sdk",
+            "version": "v2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ippanel/php-rest-sdk.git",
+                "reference": "040c1e0564a9fd62977c4f5d596aa0629ee2fcb2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ippanel/php-rest-sdk/zipball/040c1e0564a9fd62977c4f5d596aa0629ee2fcb2",
+                "reference": "040c1e0564a9fd62977c4f5d596aa0629ee2fcb2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "IPPanel\\": "src/IPPanel/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "ippanel",
+                    "email": "dev@ippanel.com"
+                }
+            ],
+            "description": "IPPanel REST API client",
+            "homepage": "https://github.com/ippanel/php-rest-sdk",
+            "support": {
+                "issues": "https://github.com/ippanel/php-rest-sdk/issues",
+                "source": "https://github.com/ippanel/php-rest-sdk/tree/v2.0.4"
+            },
+            "time": "2022-10-15T09:53:04+00:00"
         },
         {
             "name": "laravel/framework",
