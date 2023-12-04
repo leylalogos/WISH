@@ -13,4 +13,10 @@ class Connection extends Model
         'following_id',
         'created_by',
     ];
+
+    public static function hasConnection($followed_id, $following_id)
+    {
+        return (bool) self::where('followed_id', $followed_id)
+            ->where('following_id', $following_id)->first();
+    }
 }
