@@ -42,9 +42,11 @@
                                             alt="...">
                                     </div>
                                     <div class="media-body">
-                                        <h4 class="media-heading">علی حکمی
+                                        <h4 class="media-heading">
                                         </h4>
-                                        <small>Software Engineer</small>
+
+                                        <small>
+                                        </small>
                                     </div>
                                 </div>
                             </a>
@@ -121,13 +123,17 @@
                                                                     @case(Contact::STATE_TO_REACT)
                                                                         <button class="btn btn-section"
                                                                             style="background: #79BB66; color:white">
-                                                                            فالو کردن </button>
+                                                                            دنبال کردن </button>
+
+                                                                        <button class="btn btn-section"
+                                                                            style="background: #79BB66; color:white">
+                                                                            بی خیال </button>
                                                                     @break
 
                                                                     @case(Contact::STATE_SKIPPED)
                                                                         <button class="btn btn-section"
                                                                             style="background: blue; color:#686565">
-                                                                            دعوت کردن
+                                                                            دنبال کردن
                                                                         </button>
                                                                     @break
 

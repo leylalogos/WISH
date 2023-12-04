@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -50,7 +51,7 @@ class Contact extends Model
     }
     public function getContactAppUser()
     {
-        return User::where('id', $this->getAccount()->user_id);
+        return User::where('id', $this->getAccount()->user_id)->first();
     }
     public function isFollowed()
     {
@@ -58,8 +59,11 @@ class Contact extends Model
         return Connection::hasConnection(Auth::id(), $contactUserId);
     }
 
+    /**
+     * is skipped or follwed account
+     */
     public function isReacted()
     {
-        return !is_null($this->reaction);
+        return !is_null($this->reaction) && (Carbon::create($this->reaction)->floatDiffInYears(now()) < 1);
     }
 }
