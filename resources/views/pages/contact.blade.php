@@ -36,19 +36,25 @@
                         <h5 style="margin-top:30px; background: #f5f5f5; padding:10px;"><b>دوستان مورد علاقه من</b></h5>
                         <div class="list-group people-group">
                             <a href="#" class="list-group-item">
-                                <div class="media">
-                                    <div class="pull-left">
-                                        <img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                            alt="...">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">
-                                        </h4>
+                                @foreach ($contacts as $contact)
+                                    @if ($contact->state != Contact::STATE_TO_INVITE)
+                                        <div class="media">
+                                            <div class="pull-left">
+                                                <img class="img-circle"
+                                                    src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">
+                                                    {{ $contact->name }}
+                                                </h4>
 
-                                        <small>
-                                        </small>
-                                    </div>
-                                </div>
+                                                <small>
+                                                    gg
+                                                </small>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </a>
                         </div>
                     </div>
@@ -104,42 +110,58 @@
                                                             {{ $contact->source_id }}
                                                         </li>
                                                         <div class="row justify-content-end">
-                                                            <div class="col-6">
-                                                                @switch($contact->state)
-                                                                    @case(Contact::STATE_TO_INVITE)
+                                                            {{-- <div class="col-6"> --}}
+                                                            @switch($contact->state)
+                                                                @case(Contact::STATE_TO_INVITE)
+                                                                    <div class="col-6">
+
+
                                                                         <button class="btn btn-section"
                                                                             style="background:#be89e6; color:white">
                                                                             دعوت کردن
                                                                         </button>
-                                                                    @break
+                                                                    </div>
+                                                                @break
 
-                                                                    @case(Contact::STATE_FOLLOWED)
+                                                                @case(Contact::STATE_FOLLOWED)
+                                                                    <div class="col-6">
+
                                                                         <button class="btn btn-section"
                                                                             style="background: #c66c36; color:#686565">
                                                                             دنبال نکردن
                                                                         </button>
-                                                                    @break
+                                                                    </div>
+                                                                @break
 
-                                                                    @case(Contact::STATE_TO_REACT)
+                                                                @case(Contact::STATE_TO_REACT)
+                                                                    <div class="col-6">
+
                                                                         <button class="btn btn-section"
                                                                             style="background: #79BB66; color:white">
                                                                             دنبال کردن </button>
+                                                                    </div>
+                                                                    <div class="col-6">
+
 
                                                                         <button class="btn btn-section"
                                                                             style="background: #79BB66; color:white">
                                                                             بی خیال </button>
-                                                                    @break
+                                                                    </div>
+                                                                @break
 
-                                                                    @case(Contact::STATE_SKIPPED)
+                                                                @case(Contact::STATE_SKIPPED)
+                                                                    <div class="col-6">
+
                                                                         <button class="btn btn-section"
                                                                             style="background: blue; color:#686565">
                                                                             دنبال کردن
                                                                         </button>
-                                                                    @break
+                                                                    </div>
+                                                                @break
 
-                                                                    @default
-                                                                @endswitch
-                                                            </div>
+                                                                @default
+                                                            @endswitch
+                                                            {{-- </div> --}}
                                                         </div>
                                                     </ul>
                                                 </div>
