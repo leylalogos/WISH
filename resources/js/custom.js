@@ -7,6 +7,10 @@ $.ajaxSetup({
     },
 });
 $(document).ready(function () {
+    $(".leyla-auto-scroll").each(function () {
+        autoScroll(this);
+    });
+
     $("#copy-button").click(function () {
         let input = $("#invitation-link");
         let text = input.val();
@@ -252,3 +256,10 @@ window.addEventListener("load", function () {
         table.setColumnHeaderSort(1);
     }
 });
+
+function autoScroll(obj) {
+    // $(obj).scrollLeft(-200);
+    setInterval(function () {
+        $(obj).scrollLeft($(obj).scrollLeft() - 1);
+    }, 30);
+}
