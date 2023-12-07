@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/fetch', 'fetch')->name('fetch');
         Route::get('/', 'index')->name('index');
         Route::post('/create', 'create')->name('create');
+        Route::post('/{user_id}/follow', 'follow')->name('follow');
 
     });
 });
@@ -73,6 +74,5 @@ Route::controller(ConnectionController::class)->name('connection.')->prefix('con
 });
 
 Route::view('fr', 'pages/find-freind')->name('find');
-Route::view('con', 'pages/my-connection')->name('con');
 
 Route::post('wish-list/og-info', [WishListController::class, 'ogInfo']);
