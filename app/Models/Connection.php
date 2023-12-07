@@ -15,6 +15,7 @@ class Connection extends Model
         'followed_id',
         'following_id',
         'created_by',
+        'nickname',
     ];
 
     public static function hasConnection($followed_id, $following_id)

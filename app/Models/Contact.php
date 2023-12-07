@@ -44,7 +44,7 @@ class Contact extends Model
     {
         return !is_null($this->getAccount());
     }
-    private function getAccount()
+    public function getAccount()
     {
         return Account::where('provider', $this->source)
             ->where('provider_id', $this->source_id)->first();

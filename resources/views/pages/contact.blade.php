@@ -135,10 +135,16 @@
 
                                                                 @case(Contact::STATE_TO_REACT)
                                                                     <div class="col-6">
-
-                                                                        <button class="btn btn-section"
-                                                                            style="background: #79BB66; color:white">
-                                                                            دنبال کردن </button>
+                                                                        <form
+                                                                            action="{{ route('contacts.follow', ['user_id' => $contact->getAccount()->user_id]) }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            <input type="hidden" name="nickname"
+                                                                                value="{{ $contact->name }}">
+                                                                            <button class="btn btn-section"
+                                                                                style="background: #79BB66; color:white">
+                                                                                دنبال کردن </button>
+                                                                        </form>
                                                                     </div>
                                                                     <div class="col-6">
 

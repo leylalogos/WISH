@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Connection;
 use App\Models\Contact;
 use Auth;
 use Illuminate\Http\Request;
@@ -60,6 +61,20 @@ class ContactsController extends Controller
         session()->flash(
             'message.success',
             'مخاطبین با موفقیت اضافه شدند.'
+        );
+        return redirect()->back();
+    }
+
+    public function follow($user_id, Request $request)
+    {
+        Connection::create([
+            'following_id' => Auth::id(),
+            'followed_id' => $user_id,
+            'created_by' => 'contacts',
+            'nickname' => $request->nickname,
+        ]);
+        session()->flash('message.success',
+            'درخواست دوستی ارسال شد.'
         );
         return redirect()->back();
     }
