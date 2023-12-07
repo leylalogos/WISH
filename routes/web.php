@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnniversaryController;
+use App\Http\Controllers\ConnectionController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -47,7 +48,7 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('login/{provider}', 'redirectToProvider')->name('login.redirect');
     Route::get('login/{provider}/callback', 'handleProviderCallback');
     Route::get('logout', 'logout')->name('logout');
-    
+
     Route::post('gsm/auth', 'loginWithPhoneNumber')->name('login.gsm');
     Route::get('gsm/verify', 'verificationPage')->name('verification.page');
     Route::post('gsm/verify', 'handleGsmCallback')->name('verification.code');
@@ -64,6 +65,14 @@ Route::name('policies.')->prefix('policies')->group(function () {
 
 });
 
+Route::controller(ConnectionController::class)->name('connection.')->prefix('connection')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::post('/{user_id}/approve', 'approve')->name('approve');
+    Route::post('/{user_id}/reject', 'reject')->name('reject');
+
+});
+
 Route::view('fr', 'pages/find-freind')->name('find');
+Route::view('con', 'pages/my-connection')->name('con');
 
 Route::post('wish-list/og-info', [WishListController::class, 'ogInfo']);

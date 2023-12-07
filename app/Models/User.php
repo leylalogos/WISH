@@ -62,12 +62,12 @@ class User extends Authenticatable
 
     public function followedByUsers()
     {
-        return $this->belongsToMany(User::class, 'connections', 'followed_id', 'following_id');
+        return $this->belongsToMany(User::class, 'connections', 'followed_id', 'following_id')->where('deleted_at', null);
     }
 
     public function followingUsers()
     {
-        return $this->belongsToMany(User::class, 'connections', 'following_id', 'followed_id');
+        return $this->belongsToMany(User::class, 'connections', 'following_id', 'followed_id')->where('deleted_at', null);
     }
     public function anniversaries()
     {
@@ -80,18 +80,21 @@ class User extends Authenticatable
 
     public function followedByRequestedUsers()
     {
+        return $this->followedByUsers()->where('is_confirmed', false);
 
     }
     public function followedByConfirmedUsers()
     {
+        return $this->followedByUsers()->where('is_confirmed', true);
 
     }
     public function followingRequestedUsers()
     {
-
+        return $this->followingUsers()->where('is_confirmed', false);
     }
     public function followingConfirmedUsers()
     {
+        return $this->followingUsers()->where('is_confirmed', true);
 
     }
 }
