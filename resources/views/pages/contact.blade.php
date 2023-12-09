@@ -215,7 +215,7 @@
                                                         موبایل</label>
                                                     <div class="col-sm-10 tabular-border">
                                                         <input type="text" class="form-control" id="phone"
-                                                            name="tell" placeholder="شماره موبایل را وارد کنید.">
+                                                            name="tel" placeholder="شماره موبایل را وارد کنید.">
                                                     </div>
                                                 </div>
 
