@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\Sms;
 use App\Models\User;
+use App\Utility\PhoneNumberUtility;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -94,8 +95,16 @@ class LoginController extends Controller
     {
         $code = random_int(1000, 9999);
         $sms = new Sms();
-        $sms->sendOTP($request->tel, $code);
-        Session::put('gsmTel', $request->tel);
+        $phone_number = PhoneNumberUtility::convertToE164($request->tel);
+        if (is_null($phone_number)) {
+            session()->flash(
+                'message.error',
+                'شماره تلفن اشتباه است .'
+            );
+            return redirect()->back();
+        }
+        $sms->sendOTP($phone_number, $code);
+        Session::put('gsmTel', $phone_number);
         Session::put('gsmVerificationCode', $code);
         return redirect()->route('verification.page');
     }

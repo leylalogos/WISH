@@ -50,6 +50,12 @@
                 {{ session('message.success') }}
             </div>
         @endif
+        @if (session()->has('message.error'))
+            <div class="alert alert-danger wish-notification" role="alert">
+                {{ session('message.error') }}
+            </div>
+        @endif
+
         @yield('content')
     </div>
     @include('layouts.inc.footer')

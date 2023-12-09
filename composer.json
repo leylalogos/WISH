@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "giggsey/libphonenumber-for-php": "^8.13",
         "guzzlehttp/guzzle": "^7.8",
         "ippanel/php-rest-sdk": "^2.0",
         "laravel/framework": "^10.10",

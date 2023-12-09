@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Connection;
 use App\Models\Contact;
+use App\Utility\PhoneNumberUtility;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -21,13 +22,17 @@ class ContactsController extends Controller
             $name = isset($contact['name']) ? implode(' ', $contact['name']) : '-';
             if (isset($contact['tel'])) {
                 foreach ($contact['tel'] as $tel) {
-                    //create wish contact
-                    Contact::create([
-                        'name' => $name,
-                        'user_id' => Auth::id(),
-                        'source' => 'gsm',
-                        'source_id' => $tel,
-                    ]);
+                    $phone_number = PhoneNumberUtility::convertToE164($tel);
+                    if ($phone_number != null) {
+                        //create wish contact
+                        Contact::create([
+                            'name' => $name,
+                            'user_id' => Auth::id(),
+                            'source' => 'gsm',
+                            'source_id' => PhoneNumberUtility::convertToE164($tel),
+                        ]);
+                    }
+
                 }
             }
             if (isset($contact['email'])) {
@@ -52,11 +57,19 @@ class ContactsController extends Controller
 
     public function create(Request $request)
     {
+        $phone = PhoneNumberUtility::convertToE164($request->tel);
+        if (is_null($phone)) {
+            session()->flash(
+                'message.error',
+                'شماره تلفن اشتباه است .'
+            );
+            return redirect()->back();
+        }
         Contact::create([
             'name' => $request->name,
             'user_id' => Auth::id(),
             'source' => 'gsm',
-            'source_id' => $request->tell,
+            'source_id' => $phone,
         ]);
         session()->flash(
             'message.success',
