@@ -129,8 +129,8 @@
                                                                 @case(Contact::STATE_FOLLOWED)
                                                                     <div class="col-6">
                                                                         <button class="btn btn-section"
-                                                                            style="background: #c66c36; color:#686565">
-                                                                            دنبال نکردن
+                                                                            style="background: #b7266a; color:white">
+                                                                            پایان دوستی
                                                                         </button>
                                                                     </div>
                                                                 @break
@@ -152,7 +152,7 @@
 
 
                                                                         <button class="btn btn-section"
-                                                                            style="background: #79BB66; color:white">
+                                                                            style="background: pink; color:white">
                                                                             بی خیال </button>
                                                                     </div>
                                                                 @break
@@ -161,7 +161,7 @@
                                                                     <div class="col-6">
 
                                                                         <button class="btn btn-section"
-                                                                            style="background: blue; color:#686565">
+                                                                            style="background: #79BB66; color:#686565">
                                                                             دنبال کردن
                                                                         </button>
                                                                     </div>
