@@ -25,7 +25,7 @@ class Sms extends Model
         $inviterName = $inviter->name;
         $link = route('invite', ['username' => $inviter->username]);
         return self::sendSMS($inviteePhoneNumber,
-            "Your friend $inviterName invites you to follow his/her events on wish.\n $link"
+            "دوست شما $inviterName از شما درخواست دنبال کردن ایشان در سایت: $link را دارد."
         );
 
     }
