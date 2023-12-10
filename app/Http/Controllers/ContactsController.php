@@ -9,7 +9,7 @@ use App\Utility\PhoneNumberUtility;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use app\Mail\InviteEmail;
+use App\Mail\InviteEmail;
 
 
 class ContactsController extends Controller
@@ -22,7 +22,7 @@ class ContactsController extends Controller
 
     public function testInvite($contact_id)
     {
-        $contact = Contact::where('id', $contact_id)->where('user_sid', Auth::id())->where('source', 'email')->first();
+        $contact = Contact::where('id', $contact_id)->where('user_id', Auth::id())->where('source', 'email')->first();
         Mail::to($contact->source_id)->send(new InviteEmail(Auth::user()));
     }
 
