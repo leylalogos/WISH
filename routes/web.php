@@ -71,6 +71,7 @@ Route::controller(ConnectionController::class)->name('connection.')->prefix('con
     Route::get('/', 'index')->name('index');
     Route::post('/{user_id}/approve', 'approve')->name('approve');
     Route::post('/{user_id}/reject', 'reject')->name('reject');
+    Route::post('/{user_id}/follow', 'follow')->name('follow');
 
 });
 

@@ -128,7 +128,6 @@
 
                                                                 @case(Contact::STATE_FOLLOWED)
                                                                     <div class="col-6">
-
                                                                         <button class="btn btn-section"
                                                                             style="background: #c66c36; color:#686565">
                                                                             دنبال نکردن
