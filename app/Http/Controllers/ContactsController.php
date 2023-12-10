@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Connection;
+use App\Mail\InviteEmail;
 use App\Models\Contact;
 use App\Models\Sms;
 use App\Utility\PhoneNumberUtility;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\InviteEmail;
-
 
 class ContactsController extends Controller
 {
@@ -84,12 +82,7 @@ class ContactsController extends Controller
 
     public function follow($user_id, Request $request)
     {
-        Connection::create([
-            'following_id' => Auth::id(),
-            'followed_id' => $user_id,
-            'created_by' => 'contacts',
-            'nickname' => $request->nickname,
-        ]);
+        Auth::user()->follow($user_id, 'contacts', $request->nickname);
         session()->flash('message.success',
             'درخواست دوستی ارسال شد.'
         );
@@ -104,7 +97,7 @@ class ContactsController extends Controller
             abort(403, 'This is not your contact');
         }
 
-        switch($contact->source){
+        switch ($contact->source) {
             case 'gsm':
                 Sms::invite(Auth::user(), $contact->source_id);
                 break;

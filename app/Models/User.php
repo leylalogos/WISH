@@ -97,4 +97,23 @@ class User extends Authenticatable
         return $this->followingUsers()->where('is_confirmed', true);
 
     }
+
+    public function follow($followed_id, $created_by, $nickname = null)
+    {
+        $reverse = Connection::where('followed_id', $this->id)->where('following_id', $followed_id)->first();
+        $is_confirmed = false;
+        if ($reverse != null) {
+            $reverse->is_confirmed = true;
+            $reverse->save();
+            $is_confirmed = true;
+        }
+        Connection::create([
+            'following_id' => $this->id,
+            'followed_id' => $followed_id,
+            'created_by' => $created_by,
+            'nickname' => $nickname,
+            'is_confirmed' => $is_confirmed,
+        ]);
+    }
+
 }

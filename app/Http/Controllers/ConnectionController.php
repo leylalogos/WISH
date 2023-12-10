@@ -31,4 +31,13 @@ class ConnectionController extends Controller
         );
         return redirect()->back();
     }
+
+    public function follow($user_id)
+    {
+        Auth::user()->follow($user_id, 'follow_back');
+        session()->flash('message.success',
+            'شما با هم دوست شدید.'
+        );
+        return redirect()->back();
+    }
 }

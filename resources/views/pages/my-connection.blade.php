@@ -30,38 +30,42 @@
 
                             </div>
                             <div class="row justify-content-center mt-2">
-                                <form class="form-inline" method="POST"
-                                    action="{{ route('connection.approve', ['user_id' => $user->id]) }}">
-                                    @csrf
-                                    <div class="col-12">
+                                <div class="col-12">
+                                    <form class="form-inline"
+                                        action="{{ route('connection.follow', ['user_id' => $user->id]) }}" method="POST">
+                                        @csrf
+                                        <button class="btn btn-light btn-friend" style="background: green; color:white;">
+                                            دوستی متقابل
+                                        </button>
+                                    </form>
+                                    <form class="form-inline" method="POST"
+                                        action="{{ route('connection.approve', ['user_id' => $user->id]) }}">
+                                        @csrf
+
                                         <button class="btn btn-light btn-friend"
                                             style="background: #8dc63f; color:white;">قبول
                                             کردن</button>
-                                </form>
-                                <form class="form-inline"
-                                    action="{{ route('connection.reject', ['user_id' => $user->id]) }}" method="post">
-                                    @csrf
-                                    <button class="btn btn-light btn-friend" style="background: #fa625e; color:white;">رد
-                                        درخواست</button>
-                                </form>
-                                <button class="btn btn-light btn-friend" style="background: gray; color:white;">درخواست
-                                    دوستی</button>
-
+                                    </form>
+                                    <form class="form-inline"
+                                        action="{{ route('connection.reject', ['user_id' => $user->id]) }}" method="post">
+                                        @csrf
+                                        <button class="btn btn-light btn-friend"
+                                            style="background: #fa625e; color:white;">رد
+                                            درخواست</button>
+                                    </form>
+                                </div>
 
 
                             </div>
 
-
                         </div>
-
                     </div>
                 </div>
+            @endforeach
+
+
+
+
         </div>
-        @endforeach
-
-
-
-
-    </div>
     </div>
 @endsection
