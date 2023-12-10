@@ -20,12 +20,6 @@ class ContactsController extends Controller
         return view('pages/contact', compact('contacts'));
     }
 
-    public function testInvite($contact_id)
-    {
-        $contact = Contact::where('id', $contact_id)->where('user_id', Auth::id())->where('source', 'email')->first();
-        Mail::to($contact->source_id)->send(new InviteEmail(Auth::user()));
-    }
-
     public function fetch(Request $request)
     {
         foreach ($request->contacts as $contact) {
