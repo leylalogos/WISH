@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Connection;
 use App\Models\Contact;
+use App\Models\Sms;
 use App\Utility\PhoneNumberUtility;
 use Auth;
 use Illuminate\Http\Request;
@@ -88,6 +89,20 @@ class ContactsController extends Controller
         ]);
         session()->flash('message.success',
             'درخواست دوستی ارسال شد.'
+        );
+        return redirect()->back();
+    }
+
+    public function invite($contact_id)
+    {
+        $contact = Contact::where('id', $contact_id)->where('user_id', Auth::id())->where('source', 'gsm')->first();
+
+        Sms::invite(Auth::user(), $contact->source_id);
+
+        session()->flash('message.success',
+            'دعوت برای '
+            . $contact->name .
+            'ارسال شد'
         );
         return redirect()->back();
     }

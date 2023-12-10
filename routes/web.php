@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/create', 'create')->name('create');
         Route::post('/{user_id}/follow', 'follow')->name('follow');
+        Route::post('/{contact_id}/invite', 'invite')->name('invite');
 
     });
 });
