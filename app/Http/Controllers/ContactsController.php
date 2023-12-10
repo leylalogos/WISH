@@ -8,6 +8,9 @@ use App\Models\Sms;
 use App\Utility\PhoneNumberUtility;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use app\Mail\InviteEmail;
+
 
 class ContactsController extends Controller
 {
@@ -15,6 +18,12 @@ class ContactsController extends Controller
     {
         $contacts = Contact::where('user_id', Auth::id())->get();
         return view('pages/contact', compact('contacts'));
+    }
+
+    public function testInvite($contact_id)
+    {
+        $contact = Contact::where('id', $contact_id)->where('user_sid', Auth::id())->where('source', 'email')->first();
+        Mail::to($contact->source_id)->send(new InviteEmail(Auth::user()));
     }
 
     public function fetch(Request $request)
