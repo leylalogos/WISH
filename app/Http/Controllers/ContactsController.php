@@ -8,6 +8,9 @@ use App\Models\Sms;
 use App\Utility\PhoneNumberUtility;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\InviteEmail;
+
 
 class ContactsController extends Controller
 {
@@ -95,9 +98,19 @@ class ContactsController extends Controller
 
     public function invite($contact_id)
     {
-        $contact = Contact::where('id', $contact_id)->where('user_id', Auth::id())->where('source', 'gsm')->first();
+        $contact = Contact::findOrFail($contact_id);
 
-        Sms::invite(Auth::user(), $contact->source_id);
+        if ($contact->user_id != Auth::id()) {
+            abort(403, 'This is not your contact');
+        }
+
+        switch($contact->source){
+            case 'gsm':
+                Sms::invite(Auth::user(), $contact->source_id);
+                break;
+            case 'email':
+                Mail::to($contact->source_id)->send(new InviteEmail(Auth::user()));
+        }
 
         session()->flash('message.success',
             'دعوت برای '
