@@ -114,12 +114,15 @@
                                                             @switch($contact->state)
                                                                 @case(Contact::STATE_TO_INVITE)
                                                                     <div class="col-6">
-
-
-                                                                        <button class="btn btn-section"
-                                                                            style="background:#be89e6; color:white">
-                                                                            دعوت کردن
-                                                                        </button>
+                                                                        <form
+                                                                            action="{{ route('contacts.invite', ['contact_id' => $contact->id]) }}"
+                                                                            method="POST">
+                                                                            @csrf
+                                                                            <button class="btn btn-section"
+                                                                                style="background:#be89e6; color:white">
+                                                                                دعوت کردن
+                                                                            </button>
+                                                                        </form>
                                                                     </div>
                                                                 @break
 
