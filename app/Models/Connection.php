@@ -19,9 +19,12 @@ class Connection extends Model
         'is_confirmed',
     ];
 
-    public static function hasConnection($followed_id, $following_id)
+    /**
+     * @return Connection|null
+     */
+    public static function getConnectionBetween($following_id, $followed_id)
     {
-        return (bool) self::where('followed_id', $followed_id)
-            ->where('following_id', $following_id)->first();
+        return self::where('followed_id', $followed_id)->where('following_id', $following_id)->first();
     }
+
 }

@@ -34,7 +34,7 @@ class ContactSeeder extends Seeder
             'source' => 'gsm',
             'source_id' => '+989369819982',
             'reaction' => null,
-            'name' => '+989369819982.roommate',
+            'name' => '+989369819982' . 'roommate',
         ]);
         DB::table('contacts')->insert([
             'id' => 4,
@@ -42,7 +42,7 @@ class ContactSeeder extends Seeder
             'source' => 'gsm',
             'source_id' => '+989122309822',
             'reaction' => date("Y-m-d H:i:s"),
-            'name' => '+989122309822.my-sister',
+            'name' => '+989122309822' . 'my-sister',
         ]);
         DB::table('contacts')->insert([
             'id' => 5,
@@ -50,7 +50,7 @@ class ContactSeeder extends Seeder
             'source' => 'gsm',
             'source_id' => '+989369999999',
             'reaction' => date("Y-m-d H:i:s"),
-            'name' => '+989369999999.my-brother',
+            'name' => '+989369999999' . 'my-brother',
         ]);
         DB::table('contacts')->insert([
             'id' => 6,
@@ -58,7 +58,7 @@ class ContactSeeder extends Seeder
             'source' => 'gsm',
             'source_id' => '+989300000000',
             'reaction' => date("Y-m-d H:i:s"),
-            'name' => '+989300000000.dad',
+            'name' => '+989300000000' . 'dad',
         ]);
         DB::table('contacts')->insert([
             'id' => 7,
@@ -66,7 +66,7 @@ class ContactSeeder extends Seeder
             'source' => 'gsm',
             'source_id' => '+989364444444',
             'reaction' => date("Y-m-d H:i:s"),
-            'name' => '+989364444444.mom',
+            'name' => '+989364444444' . 'mom',
         ]);
     }
 }

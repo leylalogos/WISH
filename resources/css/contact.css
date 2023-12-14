@@ -308,6 +308,7 @@ CONTACT MODAL VIEW
 
 .page-people-directory .close-right-modal {
     cursor: pointer;
+    float: left;
 }
 
 .page-people-directory .close-right-modal:hover {
