@@ -37,7 +37,7 @@
                         <div class="list-group people-group">
                             <a href="#" class="list-group-item">
                                 @foreach ($contacts as $contact)
-                                    @if ($contact->state != Contact::STATE_TO_INVITE)
+                                    @if ($contact->state == Contact::STATE_TO_REACT)
                                         <div class="media">
                                             <div class="pull-left">
                                                 <img class="img-circle"
@@ -48,9 +48,9 @@
                                                     {{ $contact->name }}
                                                 </h4>
 
-                                                <small>
-                                                    gg
-                                                </small>
+                                                <div>
+                                                    <button class=" btn btn-success btn-friend"> دنبال کردن</button>
+                                                </div>
                                             </div>
                                         </div>
                                     @endif
@@ -135,6 +135,15 @@
                                                                     </div>
                                                                 @break
 
+                                                                @case(Contact::STATE_FOLLOWED_AWAITE)
+                                                                    <div class="col-6">
+                                                                        <button class="btn btn-section"
+                                                                            style="background: gold; color:white">
+                                                                            انصراف درخواست
+                                                                        </button>
+                                                                    </div>
+                                                                @break
+
                                                                 @case(Contact::STATE_TO_REACT)
                                                                     <div class="col-6">
                                                                         <form
@@ -148,22 +157,25 @@
                                                                                 دنبال کردن </button>
                                                                         </form>
                                                                     </div>
-                                                                    <div class="col-6">
-
-
+                                                                    {{-- <div class="col-6">
                                                                         <button class="btn btn-section"
                                                                             style="background: pink; color:white">
                                                                             بی خیال </button>
-                                                                    </div>
+                                                                    </div> --}}
                                                                 @break
 
                                                                 @case(Contact::STATE_SKIPPED)
                                                                     <div class="col-6">
-
-                                                                        <button class="btn btn-section"
-                                                                            style="background: #79BB66; color:#686565">
-                                                                            دنبال کردن
-                                                                        </button>
+                                                                        <form
+                                                                            action="{{ route('contacts.follow', ['user_id' => $contact->getAccount()->user_id]) }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            <input type="hidden" name="nickname"
+                                                                                value="{{ $contact->name }}">
+                                                                            <button class="btn btn-section"
+                                                                                style="background: #79BB66; color:white">
+                                                                                دنبال کردن </button>
+                                                                        </form>
                                                                     </div>
                                                                 @break
 

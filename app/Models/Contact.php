@@ -26,37 +26,49 @@ class Contact extends Model
     const STATE_FOLLOWED = 2;
     const STATE_TO_REACT = 3;
     const STATE_SKIPPED = 4;
+    const STATE_FOLLOWED_AWAITE = 5;
 
     public function getStateAttribute()
     {
         if (!$this->hasAccount()) {
             return self::STATE_TO_INVITE;
         }
-        if ($this->isFollowed()) {
-            return self::STATE_FOLLOWED;
+        $followedState = $this->checkConnectionState();
+        if ($followedState) {
+            return $followedState;
         }
         if ($this->isReacted()) {
             return self::STATE_SKIPPED;
         }
         return self::STATE_TO_REACT;
     }
+
     public function hasAccount()
     {
         return !is_null($this->getAccount());
     }
+
     public function getAccount()
     {
         return Account::where('provider', $this->source)
             ->where('provider_id', $this->source_id)->first();
     }
+
     public function getContactAppUser()
     {
         return User::where('id', $this->getAccount()->user_id)->first();
     }
-    public function isFollowed()
+    public function checkConnectionState()
     {
         $contactUserId = $this->getAccount()->user_id;
-        return Connection::hasConnection(Auth::id(), $contactUserId);
+        $connection = Connection::getConnectionBetween(Auth::id(), $contactUserId);
+        if (is_null($connection)) {
+            return false;
+        }
+        if ($connection->is_confirmed) {
+            return self::STATE_FOLLOWED;
+        }
+        return self::STATE_FOLLOWED_AWAITE;
     }
 
     /**
