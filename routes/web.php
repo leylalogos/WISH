@@ -45,7 +45,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/{contact_id}/invite', 'invite')->name('invite');
 
     });
-});
+    Route::controller(ConnectionController::class)->name('connection.')->prefix('connection')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/{user_id}/approve', 'approve')->name('approve');
+        Route::post('/{user_id}/reject', 'reject')->name('reject');
+        Route::post('/{user_id}/follow', 'follow')->name('follow');
+
+    });
+}); //end of auth middleware
 Route::controller(LoginController::class)->group(function () {
     Route::get('login/{provider}', 'redirectToProvider')->name('login.redirect');
     Route::get('login/{provider}/callback', 'handleProviderCallback');
@@ -64,14 +71,6 @@ Route::name('policies.')->prefix('policies')->group(function () {
     Route::view('/privacy', 'policies/privacy')->name('privacy');
     Route::view('/term', 'policies/term')->name('term');
     Route::view('/cookie', 'policies/cookie')->name('cookie');
-
-});
-
-Route::controller(ConnectionController::class)->name('connection.')->prefix('connection')->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::post('/{user_id}/approve', 'approve')->name('approve');
-    Route::post('/{user_id}/reject', 'reject')->name('reject');
-    Route::post('/{user_id}/follow', 'follow')->name('follow');
 
 });
 

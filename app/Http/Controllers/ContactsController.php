@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactsController extends Controller
 {
+    const EMAIL_REGEX = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5})$/i';
     public function index()
     {
         $contacts = Contact::where('user_id', Auth::id())->get();
@@ -39,13 +40,16 @@ class ContactsController extends Controller
             }
             if (isset($contact['email'])) {
                 foreach ($contact['email'] as $email) {
-                    //create wish contact
-                    Contact::create([
-                        'name' => $name,
-                        'user_id' => Auth::id(),
-                        'source' => 'email',
-                        'source_id' => $email,
-                    ]);
+                    if (preg_match(self::EMAIL_REGEX, $email)) {
+
+                        //create wish contact
+                        Contact::create([
+                            'name' => $name,
+                            'user_id' => Auth::id(),
+                            'source' => 'email',
+                            'source_id' => $email,
+                        ]);
+                    }
                 }
             }
 
