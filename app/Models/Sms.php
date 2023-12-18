@@ -12,9 +12,7 @@ class Sms extends Model
 
     public function sendOTP($phoneNumber, $code)
     {
-        return self::sendSMS($phoneNumber,
-            " کد تایید ورود شما: $code"
-        );
+        return self::sendByPattern($phoneNumber, "hucv3rmhhyg42ob", ["verification-code" => $code]);
     }
 
     /**
@@ -24,12 +22,22 @@ class Sms extends Model
     {
         $inviterName = $inviter->name;
         $link = route('invite', ['username' => $inviter->username]);
-        return self::sendSMS($inviteePhoneNumber,
-            "دوست شما $inviterName از شما درخواست دنبال کردن ایشان در سایت: $link را دارد."
-        );
-
+        return self::sendByPattern($inviteePhoneNumber, "zox2vryx12dghx2", [
+            "inviter" => $inviterName,
+            "invite-link" => $link,
+        ]);
     }
+    private static function sendByPattern($phoneNumber, $patternCode, $patternValues)
+    {
+        $client = new IPPanelClient(config('services.modir_sms.password'));
 
+        return $client->sendPattern(
+            $patternCode, // pattern code
+            config('services.modir_sms.number'), // originator
+            $phoneNumber, // recipient
+            $patternValues, // pattern values
+        );
+    }
     private static function sendSMS($recepientPhoneNumber, $message)
     {
         $panel = new IPPanelClient(config('services.modir_sms.password'));
