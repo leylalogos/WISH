@@ -13,25 +13,25 @@
                         <li class="nav-item first-nav-item">
                             <a href="{{ route('connection.myFollowersIndex') }}" class="nav-link" data-toggle="tab">
                                 <div class="nav-field">دنبال کننده های من</div>
-                                <div class="nav-value">382</div>
+                                <div class="nav-value">N/A</div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('connection.myFollowingsIndex') }}" class="nav-link " data-toggle="tab">
                                 <div class="nav-field">دنبال شونده ها</div>
-                                <div class="nav-value">1.3m</div>
+                                <div class="nav-value">N/A</div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('connection.myFrindsIndex') }}" class="nav-link" data-toggle="tab">
                                 <div class="nav-field">دوستان من</div>
-                                <div class="nav-value">1,397</div>
+                                <div class="nav-value">N/A</div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('connection.myFriendRequestsIndex') }}" class="nav-link" data-toggle="tab">
                                 <div class="nav-field">درخواست های دوستی</div>
-                                <div class="nav-value">1,397</div>
+                                <div class="nav-value">N/A</div>
                             </a>
                         </li>
 
