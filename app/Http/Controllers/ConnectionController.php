@@ -7,10 +7,29 @@ use Auth;
 
 class ConnectionController extends Controller
 {
-    public function index()
+    public function myFollowersIndex()
     {
-        $followedRequestUsers = Auth::user()->followedByRequestedUsers;
-        return view('pages/my-connection', compact('followedRequestUsers'));
+        $user = Auth::user();
+        $followers = $user->followedByConfirmedUsers;
+        return view('pages/connections/my-followers', compact('followers', 'user'));
+    }
+    public function myFollowingsIndex()
+    {
+        $user = Auth::user();
+        $followings = $user->followingConfirmedUsers;
+        return view('pages/connections/my-followings', compact('followings', 'user'));
+    }
+    public function myFriendsIndex()
+    {
+        $user = Auth::user();
+        $friends = $user->myFriends();
+        return view('pages/connections/my-friends', compact('user', 'friends'));
+    }
+    public function myFriendRequestsIndex()
+    {
+        $user = Auth::user();
+        $friendRequests = Auth::user()->followedByRequestedUsers;
+        return view('pages/connections/my-friend-requests', compact('friendRequests', 'user'));
     }
     public function approve($user_id)
     {

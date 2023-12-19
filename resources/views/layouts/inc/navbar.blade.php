@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('connection.index') }}">
+                    <a class="nav-link" href="{{ route('connection.myFollowersIndex') }}">
                         دوستان من
                     </a>
                 </li>

@@ -7,3 +7,4 @@ import "./anniversary.js";
 import "./jalali-calender.js";
 import "./fetch-contacts.js";
 import "./verification.js";
+import "./my-connection.js";

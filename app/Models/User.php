@@ -97,6 +97,15 @@ class User extends Authenticatable
         return $this->followingUsers()->where('is_confirmed', true);
 
     }
+    public function myFriends()
+    {
+        $set1 = $this->followedByConfirmedUsers;
+        $set2 = $this->followingConfirmedUsers;
+
+        $pluckedSet2Ids = $set2->pluck('id')->all();
+        return $set1->whereIn('id', $pluckedSet2Ids);
+
+    }
 
     public function follow($followed_id, $created_by, $nickname = null)
     {
