@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::controller(ConnectionController::class)->name('connection.')->prefix('connection')->group(function () {
         Route::get('/myfollowers', 'myFollowersIndex')->name('myFollowersIndex');
         Route::get('/myfollowings', 'myFollowingsIndex')->name('myFollowingsIndex');
-        Route::get('/myfriends', 'myFrindsIndex')->name('myFrindsIndex');
+        Route::get('/myfriends', 'myFriendsIndex')->name('myFrindsIndex');
         Route::get('/myfriendrequests', 'myFriendRequestsIndex')->name('myFriendRequestsIndex');
 
         Route::post('/{user_id}/approve', 'approve')->name('approve');

@@ -19,7 +19,7 @@ class ConnectionController extends Controller
         $followings = $user->followingConfirmedUsers;
         return view('pages/connections/my-followings', compact('followings', 'user'));
     }
-    public function myFrindsIndex()
+    public function myFriendsIndex()
     {
         $user = Auth::user();
         $friends = $user->myFriends();
