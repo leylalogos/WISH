@@ -7,7 +7,7 @@
                 <div class="profile-header-cover"></div>
                 <div class="profile-header-content">
                     <div class="profile-header-img">
-                        <img src="{{ $user->accounts->first()->avatar }}" alt="" />
+                        <img src="{{ $user->accounts->first()->avatar }}" alt="profile picture" />
                     </div>
                     <ul class="profile-header-tab nav nav-tabs nav-tabs-v2">
                         <li class="nav-item first-nav-item">
