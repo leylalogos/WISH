@@ -16,4 +16,7 @@ return [
     'connection reject' => '
     رد درخواست
     ',
+    'connection cancel' => '
+    انصراف از درخواست
+    ',
 ];

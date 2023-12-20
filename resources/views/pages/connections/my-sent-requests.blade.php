@@ -4,7 +4,7 @@
     @foreach ($sentRequests as $sentRequest)
         @include('partials.user-connection',[
             'connectedUser' => $sentRequest,
-            'buttons' => []
+            'buttons' => ['cancel']
         ])
     @endforeach
 @endsection

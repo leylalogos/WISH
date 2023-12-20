@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/{user_id}/followBack', 'followBack')->name('followBack');
         Route::post('/{user_id}/unfollow', 'unfollow')->name('unfollow');
         Route::post('/{user_id}/remove', 'remove')->name('remove');
+        Route::post('/{user_id}/cancel', 'cancel')->name('cancel');
 
     });
 }); //end of auth middleware

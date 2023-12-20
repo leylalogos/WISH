@@ -58,6 +58,14 @@ class ConnectionController extends Controller
         );
         return redirect()->back();
     }
+    public function cancel($user_id)
+    {
+        Connection::where('following_id', Auth::id())->where('followed_id', $user_id)->delete();
+        session()->flash('message.success',
+            'درخواست دوستی انصراف شد.'
+        );
+        return redirect()->back();
+    }
 
     public function followBack($user_id)
     {
