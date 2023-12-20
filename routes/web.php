@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/myfollowings', 'myFollowingsIndex')->name('myFollowingsIndex');
         Route::get('/myfriends', 'myFriendsIndex')->name('myFrindsIndex');
         Route::get('/myfriendrequests', 'myFriendRequestsIndex')->name('myFriendRequestsIndex');
+        Route::get('/mySentRequestsIndex', 'mySentRequestsIndex')->name('mySentRequestsIndex');
 
         Route::post('/{user_id}/approve', 'approve')->name('approve');
         Route::post('/{user_id}/reject', 'reject')->name('reject');

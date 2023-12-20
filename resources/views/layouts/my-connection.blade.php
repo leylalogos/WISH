@@ -28,9 +28,16 @@
                                 <div class="nav-value">N/A</div>
                             </a>
                         </li>
+                        <!-- not related-->
                         <li class="nav-item">
                             <a href="{{ route('connection.myFriendRequestsIndex') }}" class="nav-link" data-toggle="tab">
                                 <div class="nav-field">درخواست های دوستی</div>
+                                <div class="nav-value">N/A</div>
+                            </a>
+                        </li>
+                         <li class="nav-item">
+                            <a href="{{ route('connection.mySentRequestsIndex') }}" class="nav-link" data-toggle="tab">
+                                <div class="nav-field">درخواست های ارسالی</div>
                                 <div class="nav-value">N/A</div>
                             </a>
                         </li>

@@ -28,9 +28,17 @@ class ConnectionController extends Controller
     public function myFriendRequestsIndex()
     {
         $user = Auth::user();
-        $friendRequests = Auth::user()->followedByRequestedUsers;
+        $friendRequests = $user->followedByRequestedUsers;
         return view('pages/connections/my-friend-requests', compact('friendRequests', 'user'));
     }
+
+    public function mySentRequestsIndex()
+    {
+        $user = Auth::user();
+        $sentRequests = $user->followingRequestedUsers;
+        return view('pages/connections/my-sent-requests', compact('sentRequests', 'user'));
+    }
+
     public function approve($user_id)
     {
         Connection::where('following_id', $user_id)->where('followed_id', Auth::id())->update([
