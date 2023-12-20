@@ -19,7 +19,7 @@
         action="{{ route("connection.$btn",['user_id' => $connectedUser->id])}}">
             @csrf
             <button class="btn btn-light btn-friend {{"btn-connection-$btn" }}">
-                {{ __("connection $btn") }}
+                {{ __("buttonText.connection $btn") }}
             </button>
         </form>
     @endforeach

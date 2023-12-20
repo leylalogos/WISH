@@ -10,4 +10,10 @@ return [
     'connection remove' => '
     پایان رابطه
     ',
+    'connection approve' => '
+    قبول درخواست
+    ',
+    'connection reject' => '
+    رد درخواست
+    ',
 ];

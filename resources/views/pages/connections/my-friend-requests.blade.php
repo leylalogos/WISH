@@ -8,41 +8,10 @@
                     <div class="tab-pane fade active show" id="profile-followers">
                         <div class="list-group">
                             @foreach ($friendRequests as $friendRequest)
-                                <div class="list-group-item d-flex align-items-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""
-                                        width="50px" class="rounded-sm ml-n2" />
-                                    <div class="flex-fill pl-3 pr-3">
-                                        <div><a href="#"
-                                                class="text-dark font-weight-600">{{ $friendRequest->name }}</a>
-                                        </div>
-                                        <div class="text-muted fs-13px">{{ $friendRequest->username }}</div>
-                                    </div>
-                                    <form class="form-inline"
-                                        action="{{ route('connection.followBack', ['user_id' => $friendRequest->id]) }}"
-                                        method="POST">
-                                        @csrf
-                                        <button class="btn btn-light btn-friend" style="background: green; color:white;">
-                                            دوستی متقابل
-                                        </button>
-                                    </form>
-                                    <form class="form-inline" method="POST"
-                                        action="{{ route('connection.approve', ['user_id' => $friendRequest->id]) }}">
-                                        @csrf
-
-                                        <button class="btn btn-light btn-friend"
-                                            style="background: #8dc63f; color:white;">قبول
-                                            کردن</button>
-                                    </form>
-                                    <form class="form-inline"
-                                        action="{{ route('connection.reject', ['user_id' => $friendRequest->id]) }}"
-                                        method="post">
-                                        @csrf
-                                        <button class="btn btn-light btn-friend"
-                                            style="background: #fa625e; color:white;">رد
-                                            درخواست</button>
-                                    </form>
-
-                                </div>
+                            @include('partials.user-connection',[
+                                    'connectedUser' => $friendRequest,
+                                    'buttons' => ['followBack', 'approve','reject']
+                                ])
                             @endforeach
                         </div>
                     </div>
