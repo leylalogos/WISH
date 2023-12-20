@@ -18,7 +18,7 @@
                                         <div class="text-muted fs-13px">{{ $friendRequest->username }}</div>
                                     </div>
                                     <form class="form-inline"
-                                        action="{{ route('connection.follow', ['user_id' => $friendRequest->id]) }}"
+                                        action="{{ route('connection.followBack', ['user_id' => $friendRequest->id]) }}"
                                         method="POST">
                                         @csrf
                                         <button class="btn btn-light btn-friend" style="background: green; color:white;">
