@@ -125,4 +125,9 @@ class User extends Authenticatable
         ]);
     }
 
+    public function unfollow($followed_id)
+    {
+        Connection::where('following_id', $this->id)->where('followed_id', $followed_id)->delete();
+    }
+
 }

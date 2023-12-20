@@ -16,17 +16,16 @@
                                         </div>
                                         <div class="text-muted fs-13px">{{ $following->username }}</div>
                                     </div>
-                                    <button class="btn btn-light btn-friend" style="background: #fa625e; color:white;">
-                                        دنبال نکردن
-                                    </button>
+                                    <form method="POST"
+                                        action="{{ route('connection.unfollow', ['user_id' => $following->id]) }}">
+                                        @csrf
+                                        <button class="btn btn-light btn-friend" style="background: #fa625e; color:white;">
+                                            دنبال نکردن
+                                        </button>
+                                    </form>
                                 </div>
                             @endforeach
-
-
-
-
                         </div>
-
                     </div>
                 </div>
             </div>
