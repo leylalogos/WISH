@@ -10,13 +10,7 @@
                             @foreach ($followings as $following)
                                 @include('partials.user-connection',[
                                     'connectedUser' => $following,
-                                    'buttons' => [
-                                        [
-                                            'routeName' => 'connection.unfollow',
-                                            'text' => 'دنبال نکردن',
-                                            'style' => 'background: #fa625e; color:white;'
-                                        ]
-                                    ]
+                                    'buttons' => ['unfollow']
                                 ])
                             @endforeach
                         </div>

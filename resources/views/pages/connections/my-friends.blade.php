@@ -10,18 +10,7 @@
                             @foreach ($friends as $friend)
                                 @include('partials.user-connection',[
                                     'connectedUser' => $friend,
-                                    'buttons' => [
-                                        [
-                                            'routeName' => 'connection.unfollow',
-                                            'text' => 'دنبال نکردن',
-                                            'style' => 'background: #fa625e; color:white;'
-                                        ]
-                                        [
-                                            'routeName' => 'connection.remove',
-                                            'text' => 'پایان رابطه',
-                                            'style' => 'background: #000000; color:white;'
-                                        ]
-                                    ]
+                                    'buttons' => ['unfollow', 'remove']
                                 ])
                             @endforeach
                         </div>

@@ -16,10 +16,10 @@
     </div>
     @foreach ($buttons as $btn)
         <form method="POST"
-        action="{{ route($btn['routeName'],['user_id' => $connectedUser->id])}}">
+        action="{{ route("connection.$btn",['user_id' => $connectedUser->id])}}">
             @csrf
-            <button class="btn btn-light btn-friend" style="{{ $btn['style'] }}">
-                {{ $btn['txt'] }}
+            <button class="btn btn-light btn-friend {{"btn-connection-$btn" }}">
+                {{ __("connection $btn") }}
             </button>
         </form>
     @endforeach
