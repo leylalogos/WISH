@@ -1,24 +1,12 @@
 @extends('layouts.my-connection')
 
 @section('table')
-    <div class="profile-content">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="tab-content p-0">
-                    <div class="tab-pane fade active show" id="profile-followers">
-                        <div class="list-group">
-                            @foreach ($friendRequests as $friendRequest)
-                            @include('partials.user-connection',[
-                                    'connectedUser' => $friendRequest,
-                                    'buttons' => ['followBack', 'approve','reject']
-                                ])
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @foreach ($friendRequests as $friendRequest)
+    @include('partials.user-connection',[
+            'connectedUser' => $friendRequest,
+            'buttons' => ['followBack', 'approve','reject']
+        ])
+    @endforeach
 
     {{-- <div class="container">
 

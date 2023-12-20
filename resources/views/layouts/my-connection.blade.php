@@ -49,7 +49,21 @@
                     </div>
                 </div>
 
-                @yield('table')
+                <!-- connections table -->
+                <div class="profile-content">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="tab-content p-0">
+                                <div class="tab-pane fade active show" id="profile-followers">
+                                    <div class="list-group">
+                                        @yield('table')
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
