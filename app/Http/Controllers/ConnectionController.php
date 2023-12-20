@@ -59,4 +59,12 @@ class ConnectionController extends Controller
         );
         return redirect()->back();
     }
+    public function unfollow($user_id)
+    {
+        Auth::user()->unfollow($user_id);
+        session()->flash('message.success',
+            'درخواست دنبال نکردن شما با موفقیت ثبت شد'
+        );
+        return redirect()->back();
+    }
 }
