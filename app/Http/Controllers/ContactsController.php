@@ -84,7 +84,7 @@ class ContactsController extends Controller
         return redirect()->back();
     }
 
-    public function followBack($user_id, Request $request)
+    public function follow($user_id, Request $request)
     {
         Auth::user()->follow($user_id, 'contacts', $request->nickname);
         session()->flash('message.success',

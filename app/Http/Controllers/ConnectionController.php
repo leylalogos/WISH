@@ -51,7 +51,7 @@ class ConnectionController extends Controller
         return redirect()->back();
     }
 
-    public function follow($user_id)
+    public function followBack($user_id)
     {
         Auth::user()->follow($user_id, 'follow_back');
         session()->flash('message.success',
