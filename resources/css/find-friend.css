@@ -10,7 +10,7 @@
     position: relative;
     width: 100%;
     height: 60px;
-    background-color: #E3A8D1;
+    background-color: khaki;;
 }
 
 .card-one .header::before,
@@ -80,9 +80,9 @@
 }
 
 .card-one .desc {
-    padding: 0 1rem 2rem;
+    /* padding: 0 1rem 2rem; */
     text-align: center;
-    line-height: 1.5;
+    /* line-height: 1.5; */
     color: #777;
 }
 

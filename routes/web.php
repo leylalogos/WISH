@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/create', 'create')->name('create');
         Route::post('/{user_id}/follow', 'follow')->name('follow');
+        Route::post('/{user_id}/skip', 'skip')->name('skip');
         Route::post('/{contact_id}/invite', 'invite')->name('invite');
 
     });
@@ -82,6 +83,6 @@ Route::name('policies.')->prefix('policies')->group(function () {
 
 });
 
-Route::view('fr', 'pages/find-freind')->name('find');
+Route::get('find-friends', [ConnectionController::class, 'findFriendIndex'])->name('connection.find-friends');
 
 Route::post('wish-list/og-info', [WishListController::class, 'ogInfo']);

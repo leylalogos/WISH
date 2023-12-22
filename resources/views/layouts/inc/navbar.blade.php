@@ -11,7 +11,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('find') }}">
+                <a class="nav-link" href="{{ route('connection.find-friends') }}">
                     جستجوی افراد
                 </a>
             </li>

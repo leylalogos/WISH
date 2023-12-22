@@ -83,6 +83,7 @@ class ConnectionController extends Controller
         );
         return redirect()->back();
     }
+
     public function remove($user_id)
     {
         Auth::user()->removeConnection($user_id);
@@ -90,6 +91,15 @@ class ConnectionController extends Controller
             'درخواست پایان دوستی شما ثبت شد'
         );
         return redirect()->back();
+    }
 
+    public function findFriendIndex()
+    {
+        $suggestions = null;
+        if (Auth::check()) {
+            $suggestions = Auth::user()->getSuggestionsFromContacts();
+        }
+
+        return view('pages/find-friend', compact('suggestions'));
     }
 }

@@ -135,4 +135,15 @@ class User extends Authenticatable
         Connection::where('followed_id', $this->id)->where('following_id', $followed_id)->delete();
     }
 
+    public function getSuggestionsFromContacts()
+    {
+        $suggestions = [];
+        foreach ($this->contacts as $contact) {
+            if ($contact->state == Contact::STATE_TO_REACT) {
+                $suggestions[] = $contact->getContactAppUser();
+            }
+        }
+        return $suggestions;
+    }
+
 }
