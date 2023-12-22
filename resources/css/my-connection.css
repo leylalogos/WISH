@@ -115,4 +115,7 @@ img.profile-photo-lg {
 .btn-connection-reject{
     background: #fa625e; color:white;
 }
+.btn-connection-cancel{
+    background: #5ecefa; color:white;
+}
 .form-inline{display: inline;}

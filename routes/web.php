@@ -50,12 +50,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/myfollowings', 'myFollowingsIndex')->name('myFollowingsIndex');
         Route::get('/myfriends', 'myFriendsIndex')->name('myFrindsIndex');
         Route::get('/myfriendrequests', 'myFriendRequestsIndex')->name('myFriendRequestsIndex');
+        Route::get('/mySentRequestsIndex', 'mySentRequestsIndex')->name('mySentRequestsIndex');
 
         Route::post('/{user_id}/approve', 'approve')->name('approve');
         Route::post('/{user_id}/reject', 'reject')->name('reject');
         Route::post('/{user_id}/followBack', 'followBack')->name('followBack');
         Route::post('/{user_id}/unfollow', 'unfollow')->name('unfollow');
         Route::post('/{user_id}/remove', 'remove')->name('remove');
+        Route::post('/{user_id}/cancel', 'cancel')->name('cancel');
 
     });
 }); //end of auth middleware
