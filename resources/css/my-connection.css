@@ -100,4 +100,19 @@ img.profile-photo-lg {
     -webkit-transition: all .25s;
     transition: all .25s;
 }
+.btn-connection-unfollow{
+    background: #9d3e3b; color:white;
+}
+.btn-connection-followBack{
+    background: #4c6923; color:white;
+}
+.btn-connection-remove{
+    background: #000000; color:white;
+}
+.btn-connection-approve{
+    background: #8dc63f; color:white;
+}
+.btn-connection-reject{
+    background: #fa625e; color:white;
+}
 .form-inline{display: inline;}
