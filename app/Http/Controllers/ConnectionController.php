@@ -83,4 +83,13 @@ class ConnectionController extends Controller
         );
         return redirect()->back();
     }
+    public function remove($user_id)
+    {
+        Auth::user()->removeConnection($user_id);
+        session()->flash('message.success',
+            'درخواست پایان دوستی شما ثبت شد'
+        );
+        return redirect()->back();
+
+    }
 }
