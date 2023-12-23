@@ -640,7 +640,9 @@ a{text-decoration:none;}
     max-width: 150px;
     border-radius: 20px;
 }
-
+.auto-scroll-container {
+    overflow: auto;flex-wrap:nowrap
+}
 
 
 
