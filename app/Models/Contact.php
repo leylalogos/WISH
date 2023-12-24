@@ -17,6 +17,14 @@ class Contact extends Model
 
     protected $fillable = ['name', 'user_id', 'username', 'source', 'source_id'];
 
+    public static function boot()
+    {
+        parent::boot();
+        self::saved(function ($model) {
+            Cache::forget(USER::CACHE_KEY_SUGGESTION . $this->user_id);
+        });
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

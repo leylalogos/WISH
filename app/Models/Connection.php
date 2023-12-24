@@ -19,6 +19,15 @@ class Connection extends Model
         'is_confirmed',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+        self::saved(function ($model) {
+            Cache::forget(USER::CACHE_KEY_SUGGESTION . $this->followed_id);
+            Cache::forget(USER::CACHE_KEY_SUGGESTION . $this->following_id);
+        });
+    }
+
     /**
      * @return Connection|null
      */

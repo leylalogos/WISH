@@ -23,4 +23,14 @@ class Account extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public static function boot()
+    {
+        parent::boot();
+        self::saved(function ($model) {
+            foreach (Contact::where('source', $this->provider)->where('source_id', $this->provider_id)->get() as $contact) {
+                Cache::forget(USER::CACHE_KEY_SUGGESTION . $contact->user_id);
+            }
+        });
+    }
 }
