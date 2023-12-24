@@ -37,7 +37,7 @@
                     </nav>
                 </div>
             </div>
-            @include('partials.connection-suggestions', ['users' => $suggestions])
+            @include('partials.connection-suggestions', ['suggestions' => $suggestions])
         @endif
 
     </div>

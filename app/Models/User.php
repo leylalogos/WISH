@@ -144,7 +144,7 @@ class User extends Authenticatable
             $suggestions = [];
             foreach ($user->contacts as $contact) {
                 if ($contact->state == Contact::STATE_TO_REACT) {
-                    $suggestions[] = $contact->getContactAppUser();
+                    $suggestions[$contact->id] = $contact->getContactAppUser();
                 }
             }
             return $suggestions;

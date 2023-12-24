@@ -22,6 +22,12 @@ class Contact extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function reacted()
+    {
+        $this->reaction = now();
+        $this->save();
+    }
+
     const STATE_TO_INVITE = 1;
     const STATE_FOLLOWED = 2;
     const STATE_TO_REACT = 3;
