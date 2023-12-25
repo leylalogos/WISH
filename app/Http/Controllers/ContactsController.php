@@ -122,5 +122,6 @@ class ContactsController extends Controller
     {
         //skip every contact associate with this user_id
         Contact::find($request->contact_id)->reacted();
+        return redirect()->back();
     }
 }

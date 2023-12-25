@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Cache;
 
 class Connection extends Model
 {
@@ -23,8 +24,8 @@ class Connection extends Model
     {
         parent::boot();
         self::saved(function ($model) {
-            Cache::forget(USER::CACHE_KEY_SUGGESTION . $this->followed_id);
-            Cache::forget(USER::CACHE_KEY_SUGGESTION . $this->following_id);
+            Cache::forget(USER::CACHE_KEY_SUGGESTION . $model->followed_id);
+            Cache::forget(USER::CACHE_KEY_SUGGESTION . $model->following_id);
         });
     }
 

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class Account extends Model
 {
@@ -28,7 +29,7 @@ class Account extends Model
     {
         parent::boot();
         self::saved(function ($model) {
-            foreach (Contact::where('source', $this->provider)->where('source_id', $this->provider_id)->get() as $contact) {
+            foreach (Contact::where('source', $model->provider)->where('source_id', $model->provider_id)->get() as $contact) {
                 Cache::forget(USER::CACHE_KEY_SUGGESTION . $contact->user_id);
             }
         });

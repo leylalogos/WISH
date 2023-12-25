@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Cache;
 
 class Contact extends Model
 {
@@ -21,7 +22,7 @@ class Contact extends Model
     {
         parent::boot();
         self::saved(function ($model) {
-            Cache::forget(USER::CACHE_KEY_SUGGESTION . $this->user_id);
+            Cache::forget(USER::CACHE_KEY_SUGGESTION . $model->user_id);
         });
     }
 
