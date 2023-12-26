@@ -87,6 +87,7 @@ class ContactsController extends Controller
     public function follow($user_id, Request $request)
     {
         Auth::user()->follow($user_id, 'contacts', $request->nickname);
+        Contact::find($request->contact_id)->reacted();
         session()->flash('message.success',
             'درخواست دوستی ارسال شد.'
         );
@@ -114,6 +115,13 @@ class ContactsController extends Controller
             . $contact->name .
             'ارسال شد'
         );
+        return redirect()->back();
+    }
+
+    public function skip($user_id, Request $request)
+    {
+        //skip every contact associate with this user_id
+        Contact::find($request->contact_id)->reacted();
         return redirect()->back();
     }
 }

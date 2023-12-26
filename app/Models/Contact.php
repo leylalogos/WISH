@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Cache;
 
 class Contact extends Model
 {
@@ -17,9 +18,23 @@ class Contact extends Model
 
     protected $fillable = ['name', 'user_id', 'username', 'source', 'source_id'];
 
+    public static function boot()
+    {
+        parent::boot();
+        self::saved(function ($model) {
+            Cache::forget(USER::CACHE_KEY_SUGGESTION . $model->user_id);
+        });
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function reacted()
+    {
+        $this->reaction = now();
+        $this->save();
     }
 
     const STATE_TO_INVITE = 1;

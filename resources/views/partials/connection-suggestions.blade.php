@@ -1,5 +1,5 @@
 <div class="friend-list auto-scroll-container row mt-3">
-    @foreach ($users as $user)
+    @foreach ($suggestions as $contact_id => $user)
         <div class="col-lg-3" id="suggestion-{{ $loop->iteration }}">
             <div class="card card-one">
                 <div class="header">
@@ -17,6 +17,7 @@
                     <div class="col-5">
                         <form action="{{ route('contacts.follow', ['user_id' => $user->id]) }}" method="post">
                             @csrf
+                            <input type="hidden" name="contact_id" value="{{ $contact_id }}">
                             <button class="btn btn-outline-success">دنبال
                                 کردن</button>
                         </form>
@@ -24,6 +25,7 @@
                     <div class="col-5">
                         <form method="POST" action="{{ route('contacts.skip', ['user_id' => $user->id]) }}">
                             @csrf
+                            <input type="hidden" name="contact_id" value="{{ $contact_id }}">
                             <button class="btn btn-outline-danger">
                                 نشان نده
                             </button>

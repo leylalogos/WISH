@@ -6,11 +6,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    const CACHE_KEY_SUGGESTION = 'follow_suggestion:'; // will be used with user_id
     use HasApiTokens, HasFactory, Notifiable;
     /**
      * The attributes that are mass assignable.
@@ -137,13 +139,16 @@ class User extends Authenticatable
 
     public function getSuggestionsFromContacts()
     {
-        $suggestions = [];
-        foreach ($this->contacts as $contact) {
-            if ($contact->state == Contact::STATE_TO_REACT) {
-                $suggestions[] = $contact->getContactAppUser();
+        $user = $this;
+        return Cache::remember(USER::CACHE_KEY_SUGGESTION . $user->id, 86400, function () use ($user) {
+            $suggestions = [];
+            foreach ($user->contacts as $contact) {
+                if ($contact->state == Contact::STATE_TO_REACT) {
+                    $suggestions[$contact->id] = $contact->getContactAppUser();
+                }
             }
-        }
-        return $suggestions;
+            return $suggestions;
+        });
     }
 
 }
