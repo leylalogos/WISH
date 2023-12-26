@@ -5,7 +5,7 @@
     <div class="container" style="margin-top: 40px;">
         <div class="row justify-content-center">
             <div class="col-4">
-                <img src="@yield('image-src')" alt="error picture">
+                <img src="{{ url('frontend/images/error.png') }}" alt="error picture">
             </div>
             <div class="col-5" style="margin-top: 130px;">
                 <div class="row">

@@ -95,8 +95,6 @@ class ConnectionController extends Controller
 
     public function findFriendIndex()
     {
-        abort(403);
-
         $suggestions = null;
         if (Auth::check()) {
             $suggestions = Auth::user()->getSuggestionsFromContacts();
