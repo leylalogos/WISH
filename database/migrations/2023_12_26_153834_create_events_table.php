@@ -16,9 +16,10 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->date('date');
             $table->unsignedInteger('importance');
+            $table->string('title');
             $table->string('description')->nullable();
             $table->softDeletes();
-            $table->integer();
+            $table->integer('origin');
             $table->timestamps();
         });
     }

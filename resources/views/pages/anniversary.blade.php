@@ -4,31 +4,36 @@
 @section('content')
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
     <div class="event-schedule-area-two bg-color pad100">
         <div class="container">
-            <div class="row mt-5">
+            <div class="row  mt-5 profile-header-tab nav nav-tabs nav-tabs-v2">
+                <div class="col-5 dlt">
+                    <a href="{{ route('anniversary.index') }}" class="nav-link" data-toggle="tab">
+                        <div class="nav-field">اضافه کردن سالگردها</div>
+                        <div class="nav-value">N/A</div>
+                    </a>
+                </div>
 
-                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-                    <div class="row">
-                        <div class="col-md-10">
-                            <h5 style="font-weight: bold;
-                            margin-top: 9px;">اضافه کردن مراسم و
-                                سالگردها</h5>
-                        </div>
-                        <div class="col-md-2">
-                            <a href="#editAnniversaryModal" data-bs-toggle="modal" class="btn btn-section add-form-btn">
-                                <i class="material-icons">&#xE147;</i>
-                                <span style="color: white;">اضافه کردن سالگرد</span></a>
+                <div class="col-5 dlt">
+                    <a href="" class="nav-link" data-toggle="tab">
+                        <div class="nav-field">اضافه کردن وقایع</div>
+                        <div class="nav-value">N/A</div>
+                    </a>
+                </div>
 
-                        </div>
-                    </div>
-                </nav>
+                <div class="col-2">
+                    <a href="#editAnniversaryModal" data-bs-toggle="modal" class="btn add-form-btn"
+                        style="width: 100%;
+                    height:100%;
+                    background:#ED5EDD;
+                    color:white;">
+                        <div class="nav-field" style="margin-top: 12px; ">اضافه کردن</div>
+                    </a>
+
+                </div>
 
             </div>
-
-            <!-- row end-->
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col-lg-12">
 
                     <div class="tab-content" id="myTabContent">
@@ -44,6 +49,8 @@
                                                 <th>توضیحات</th>
                                                 <th>اهمیت</th>
                                                 <th>مدیریت</th>
+
+
                                             </tr>
                                         </thead>
                                         <tbody>
