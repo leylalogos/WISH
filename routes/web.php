@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnniversaryController;
 use App\Http\Controllers\ConnectionController;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishListController;
@@ -34,6 +35,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/', 'store')->name('store');
         Route::post('update/{anniversary}', 'update')->name('update');
         Route::post('delete/{anniversary}', 'destroy')->name('delete');
+
+    });
+    Route::name('event.')->prefix('event')->controller(EventController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+        Route::post('update/{event}', 'update')->name('update');
+        Route::post('delete/{event}', 'destroy')->name('delete');
 
     });
 

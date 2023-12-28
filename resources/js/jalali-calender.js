@@ -3,7 +3,7 @@ const jalaaliCon = require("jalaali-js");
 $(document).ready(function () {
     jalaliDatepicker.startWatch({
         zIndex: 1700,
-        container: "#editAnniversaryModal",
+        container: "#editModal",
         selector: "#jdp-edit",
     });
 

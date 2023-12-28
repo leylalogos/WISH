@@ -11,6 +11,7 @@ class Anniversary extends Model
 {
     use SoftDeletes;
     use HasFactory;
+    use JalaliDateTrait;
 
     protected $dates = ['deleted_at'];
 
@@ -53,21 +54,6 @@ class Anniversary extends Model
     public function getjalaliDate()
     {
         return Jalalian::fromDateTime($this->anniversary_date);
-    }
-
-    public function getJalaliMonthAttribute()
-    {
-        return $this->getjalaliDate()->format('%B');
-    }
-
-    public function getJalaliDayAttribute()
-    {
-        return $this->getjalaliDate()->format('%d');
-    }
-
-    public function getJalaliDateAttribute()
-    {
-        return $this->getjalaliDate()->format('%Y/%m/%d');
     }
 
 }

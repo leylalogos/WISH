@@ -12,7 +12,7 @@ class AnniversaryController extends Controller
     public function index()
     {
         $anniversaries = Auth::user()->anniversaries;
-        return view('pages/anniversary', compact('anniversaries'));
+        return view('pages/anniversary-event/anniversary', compact('anniversaries'));
     }
 
     public function store(Anniversary $anniversay, AnniversaryRequest $request)
@@ -36,7 +36,7 @@ class AnniversaryController extends Controller
     {
 
         $anniversary->where('id', $anniversary->id)->update(
-            $request->safe()->except(['user_id']),
+            $request->except(['user_id', '_token']),
         );
         session()->flash(
             'message.success',
