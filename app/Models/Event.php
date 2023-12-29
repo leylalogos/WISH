@@ -7,28 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use \Morilog\Jalali\Jalalian;
 
-class Anniversary extends Model
+class Event extends Model
 {
-    use SoftDeletes;
     use HasFactory;
+    use SoftDeletes;
     use JalaliDateTrait;
-
-    protected $dates = ['deleted_at'];
 
     protected $fillable = [
         'user_id',
-        'anniversary_date',
-        'anniversary_type',
+        'date',
         'importance',
         'description',
-    ];
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    protected $casts = [
-        'anniversary_date' => 'datetime',
+        'origin',
+        'title',
     ];
 
     const IMPORTANCE = [
@@ -37,23 +28,21 @@ class Anniversary extends Model
         2 => 'مهم',
         3 => 'خیلی مهم',
     ];
+    const ORIGIN_USER = 1;
+    const ORIGIN_CEREMONY = 2;
+    const ORIGIN_ANNIVERSARY = 3;
+
     public function getImportanceTextAttribute()
     {
         return self::IMPORTANCE[$this->importance];
     }
-    const ANNIVERSARY_TYPE_NAME = [
-        1 => 'تولد',
-        2 => 'ازدواج',
 
-    ];
-    public function getAnniversaryTypeTextAttribute()
+    public function user()
     {
-        return self::ANNIVERSARY_TYPE_NAME[$this->anniversary_type];
+        return $this->belongsTo(User::class);
     }
-
     public function getjalaliDate()
     {
-        return Jalalian::fromDateTime($this->anniversary_date);
+        return Jalalian::fromDateTime($this->date);
     }
-
 }

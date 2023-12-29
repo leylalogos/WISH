@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AnniversaryRequest;
-use App\Models\Anniversary;
+use App\Http\Requests\EventRequest;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AnniversaryController extends Controller
+class EventController extends Controller
 {
     public function index()
     {
-        $anniversaries = Auth::user()->anniversaries;
-        return view('pages/anniversary-event/anniversary', compact('anniversaries'));
+        $events = Auth::user()->events()->orderBy('date', 'asc')->get();
+        return view('pages/anniversary-event/event', compact('events'));
     }
-
-    public function store(Anniversary $anniversay, AnniversaryRequest $request)
+    public function store(Event $event, EventRequest $request)
     {
-        Anniversary::create([
+        Event::create([
             'user_id' => Auth::id(),
-            'anniversary_date' => $request->anniversary_date,
-            'anniversary_type' => $request->anniversary_type,
+            'date' => $request->date,
+            'title' => $request->title,
             'importance' => $request->importance,
             'description' => $request->description,
+            'origin' => Event::ORIGIN_USER,
         ]
         );
         session()->flash(
@@ -31,11 +31,9 @@ class AnniversaryController extends Controller
         );
         return redirect()->back();
     }
-
-    public function update(Anniversary $anniversary, AnniversaryRequest $request)
+    public function update(Event $event, EventRequest $request)
     {
-
-        $anniversary->where('id', $anniversary->id)->update(
+        $event->where('id', $event->id)->update(
             $request->except(['user_id', '_token']),
         );
         session()->flash(
@@ -45,9 +43,9 @@ class AnniversaryController extends Controller
         return redirect()->back();
     }
 
-    public function destroy(Anniversary $anniversary, Request $request)
+    public function destroy(Event $event, Request $request)
     {
-        $anniversary->where('id', $anniversary->id)->delete();
+        $event->where('id', $event->id)->delete();
         session()->flash(
             'message.success',
             'اطلاعات با موفقیت حذف شد.'

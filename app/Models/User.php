@@ -25,6 +25,11 @@ class User extends Authenticatable
         'phone_number',
     ];
 
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+
     public function accounts()
     {
         return $this->hasMany(Account::class);
