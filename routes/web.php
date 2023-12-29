@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::middleware('auth')->group(function () {
-    Route::get('profile', [UserController::class, 'index'])->name('profile');
-    Route::patch('profile', [UserController::class, 'update'])->name('profile.update');
+    Route::get('profile', [UserController::class, 'index'])->name('account.setting');
+    Route::patch('profile', [UserController::class, 'update'])->name('account.setting.update');
     Route::get('invite/{username}', [UserController::class, 'acceptInvitation'])->name('invite');
 
     Route::name('wishlist.')->prefix('wish-list')->controller(WishListController::class)->group(function () {

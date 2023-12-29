@@ -11,7 +11,7 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('pages.user-profile', compact('user'));
+        return view('pages.user-account', compact('user'));
     }
     public function update(User $user, Request $request)
     {

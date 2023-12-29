@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title', 'Profile | ' . $user->name)
+@section('title', 'account | ' . $user->name)
 @section('content')
     <section style="background-color: #eee;">
         <div class="container py-5">
@@ -92,7 +92,7 @@
                                 </div>
                             @endif
 
-                            <form id="profile-update-form" action="{{ route('profile.update') }}" method="post">
+                            <form id="profile-update-form" action="{{ route('account.setting.update') }}" method="post">
                                 @csrf
                                 @method('PATCH')
                                 <div class="row">
