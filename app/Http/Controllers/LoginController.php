@@ -87,7 +87,7 @@ class LoginController extends Controller
             return redirect($request->session()->pull('url.intended', route('index')));
         } else { // profile page add new account
             $this->addAccount($providerUserInfo, $provider, Auth::user());
-            return redirect()->route('profile');
+            return redirect()->route('account.setting');
         }
     }
 

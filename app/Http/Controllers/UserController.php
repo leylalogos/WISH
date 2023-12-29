@@ -26,7 +26,7 @@ class UserController extends Controller
         session()->flash('message.success',
             'اطلاعات با موفقیت ذخیره شد'
         );
-        return redirect()->route('profile');
+        return redirect()->route('account.setting');
     }
 
     public function acceptInvitation($username)

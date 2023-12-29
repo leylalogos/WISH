@@ -28,11 +28,9 @@
                                         من</a>
                                 </div>
                             </div>
-
                         </div>
-
-
                     </div>
+
                     <div class="row">
                         <div class="col-12 " dir="ltr">
                             <div class="card mb-3">
@@ -50,34 +48,34 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card mb-4 mb-lg-0">
-                        @php
-                            $accounts = $user->accounts->pluck('last_login', 'provider')->toArray();
-                        @endphp
-                        <div class="row mt-2 justify-content-center">
-                            @include('layouts.inc.loginBtn', [
-                                'bootstrapIconClass' => 'fa-brands fa-google',
-                                'brandName' => __('word.google'),
-                                'loginUrl' => route('login.redirect', ['provider' => 'google']),
-                                'smallView' => true,
-                                'hasAccount' => isset($accounts['google']),
-                                'brand' => 'google',
-                                'alternativeText' => isset($accounts['google']) ? 'آپدیت اکانت ' : 'افزودن حساب',
-                            ])
-                            @include('layouts.inc.loginBtn', [
-                                'bootstrapIconClass' => 'fab fa-facebook-f me-2',
-                                'brandName' => __('word.facebook'),
-                                'loginUrl' => route('login.redirect', ['provider' => 'facebook']),
-                                'smallView' => true,
-                                'brand' => 'facebook',
-                                'hasAccount' => isset($accounts['facebook']),
-                                'alternativeText' => isset($accounts['facebook']) ? 'آپدیت اکانت ' : 'افزودن حساب',
-                            ])
+                    @php
+                        $accounts = $user->accounts->pluck('last_login', 'provider')->toArray();
+                    @endphp
+                    <div class="row mt-2 justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    @include('layouts.inc.addAccountBtn', [
+                                        'brandName' => 'افزودن اکانت گوگل ',
+                                        'svg' =>
+                                            '<i class="fa-brands fa-google" style="font-size: 20px; color:#d71414; margin-left:5px;"></i>',
+                                        'loginUrl' => route('login.redirect', ['provider' => 'google']),
+                                        'hasAccount' => isset($accounts['google']),
+                                        'btnText' => isset($accounts['google']) ? 'آپدیت' : 'افزودن',
+                                    ])
+                                    @include('layouts.inc.addAccountBtn', [
+                                        'brandName' => ' افزودن اکانت فیسبوک',
+                                        'svg' =>
+                                            '<i class="fa-brands fa-facebook" style="font-size: 20px; color:#555593; margin-left:5px; "></i>',
+                                        'loginUrl' => route('login.redirect', ['provider' => 'facebook']),
+                                        'hasAccount' => isset($accounts['facebook']),
+                                        'btnText' => isset($accounts['facebook']) ? 'آپدیت' : 'افزودن',
+                                    ])
+                                </div>
+                            </div>
                         </div>
-                        <div class="div mt-4"></div>
-
-
                     </div>
+                    <div class="div mt-4"></div>
                 </div>
                 <div class="col-lg-8">
                     <div class="card mb-4">
@@ -124,6 +122,7 @@
                                 <hr>
                                 @include('partials.row-button-end', ['text' => __('static.send')])
                             </form>
+
                         </div>
                     </div>
 
