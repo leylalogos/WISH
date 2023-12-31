@@ -5,6 +5,7 @@ use App\Http\Controllers\ConnectionController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishListController;
 use Illuminate\Support\Facades\Route;
@@ -21,8 +22,8 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::middleware('auth')->group(function () {
-    Route::get('profile', [UserController::class, 'index'])->name('account.setting');
-    Route::patch('profile', [UserController::class, 'update'])->name('account.setting.update');
+    Route::get('account', [UserController::class, 'index'])->name('account.setting');
+    Route::patch('account', [UserController::class, 'update'])->name('account.setting.update');
     Route::get('invite/{username}', [UserController::class, 'acceptInvitation'])->name('invite');
 
     Route::name('wishlist.')->prefix('wish-list')->controller(WishListController::class)->group(function () {
@@ -90,6 +91,7 @@ Route::name('policies.')->prefix('policies')->group(function () {
     Route::view('/cookie', 'policies/cookie')->name('cookie');
 
 });
+Route::get('profile/{user_id}', [ProfileController::class, 'index'])->name('pro');
 
 Route::get('find-friends', [ConnectionController::class, 'findFriendIndex'])->name('connection.find-friends');
 
