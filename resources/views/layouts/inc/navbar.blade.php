@@ -24,13 +24,18 @@
             @endguest
             @auth
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('profile') }}">
-                        {{ __('navbar.profile') }}
+                    <a class="nav-link" href="{{ route('account.setting') }}">
+                        {{ __('navbar.account-setting') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('connection.myFollowersIndex') }}">
                         دوستان من
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('profile', ['user_id' => Auth::id()]) }}">
+                        پروفایل من
                     </a>
                 </li>
                 <li class="nav-item">
@@ -46,8 +51,8 @@
                         مراسم و سالگرد های من </a>
                 </li>
                 <li id="nav-profile" class="dropdown" dir="ltr">
-                    <a href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown"
-                        data-bs-toggle="dropdown">پروفایل
+                    <a href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown">
+                        حساب من
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -68,8 +73,8 @@
                                         <hr>
                                         <div class="divider">
                                         </div>
-                                        <a href="{{ route('profile') }}" class="btn btn-primary btn-sm active">
-                                            پروفایل</a>
+                                        <a href="{{ route('account.setting') }}" class="btn btn-primary btn-sm active">
+                                            اکانت من</a>
                                     </div>
                                 </div>
                             </div>

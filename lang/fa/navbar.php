@@ -19,4 +19,7 @@ return [
     'my_wish_list' => '
     لیست آرزوهام
     ',
+    'account-setting' => '
+    حساب من
+    ',
 ];

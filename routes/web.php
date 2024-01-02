@@ -5,6 +5,7 @@ use App\Http\Controllers\ConnectionController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishListController;
 use Illuminate\Support\Facades\Route;
@@ -21,8 +22,8 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::middleware('auth')->group(function () {
-    Route::get('profile', [UserController::class, 'index'])->name('profile');
-    Route::patch('profile', [UserController::class, 'update'])->name('profile.update');
+    Route::get('account', [UserController::class, 'index'])->name('account.setting');
+    Route::patch('account', [UserController::class, 'update'])->name('account.setting.update');
     Route::get('invite/{username}', [UserController::class, 'acceptInvitation'])->name('invite');
 
     Route::name('wishlist.')->prefix('wish-list')->controller(WishListController::class)->group(function () {
@@ -69,6 +70,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/{user_id}/cancel', 'cancel')->name('cancel');
 
     });
+    Route::get('profile/{user_id}/{section?}', [ProfileController::class, 'index'])->name('profile');
+
 }); //end of auth middleware
 Route::controller(LoginController::class)->group(function () {
     Route::get('login/{provider}', 'redirectToProvider')->name('login.redirect');
