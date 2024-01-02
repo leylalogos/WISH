@@ -7,7 +7,9 @@
                         <img src="{{ url('frontend/images/image1.png') }}" alt="user">
                     </div>
                 </div>
-                <h3>{{ $user->username }}</h3>
+                <h3><a
+                        href="{{ route('profile', ['user_id' => $user->id, 'section' => 'event']) }}">{{ $user->username }}</a>
+                </h3>
                 <div class="desc">
                     <p> {{ $loop->iteration }} wishes</p>
                 </div>

@@ -30,6 +30,7 @@ class Connection extends Model
     }
 
     /**
+     *
      * @return Connection|null
      */
     public static function getConnectionBetween($following_id, $followed_id)

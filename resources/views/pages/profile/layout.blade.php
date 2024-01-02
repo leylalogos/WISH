@@ -18,11 +18,17 @@
                                     </div>
 
                                     <div class="timeline-btn">
-                                        <a href="#" class="btn btn-primary waves-effect waves-light m-r-10">دنبال
-                                            کردن</a>
-                                        <a href="#" class="btn btn-primary waves-effect waves-light">
-                                            ارسال پیام
-                                        </a>
+                                        @if (!$viewAccess)
+                                            @include('partials.user-connection-buttons', [
+                                                'user_id' => $user->id,
+                                                'buttons' => ['followBack'],
+                                            ])
+                                        @else
+                                            @include('partials.user-connection-buttons', [
+                                                'user_id' => $user->id,
+                                                'buttons' => ['unfollow'],
+                                            ])
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +89,15 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    @yield('profile-content')
+                                    @if ($viewAccess)
+                                        @yield('profile-content')
+                                    @else
+                                        <div class="alert alert-danger alert-dismissible fade show text-center mb-30"><span
+                                                class="alert-close" data-dismiss="alert"></span><i
+                                                class="fe-icon-award"></i>&nbsp;&nbsp;
+                                            برای دیدن لیست آرزو و مراسم های این کاربر، باید ایشان را دنبال کنید.
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
