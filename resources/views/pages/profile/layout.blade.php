@@ -1,6 +1,5 @@
 @extends('layouts.frontend')
 @section('title', 'Profile')
-
 @section('content')
     <div class="container">
         <div class="row mt-5">
@@ -18,7 +17,13 @@
                                         </div>
                                     </div>
 
-
+                                    <div class="timeline-btn">
+                                        <a href="#" class="btn btn-primary waves-effect waves-light m-r-10">دنبال
+                                            کردن</a>
+                                        <a href="#" class="btn btn-primary waves-effect waves-light">
+                                            ارسال پیام
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
 
@@ -27,7 +32,8 @@
                                     <div class="social-timeline-left">
                                         <div class="card">
                                             <div class="social-profile">
-                                                <img class="img-fluid width-100" src="{{ $user->avatar }}" alt="">
+                                                <img class="img-fluid width-100" src="{{ $user->avatar }}" alt=""
+                                                    style="width: 100%; height:100%;">
                                                 <div class="profile-hvr m-t-15">
                                                     <i class="icofont icofont-ui-edit p-r-10"></i>
                                                     <i class="icofont icofont-ui-delete"></i>
@@ -55,23 +61,29 @@
                                         <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist">
 
                                             <li class="nav-item">
-                                                <a class="nav-link active" data-toggle="tab" href="#about"
-                                                    role="tab">لیست آرزوها</a>
+                                                <a class="nav-link " data-toggle="tab"
+                                                    href="{{ route('profile', ['user_id' => $user->id, 'section' => 'wishList']) }}"
+                                                    role="tab">لیست
+                                                    آرزوها</a>
                                                 <div class="slide"></div>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#photos" role="tab">مراسم
+                                                <a class="nav-link" data-toggle="tab"
+                                                    href="{{ route('profile', ['user_id' => $user->id, 'section' => 'event']) }}"
+                                                    role="tab">مراسم
                                                     ها</a>
                                                 <div class="slide"></div>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#friends" role="tab">اطلاعات
+                                                <a class="nav-link" data-toggle="tab"
+                                                    href="{{ route('profile', ['user_id' => $user->id, 'section' => 'basicInformation']) }}"
+                                                    role="tab">اطلاعات
                                                     شخصی</a>
                                                 <div class="slide"></div>
                                             </li>
                                         </ul>
                                     </div>
-
+                                    @yield('profile-content')
                                 </div>
                             </div>
                         </div>
@@ -80,5 +92,4 @@
             </div>
         </div>
     </div>
-    {{-- </div> --}}
 @endsection

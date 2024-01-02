@@ -34,6 +34,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('profile', ['user_id' => Auth::id()]) }}">
+                        پروفایل من
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('wishlist.create') }}">
                         ایجاد لیست آرزو </a>
                 </li>

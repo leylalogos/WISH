@@ -70,6 +70,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/{user_id}/cancel', 'cancel')->name('cancel');
 
     });
+    Route::get('profile/{user_id}/{section?}', [ProfileController::class, 'index'])->name('profile');
+
 }); //end of auth middleware
 Route::controller(LoginController::class)->group(function () {
     Route::get('login/{provider}', 'redirectToProvider')->name('login.redirect');
@@ -91,7 +93,6 @@ Route::name('policies.')->prefix('policies')->group(function () {
     Route::view('/cookie', 'policies/cookie')->name('cookie');
 
 });
-Route::get('profile/{user_id}', [ProfileController::class, 'index'])->name('pro');
 
 Route::get('find-friends', [ConnectionController::class, 'findFriendIndex'])->name('connection.find-friends');
 
