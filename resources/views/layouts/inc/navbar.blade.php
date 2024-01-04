@@ -23,14 +23,14 @@
                 </li>
             @endguest
             @auth
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('account.setting') }}">
                         {{ __('navbar.account-setting') }}
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('homepage') }}">
-                        homepage
+                        خانه
                     </a>
                 </li>
                 <li class="nav-item">

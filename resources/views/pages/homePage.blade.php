@@ -46,9 +46,27 @@
                                             </a>
                                             <div class="media-body">
                                                 <a href="#">
-                                                    <span class="text-info">تاریخ مراسم {{ $event->jalaliDate }}<i
-                                                            class="icofont-check-circled text-success"></i></span>
+                                                    <span class="text-info">
+                                                        <h6 style="color: navy; font-weight:bold;">
+                                                            تاریخ مراسم:
+
+                                                            {{ $event->jalaliDate }}</h6>
+                                                    </span>
+                                                    <span
+                                                        style="float: left;
+                                                    margin-top: 40px;
+                                                    margin-left: -160px;
+                                                    color: deeppink;
+                                                    font-size:20px;
+                                                    font-weight: bold;">
+
+                                                        {{ $event->remainingDiffInDays }}
+                                                        روز مانده
+                                                    </span>
+
                                                 </a>
+
+
                                                 <h6 class="mb-2">
                                                     <a href="#"></a>
                                                     <a href="#" class="text-black">{{ $event->title }}</a>
@@ -64,9 +82,10 @@
                                                 </p>
                                                 <hr>
                                                 <div class="float-right" style="float: left;">
-                                                    <a class="btn btn-sm btn-outline-primary" href="#"><i
+                                                    <a class="btn btn-sm btn-outline-secondary" href="#"><i
                                                             class="icofont-headphone-alt"></i> نشان نده</a>
-                                                    <a class="btn btn-sm btn-primary"
+                                                    <a class="btn btn-sm btn-light"
+                                                        style="background: deeppink; color:white;"
                                                         href="{{ route('profile', ['user_id' => $event->user_id]) }}"><i
                                                             class="icofont-refresh"></i> مشاهده پروفایل</a>
                                                 </div>
