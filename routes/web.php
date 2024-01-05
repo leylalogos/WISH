@@ -4,6 +4,7 @@ use App\Http\Controllers\AnniversaryController;
 use App\Http\Controllers\ConnectionController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -70,6 +71,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/{user_id}/cancel', 'cancel')->name('cancel');
 
     });
+    Route::get('homepage', [HomePageController::class, 'index'])->name('homepage');
+
     Route::get('profile/{user_id}/{section?}', [ProfileController::class, 'index'])->name('profile');
 
 }); //end of auth middleware

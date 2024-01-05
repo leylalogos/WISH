@@ -13,6 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     const CACHE_KEY_SUGGESTION = 'follow_suggestion:'; // will be used with user_id
+    const CACHE_KEY_FRIENDS_EVENT = 'friends_event:'; // will be used with user_id
     use HasApiTokens, HasFactory, Notifiable;
     /**
      * The attributes that are mass assignable.
@@ -130,16 +131,18 @@ class User extends Authenticatable
             'nickname' => $nickname,
             'is_confirmed' => $is_confirmed,
         ]);
+        Cache::forget(User::CACHE_KEY_FRIENDS_EVENT . $this->id);
     }
 
     public function unfollow($followed_id)
     {
         Connection::where('following_id', $this->id)->where('followed_id', $followed_id)->delete();
+        Cache::forget(User::CACHE_KEY_FRIENDS_EVENT . $this->id);
     }
     public function removeConnection($followed_id)
     {
         $this->unfollow($followed_id);
-        Connection::where('followed_id', $this->id)->where('following_id', $followed_id)->delete();
+        self::find($followed_id)->unfollow($this->id);
     }
 
     public function getSuggestionsFromContacts()
