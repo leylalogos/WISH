@@ -26,6 +26,10 @@ class User extends Authenticatable
         'phone_number',
     ];
 
+    public function reminders()
+    {
+        return $this->hasMany(Reminder::class);
+    }
     public function events()
     {
         return $this->hasMany(Event::class);

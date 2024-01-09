@@ -643,6 +643,11 @@ a{text-decoration:none;}
 .auto-scroll-container {
     overflow: auto;flex-wrap:nowrap
 }
+.form-switch .form-check-input{
+    float: right;
+    margin-left: 12px;
+    font-size: 20px;
+}
 
 
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReminderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishListController;
 use Illuminate\Support\Facades\Route;
@@ -72,6 +73,7 @@ Route::middleware('auth')->group(function () {
 
     });
     Route::get('homepage', [HomePageController::class, 'index'])->name('homepage');
+    Route::post('reminder', [ReminderController::class, 'store'])->name('reminder');
 
     Route::get('profile/{user_id}/{section?}', [ProfileController::class, 'index'])->name('profile');
 

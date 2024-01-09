@@ -11,7 +11,8 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('pages.user-account', compact('user'));
+        $reminders = $user->reminders->pluck('in_advance')->all();
+        return view('pages.user-account', compact('user', 'reminders'));
     }
     public function update(User $user, Request $request)
     {
