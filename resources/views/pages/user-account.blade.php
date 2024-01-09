@@ -125,7 +125,51 @@
 
                         </div>
                     </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            تنظیمات
+                        </div>
+                        <div class="card-body">
+                            <form action="{{ route('reminder') }}" method="post">
+                                @csrf
+                                <label for="">
+                                    <h6 style="color:#555593;">مراسم و ایونت ها چه زمانی برای من گزارش شود.</h6>
+                                </label>
+                                <div class="form-check form-switch">
+                                    <input name="1" class="form-check-input" type="checkbox"
+                                        id="flexSwitchCheckDefault" {{ in_array(1, $reminders) ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">
+                                        یک روز مانده به مراسم و ایونت گزارش شود.
+                                    </label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input name="3" class="form-check-input" type="checkbox"
+                                        id="flexSwitchCheckChecked" {{ in_array(3, $reminders) ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="flexSwitchCheckChecked">
+                                        سه روز مانده به مراسم و ایونت گزارش شود.
+                                    </label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input name="14" class="form-check-input" type="checkbox"
+                                        id="flexSwitchCheckDisabled" {{ in_array(14, $reminders) ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="flexSwitchCheckDisabled">
+                                        دو هفته مانده به مراسم و ایونت گزارش شود.
+                                    </label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input name="60" class="form-check-input " type="checkbox"
+                                        id="flexSwitchCheckCheckedDisabled"
+                                        {{ in_array(60, $reminders) ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">
+                                        دو ماه مانده به مراسم و ایونت گزارش شود.</label>
+                                </div>
+                                @include('partials.row-button-end', ['text' => __('static.send')])
 
+                            </form>
+
+
+                        </div>
+                    </div>
                 </div>
 
             </div>
