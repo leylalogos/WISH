@@ -77,8 +77,11 @@ class User extends Authenticatable
     }
     public function getAvatarAttribute()
     {
-        // return $this->accounts()->first()->avatar;
-        return str_replace('public', 'storage', $this->profileImage->file_path);
+        if ($this->profileImage) {
+            return str_replace('public', 'storage', $this->profileImage->file_path);
+        }
+        return $this->accounts()->first()->avatar;
+
     }
 
     public function followedByUsers()
