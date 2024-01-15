@@ -649,6 +649,29 @@ a{text-decoration:none;}
     font-size: 20px;
 }
 
+.img-fluid  {
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+    /* margin: 100px auto 0px auto; */
+    overflow-y: hidden;
+}
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{    width: 56px;
+    cursor: pointer;
+    position: absolute;
+    top: 139px;
+    left: 128px;
+    color: var(--white);
+}
+
+
 
 
 

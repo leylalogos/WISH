@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProfilePicture;
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -34,5 +36,22 @@ class UserController extends Controller
     {
         Auth::user()->follow(User::where('username', $username)->first()->id, 'invite_link');
         return redirect()->route('index');
+    }
+    public function storeProfileImage(Request $request)
+    {
+        $validated = $request->validate(['image' => 'required|image|mimes:png,jpg,jpeg|max:5048']);
+        $prev = ProfilePicture::where('user_id', Auth::id())->first();
+        if ($prev) {
+            Storage::delete($prev->file_path);
+            $prev->delete();
+        }
+        $path = $request->image->storePublicly('public/profile-image');
+        ProfilePicture::create([
+            'user_id' => Auth::id(),
+            'file_path' => $path,
+            'mime' => $validated['image']->getMimeType(),
+        ]);
+        return redirect()->back();
+
     }
 }

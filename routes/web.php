@@ -24,10 +24,12 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::middleware('auth')->group(function () {
-    Route::get('account', [UserController::class, 'index'])->name('account.setting');
-    Route::patch('account', [UserController::class, 'update'])->name('account.setting.update');
-    Route::get('invite/{username}', [UserController::class, 'acceptInvitation'])->name('invite');
-
+    Route::controller(UserController::class)->group(function () {
+        Route::get('account', 'index')->name('account.setting');
+        Route::patch('account', 'update')->name('account.setting.update');
+        Route::get('invite/{username}', 'acceptInvitation')->name('invite');
+        Route::post('uploadProfileImage', 'storeProfileImage')->name('uploadProfileImage');
+    });
     Route::name('wishlist.')->prefix('wish-list')->controller(WishListController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');

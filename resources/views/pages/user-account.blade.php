@@ -7,8 +7,12 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0 ">
+
                             <li class="breadcrumb-item active" aria-current="page"> {{ __('static.myprofile') }}</li>
                         </ol>
+                        <a href="{{ route('contacts.index') }}" class="btn"
+                            style="float: left; background:rgb(248, 6, 204); color:white; margin-top:-30px;">مخاطبین
+                            من</a>
                     </nav>
                 </div>
             </div>
@@ -18,16 +22,29 @@
                     <div class="card mb-3">
                         <div class="card-body text-center">
                             <img src="{{ $user->avatar }}" alt="{{ $user->name }}" alt="avatar"
-                                class="rounded-circle img-fluid" style="width: 150px;">
-                            <h5 class="my-3">{{ $user->name }}</h5>
-                            <h5 class="my-3 text-muted">{{ $user->username }}</h5>
-                            <div class="row justify-content-center">
-                                <div class="col-4">
-                                    <a href="{{ route('contacts.index') }}" class="btn"
-                                        style="float: left; background:rgb(248, 6, 204); color:white;">مخاطبین
-                                        من</a>
+                                class="rounded-circle img-fluid  ">
+                            <div class="row justify-content-center mt-2">
+                                <div class="col-8">
+                                    <form method="post" action="{{ route('uploadProfileImage') }}"
+                                        enctype="multipart/form-data">
+                                        @csrf
+
+                                        <div class="image-upload">
+
+                                            <label for="file-input">
+                                                <img src="{{ url('frontend/images/camera.png') }}" />
+                                            </label>
+
+                                            <input id="file-input" type="file" name="image" />
+                                            <button class="btn btn-light"
+                                                style="margin-top:10px; background:deeppink; color:white;">آپلود
+                                                عکس</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
+                            <h5 class="my-3">{{ $user->name }}</h5>
+                            <h5 class="my-3 text-muted">{{ $user->username }}</h5>
                         </div>
                     </div>
 
@@ -120,7 +137,9 @@
                                     </div>
                                 </div>
                                 <hr>
-                                @include('partials.row-button-end', ['text' => __('static.send')])
+                                @include('partials.row-button-end', [
+                                    'text' => __('static.send'),
+                                ])
                             </form>
 
                         </div>
@@ -163,7 +182,9 @@
                                     <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">
                                         دو ماه مانده به مراسم و ایونت گزارش شود.</label>
                                 </div>
-                                @include('partials.row-button-end', ['text' => __('static.send')])
+                                @include('partials.row-button-end', [
+                                    'text' => __('static.send'),
+                                ])
 
                             </form>
 
