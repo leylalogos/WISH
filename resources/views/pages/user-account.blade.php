@@ -181,6 +181,23 @@
                                         {{ in_array(60, $reminders) ? 'checked' : '' }}>
                                     <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">
                                         دو ماه مانده به مراسم و ایونت گزارش شود.</label>
+                                </div><br>
+                                <label for="">
+                                    <h6 style="color:#555593;">مراسم و ایونت ها از چه طریق برای من گزارش شوند:</h6>
+                                </label>
+                                <div class="form-check form-switch">
+                                    <input name="email" class="form-check-input " type="checkbox"
+                                        id="flexSwitchCheckCheckedDisabled"
+                                        {{ $reminderChannel?->email ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">
+                                        ایمیل</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input name="browser" class="form-check-input " type="checkbox"
+                                        id="flexSwitchCheckCheckedDisabled"
+                                        {{ $reminderChannel?->browser ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">
+                                        نوتیفیکیشن مرورگر</label>
                                 </div>
                                 @include('partials.row-button-end', [
                                     'text' => __('static.send'),

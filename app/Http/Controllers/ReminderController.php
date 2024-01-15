@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reminder;
+use App\Models\ReminderChannel;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,9 @@ class ReminderController extends Controller
                 }
             }
         }
+        ReminderChannel::updateOrCreate(
+            ['user_id' => Auth::id()],
+            ['email' => $request->has('email'), 'browser' => $request->has('browser')]);
         return redirect()->back();
 
     }

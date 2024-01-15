@@ -34,6 +34,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reminder::class);
     }
+    public function reminderChannels()
+    {
+        return $this->hasOne(ReminderChannel::class);
+    }
     public function events()
     {
         return $this->hasMany(Event::class);
