@@ -15,15 +15,12 @@ class HomePageController extends Controller
         $user = Auth::user();
         $followed_user_ids = $user->followingConfirmedUsers->pluck('id');
 
-        $events = Cache::remember(User::CACHE_KEY_FRIENDS_EVENT . $user->id, 86400, function () use ($followed_user_ids, $user) {
+        $events = Cache::remember(
+            User::CACHE_KEY_FRIENDS_EVENT . $user->id, 86400,
+            function () use ($followed_user_ids, $user) {
+                return Event::usersEventsInRange($followed_user_ids, now(), Carbon::now()->addMonth(6));
 
-            return Event::whereIn('user_id', $followed_user_ids)
-                ->orderBy('date', 'asc')
-                ->where('date', '>', now())
-                ->where('date', '<', Carbon::now()->addMonth(6))
-                ->get();
-
-        });
+            });
         return view('pages/homePage', compact('user', 'events'));
 
     }

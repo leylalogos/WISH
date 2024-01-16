@@ -71,4 +71,12 @@ class Event extends Model
             }
         });
     }
+    public static function usersEventsInRange($user_ids, $from, $to)
+    {
+        return self::whereIn('user_id', $user_ids)
+            ->orderBy('date', 'asc')
+            ->where('date', '>', $from)
+            ->where('date', '<', $to)
+            ->get();
+    }
 }
