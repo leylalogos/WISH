@@ -26,6 +26,10 @@ class User extends Authenticatable
         'phone_number',
     ];
 
+    public function profileImage()
+    {
+        return $this->hasOne(ProfilePicture::class);
+    }
     public function reminders()
     {
         return $this->hasMany(Reminder::class);
@@ -69,7 +73,8 @@ class User extends Authenticatable
     }
     public function getAvatarAttribute()
     {
-        return $this->accounts()->first()->avatar;
+        // return $this->accounts()->first()->avatar;
+        return str_replace('public', 'storage', $this->profileImage->file_path);
     }
 
     public function followedByUsers()
