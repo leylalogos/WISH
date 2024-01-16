@@ -34,6 +34,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reminder::class);
     }
+    public function reminderChannels()
+    {
+        return $this->hasOne(ReminderChannel::class);
+    }
     public function events()
     {
         return $this->hasMany(Event::class);
@@ -73,8 +77,11 @@ class User extends Authenticatable
     }
     public function getAvatarAttribute()
     {
-        // return $this->accounts()->first()->avatar;
-        return str_replace('public', 'storage', $this->profileImage->file_path);
+        if ($this->profileImage) {
+            return str_replace('public', 'storage', $this->profileImage->file_path);
+        }
+        return $this->accounts()->first()->avatar;
+
     }
 
     public function followedByUsers()

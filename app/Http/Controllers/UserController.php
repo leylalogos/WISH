@@ -14,7 +14,8 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $reminders = $user->reminders->pluck('in_advance')->all();
-        return view('pages.user-account', compact('user', 'reminders'));
+        $reminderChannel = $user->reminderChannels;
+        return view('pages.user-account', compact('user', 'reminders', 'reminderChannel'));
     }
     public function update(User $user, Request $request)
     {
