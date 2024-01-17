@@ -33,6 +33,8 @@ Get ready to make a wish and find the ideal gift on Wish!
 6. [setup **permissions** on storage and cache folder](#permissions-configuration)
 7. run the setup & optimization commands
 8. run `npm install`
+9. run `php artisan storage:link`
+10. setup system cron to run `* * * * * php [project path]/artisan schedule:run >> /dev/null 2>&1`
 
 ```
 artisan key:generate
