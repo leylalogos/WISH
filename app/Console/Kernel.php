@@ -13,6 +13,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('wish:add-anniversary-event')->dailyAt('01:00');
+        $schedule->command('wish:reminde:all')->dailyAt('07:30');
+
     }
 
     /**
