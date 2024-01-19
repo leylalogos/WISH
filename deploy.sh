@@ -8,4 +8,5 @@ npm run build
 php artisan config:cache
 php artisan view:cache
 php artisan route:cache
+php artisan queue:restart
 php artisan up
